@@ -3,85 +3,120 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Theories of Communalism I — The Classics</title>
+  <title>Theories of Communalism I — A Living Toolkit</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
 
   <style>
     :root {
-      --r-main-color: #f3ead3;
-      --r-heading-color: #f5deb3;
-      --r-link-color: #d4a373;
+      --bg: #1a1a1a;
+      --paper: #FAF7F2;
+      --ink: #2a2622;
+      --muted: #b9a77a;
+      --utopian: #B5651D;
+      --anarchist: #8B0000;
+      --kibbutz: #D4A24C;
+      --religious: #6B7785;
+      --modern: #2D5A3D;
       --accent: #d4a373;
     }
-    .reveal { font-family: Georgia, "Times New Roman", serif; }
+    .reveal { font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif; color: #f3ead3; background: var(--bg); }
     .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
       font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
       letter-spacing: -0.01em;
       text-transform: none;
+      color: #f5deb3;
     }
-    .reveal h1 { font-size: 2.0em; }
-    .reveal h2 { font-size: 1.5em; color: var(--r-heading-color); }
-    .reveal h3 { font-size: 1.15em; color: var(--accent); }
+    .reveal h1 { font-size: 1.9em; line-height: 1.15; }
+    .reveal h2 { font-size: 1.35em; }
+    .reveal h3 { font-size: 1.05em; color: var(--accent); }
     .reveal blockquote {
       border-left: 3px solid var(--accent);
-      padding: 0.4em 0.9em;
+      padding: 0.5em 1em;
       background: rgba(212, 163, 115, 0.08);
       font-style: italic;
-      width: 85%;
+      width: 92%;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.05em;
+      line-height: 1.4;
     }
     .reveal blockquote cite {
       display: block;
       font-style: normal;
-      font-size: 0.6em;
-      margin-top: 0.4em;
-      color: #b9a77a;
+      font-size: 0.55em;
+      margin-top: 0.5em;
+      color: var(--muted);
+      font-family: "Inter", sans-serif;
     }
-    .reveal section img { background: none; border: none; box-shadow: none; }
-    .reveal .small { font-size: 0.65em; }
-    .reveal .tiny { font-size: 0.5em; color: #999; }
+    .reveal section img.portrait { background: none; border: none; box-shadow: 0 8px 24px rgba(0,0,0,0.4); border-radius: 4px; max-height: 480px; object-fit: cover; }
+    .reveal section img.scene { background: none; border: none; box-shadow: 0 6px 20px rgba(0,0,0,0.5); width: 100%; max-height: 520px; object-fit: cover; border-radius: 2px; }
+    .reveal .small { font-size: 0.62em; }
+    .reveal .tiny { font-size: 0.46em; color: #888; font-family: "Inter", sans-serif; }
     .reveal .lede { color: var(--accent); font-style: italic; }
-    .reveal table { font-size: 0.55em; }
-    .reveal th { color: var(--accent); border-bottom: 1px solid var(--accent); }
-    .reveal td, .reveal th { padding: 0.35em 0.6em; vertical-align: top; }
-    .reveal .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; text-align: left; }
-    .reveal .threecol { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1em; text-align: left; font-size: 0.75em; }
-    .reveal .label {
-      display: inline-block;
-      font-size: 0.45em;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      padding: 0.15em 0.6em;
-      border-radius: 3px;
-      margin-bottom: 0.6em;
-    }
-    .reveal section.title-slide h1 {
-      font-size: 2.4em;
-      line-height: 1.1;
-    }
-    .reveal section.title-slide .subtitle {
-      color: var(--accent);
+    .reveal .mono { font-family: "JetBrains Mono", monospace; font-size: 0.85em; }
+
+    .reveal .credit {
+      display: block;
+      font-size: 0.42em;
+      color: #888;
       font-style: italic;
-      margin-top: 0.6em;
+      margin-top: 0.5em;
+      font-family: "Inter", sans-serif;
     }
+    .reveal .credit a { color: #aaa; text-decoration: none; border-bottom: 1px dotted #666; }
+    .reveal .credit a:hover { color: var(--accent); }
+
+    .reveal .chip {
+      display: inline-block;
+      font-size: 0.42em;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.25em 0.9em;
+      border-radius: 14px;
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      vertical-align: middle;
+    }
+    .chip-utopian   { background: rgba(181, 101, 29, 0.25);  color: #E0A878; border: 1px solid #B5651D; }
+    .chip-anarchist { background: rgba(139, 0, 0, 0.25);     color: #E89090; border: 1px solid #B85050; }
+    .chip-religious { background: rgba(107, 119, 133, 0.25); color: #B5C2D0; border: 1px solid #6B7785; }
+    .chip-kibbutz   { background: rgba(212, 162, 76, 0.25);  color: #F0CB85; border: 1px solid #D4A24C; }
+    .chip-modern    { background: rgba(45, 90, 61, 0.30);    color: #8DC79E; border: 1px solid #4F8C68; }
+    .chip-frame     { background: rgba(212, 163, 115, 0.20); color: var(--accent); border: 1px solid var(--accent); }
+
+    .reveal section.title-slide h1 { font-size: 2.3em; line-height: 1.1; }
+    .reveal section.title-slide .subtitle { color: var(--accent); font-style: italic; margin-top: 0.6em; font-family: "Cormorant Garamond", serif; }
+
+    .reveal .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6em; text-align: left; align-items: start; }
+    .reveal .threecol { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1em; text-align: left; font-size: 0.78em; }
+    .reveal .person-grid { display: grid; grid-template-columns: 360px 1fr; gap: 2em; align-items: start; text-align: left; }
+    .reveal .person-grid .meta { font-family: "Inter", sans-serif; font-size: 0.55em; color: var(--muted); letter-spacing: 0.05em; }
+    .reveal .person-grid h2 { font-size: 1.5em; margin-bottom: 0.2em; }
+    .reveal .place-grid { display: grid; grid-template-rows: 1fr auto; height: 100%; }
+
+    .reveal table { font-size: 0.55em; border-collapse: collapse; }
+    .reveal th { color: var(--accent); border-bottom: 1px solid var(--accent); text-align: left; }
+    .reveal td, .reveal th { padding: 0.4em 0.6em; vertical-align: top; }
+
     .reveal ul, .reveal ol { display: block; }
+    .reveal li { line-height: 1.4; margin-bottom: 0.3em; }
+
     .reveal .lenses {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 0.6em;
       font-size: 0.55em;
-      margin-top: 1em;
+      margin-top: 1.5em;
     }
     .reveal .lens-card {
       border: 1px solid #555;
       padding: 0.7em;
       border-radius: 4px;
       background: rgba(245, 222, 179, 0.04);
+      text-align: left;
     }
     .reveal .lens-card .name {
       color: var(--accent);
@@ -90,114 +125,54 @@
       text-transform: uppercase;
       font-size: 0.85em;
       margin-bottom: 0.4em;
+      font-family: "Inter", sans-serif;
     }
 
-    /* Per-slide comment overlay */
-    #comment-panel {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(20, 20, 20, 0.92);
-      border-top: 2px solid var(--accent);
-      padding: 8px 14px 10px;
-      font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      color: #f3ead3;
-      backdrop-filter: blur(6px);
-      transform: translateY(0);
-      transition: transform 0.18s ease;
-      box-shadow: 0 -6px 18px rgba(0,0,0,0.4);
-    }
-    #comment-panel.hidden {
-      transform: translateY(calc(100% - 22px));
-    }
-    #comment-panel-handle {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 4px;
-      cursor: pointer;
-      user-select: none;
-    }
-    #comment-panel-handle .hint { color: #888; font-size: 10px; letter-spacing: 0.04em; text-transform: none; }
-    #comment-textarea {
-      width: 100%;
-      min-height: 56px;
-      max-height: 140px;
-      resize: vertical;
-      box-sizing: border-box;
-      background: rgba(0,0,0,0.4);
-      color: #f3ead3;
-      border: 1px solid #555;
-      border-radius: 4px;
-      padding: 6px 10px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 13px;
-      line-height: 1.4;
-      outline: none;
-    }
-    #comment-textarea:focus { border-color: var(--accent); }
-
-    /* Copy button on final slide */
-    .copy-all-btn {
-      display: inline-block;
+    .reveal .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1em;
       margin-top: 1em;
-      background: var(--accent);
-      color: #1a1a1a;
-      border: none;
-      padding: 12px 28px;
-      font-size: 0.55em;
-      font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    }
+    .reveal .stat {
+      border: 1px solid var(--muted);
+      padding: 0.8em;
+      text-align: center;
       border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.15s;
+      background: rgba(212, 163, 115, 0.05);
     }
-    .copy-all-btn:hover { background: #e6b988; }
-    .copy-all-btn.copied { background: #8fbf6a; }
-    .copy-all-btn:disabled { opacity: 0.5; cursor: default; }
-    .copy-status {
-      display: block;
-      margin-top: 0.6em;
-      font-size: 0.45em;
-      color: #999;
+    .reveal .stat .num { font-family: "JetBrains Mono", monospace; font-size: 1.6em; color: var(--accent); display: block; }
+    .reveal .stat .label { font-size: 0.55em; color: var(--muted); letter-spacing: 0.04em; font-family: "Inter", sans-serif; text-transform: uppercase; }
+
+    .reveal .takeaway {
+      margin-top: 1.5em;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid var(--accent);
+      background: rgba(212, 163, 115, 0.07);
       font-style: italic;
+      font-size: 0.78em;
+      color: #f3ead3;
+      text-align: left;
     }
+    .reveal .takeaway::before { content: "→ "; color: var(--accent); font-style: normal; font-weight: bold; }
 
-    /* Hide comment panel when printing PDF */
-    @media print {
-      #comment-panel { display: none !important; }
-      .copy-all-btn, .copy-status { display: none !important; }
-      .big-nav { display: none !important; }
-    }
-    .reveal.print-pdf #comment-panel,
-    .reveal.print-pdf .big-nav { display: none !important; }
+    .reveal svg.diagram { max-width: 100%; height: auto; }
+    .reveal svg.diagram text { font-family: "Inter", sans-serif; fill: #f3ead3; }
 
-    /* Big nav buttons */
+    /* ----- Nav buttons (preserved from v1) ----- */
     .big-nav {
       position: fixed;
       top: 50%;
       transform: translateY(-50%);
       z-index: 1100;
-      width: 78px;
-      height: 78px;
+      width: 70px; height: 70px;
       border-radius: 50%;
       border: 2px solid var(--accent);
       background: rgba(20, 20, 20, 0.55);
       color: var(--accent);
-      font-size: 38px;
-      line-height: 1;
+      font-size: 34px; line-height: 1;
       font-family: system-ui, -apple-system, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       cursor: pointer;
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
@@ -206,22 +181,64 @@
       box-shadow: 0 4px 18px rgba(0,0,0,0.45);
       padding: 0;
     }
-    .big-nav:hover { background: var(--accent); color: #1a1a1a; border-color: var(--accent); }
+    .big-nav:hover { background: var(--accent); color: #1a1a1a; }
     .big-nav:active { transform: translateY(-50%) scale(0.94); }
-    .big-nav:disabled, .big-nav[aria-disabled="true"] {
-      opacity: 0.25;
-      cursor: default;
-      pointer-events: none;
-    }
+    .big-nav:disabled { opacity: 0.25; cursor: default; pointer-events: none; }
     .big-nav.prev { left: 22px; }
     .big-nav.next { right: 22px; }
-    @media (max-width: 720px) {
-      .big-nav { width: 60px; height: 60px; font-size: 28px; }
-      .big-nav.prev { left: 10px; }
-      .big-nav.next { right: 10px; }
-    }
-    /* When the comment panel is visible, lift the buttons a little so they don't sit behind it */
     body:not(.comment-hidden) .big-nav { top: calc(50% - 40px); }
+
+    /* ----- Comment panel (preserved from v1) ----- */
+    #comment-panel {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(20, 20, 20, 0.92);
+      border-top: 2px solid var(--accent);
+      padding: 8px 14px 10px;
+      font-family: "Inter", sans-serif;
+      color: #f3ead3;
+      backdrop-filter: blur(6px);
+      transform: translateY(0);
+      transition: transform 0.18s ease;
+      box-shadow: 0 -6px 18px rgba(0,0,0,0.4);
+    }
+    #comment-panel.hidden { transform: translateY(calc(100% - 22px)); }
+    #comment-panel-handle {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 4px; cursor: pointer; user-select: none;
+    }
+    #comment-panel-handle .hint { color: #888; font-size: 10px; letter-spacing: 0.04em; text-transform: none; }
+    #comment-textarea {
+      width: 100%; min-height: 50px; max-height: 140px;
+      resize: vertical; box-sizing: border-box;
+      background: rgba(0,0,0,0.4); color: #f3ead3;
+      border: 1px solid #555; border-radius: 4px;
+      padding: 6px 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 13px; line-height: 1.4; outline: none;
+    }
+    #comment-textarea:focus { border-color: var(--accent); }
+
+    .copy-all-btn {
+      display: inline-block;
+      margin-top: 1em;
+      background: var(--accent); color: #1a1a1a;
+      border: none; padding: 12px 28px;
+      font-size: 0.55em;
+      font-family: "Inter", sans-serif; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border-radius: 4px; cursor: pointer;
+      transition: background 0.15s;
+    }
+    .copy-all-btn:hover { background: #e6b988; }
+    .copy-all-btn.copied { background: #8fbf6a; }
+    .copy-status { display: block; margin-top: 0.6em; font-size: 0.45em; color: #999; font-style: italic; }
+
+    @media print {
+      #comment-panel, .copy-all-btn, .copy-status, .big-nav { display: none !important; }
+    }
+    .reveal.print-pdf #comment-panel,
+    .reveal.print-pdf .big-nav { display: none !important; }
   </style>
 </head>
 <body>
@@ -229,1166 +246,1418 @@
 <div class="reveal">
   <div class="slides">
 
-  <!-- =================================================================== -->
+  <!-- ============================================================ -->
   <!-- BLOCK 0 — FRAME -->
-  <!-- =================================================================== -->
+  <!-- ============================================================ -->
 
   <section class="title-slide">
     <h1>Theories of Communalism I</h1>
-    <p class="subtitle">The Classics — Utopians, Anarchists, and the Kibbutz</p>
+    <p class="subtitle">A Living Toolkit — handed down, generation by generation</p>
     <p class="small">Session 3 · Design an Agrarian Industrial Commune</p>
     <p class="tiny">The Convent · Greenpoint, Brooklyn</p>
     <aside class="notes">
-      Welcome people back. Quick check-in: ~5 min if needed. We're in Phase II of the course
-      (Theory). Tonight is "the classics" — the older, weirder, more ideological tradition.
-      Next week is "non-weird communes" (Mondragón, cohousing). Tonight we're going to be
-      reading dead Russians, French weirdos, and German-Jewish socialists, and that's the point.
+      Welcome. Tonight is Phase II of the course — theory. The frame for the whole night is
+      simple: every commune in history inherited a toolkit from the ones before it, added
+      its own tools, and handed the kit forward. We're not going to study failures. We're
+      going to study a 500-year apprenticeship.
     </aside>
   </section>
 
   <section>
-    <h2>Where we are</h2>
-    <div class="twocol">
-      <div>
-        <h3>Behind us</h3>
-        <ul>
-          <li>S1: A history of living together</li>
-          <li>S2: Lifecycles & the present moment</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Tonight (S3)</h3>
-        <ul>
-          <li>The classical theorists</li>
-          <li>How ideology shapes structure</li>
-          <li>Draft your values statement</li>
-        </ul>
-      </div>
-    </div>
-    <p class="small" style="margin-top: 1.2em;">Next week (S4): Mondragón, cohousing, land trusts — communes that don't read like manifestos.</p>
-    <aside class="notes">
-      The throughline of Phase II is: where do we sit in this history of ideas? Tonight is
-      the maximalist, ideological tradition. Next week is the pragmatic, integrationist tradition.
-      Both belong on your reading list.
-    </aside>
-  </section>
-
-  <section>
-    <h2>The question for tonight</h2>
-    <p style="font-size: 1.4em; line-height: 1.5;" class="lede">
-      How does what people believe<br />
-      shape how they live together?
+    <h2>The frame for tonight</h2>
+    <p style="font-size: 1.4em; line-height: 1.5; margin-top: 1em;" class="lede">
+      Every later commune inherits<br/>
+      from every earlier commune.
     </p>
-    <p class="small">And: which ideas are still load-bearing in 2026?</p>
+    <p class="small" style="margin-top: 1.5em;">Not "what worked / what failed" —<br/>
+    what each experiment <em>contributed to the toolkit</em> we still use.</p>
     <aside class="notes">
-      I want everyone to hold this question all night. Every tradition we look at tonight
-      made specific structural choices because of specific beliefs. The match isn't always
-      tight — sometimes the theory is post-hoc rationalization. But the relationship is
-      almost never zero. By the end you should have an opinion about which beliefs you'd
-      put load on.
+      This is the explicit reframe. The history of communalism is usually taught as a
+      catalogue of disappointments. That's a misreading. Each experiment added durable
+      structural innovations — task rotation, recallable delegates, mutual criticism,
+      common dining, the Minimum, the labor credit, federation — that the next experiment
+      inherited. Tonight is the inheritance, not the body count.
     </aside>
   </section>
 
   <section>
-    <h2>Five lenses</h2>
-    <p class="small">We'll evaluate every tradition through these. Same lenses return in Block 4.</p>
+    <h2>Five lenses to carry through the night</h2>
     <div class="lenses">
-      <div class="lens-card">
-        <div class="name">Property</div>
-        Private, common, use-rights, abolished?
+      <div class="lens-card"><div class="name">Property</div>What's pooled, what stays personal?</div>
+      <div class="lens-card"><div class="name">Governance</div>Who decides, and how recallable are they?</div>
+      <div class="lens-card"><div class="name">Labor</div>Rotated, specialized, sacralized?</div>
+      <div class="lens-card"><div class="name">Membership</div>Who joins, who stays, who passes the torch?</div>
+      <div class="lens-card"><div class="name">Outside</div>Withdrawal, demonstration, federation, partner?</div>
+    </div>
+    <p class="small" style="margin-top: 1.4em;">We'll see every tradition give different answers — and contribute different tools to each lens.</p>
+    <aside class="notes">
+      Five lenses. Write them down. We'll come back to them in Block 5 with a comparison
+      grid. For now, just notice when a tradition contributes a striking answer to one of them.
+    </aside>
+  </section>
+
+  <section>
+    <h2>The traditions we'll meet</h2>
+    <div class="threecol" style="margin-top: 1em;">
+      <div>
+        <span class="chip chip-utopian">Utopian Socialists</span>
+        <p class="small" style="margin-top:0.6em;">Plato · More · Diggers · Owen · Fourier · Saint-Simon · Cabet — the first deliberate designers of communal life.</p>
       </div>
-      <div class="lens-card">
-        <div class="name">Governance</div>
-        Consensus, council, charismatic, hierarchical?
+      <div>
+        <span class="chip chip-religious">Religious Communalists</span>
+        <p class="small" style="margin-top:0.6em;">Shakers · Hutterites · Bruderhof · Oneida · Amana — the longest-running, most generationally-tested branch.</p>
       </div>
-      <div class="lens-card">
-        <div class="name">Labor</div>
-        Rotated, specialized, abolished, religious?
+      <div>
+        <span class="chip chip-anarchist">Anarchist Communalists</span>
+        <p class="small" style="margin-top:0.6em;">Proudhon · Bakunin · Kropotkin · Landauer — and the three real revolutions where federation got built at scale.</p>
       </div>
-      <div class="lens-card">
-        <div class="name">Membership</div>
-        Open, vetted, hereditary, religious?
+    </div>
+    <p class="small" style="margin-top: 2em; opacity: 0.85;">Plus the kibbutz as one example of how all three feed into a 20th-century synthesis. Modern communes (Mondragón, cohousing, ecovillages) are next week.</p>
+    <aside class="notes">
+      Three main families plus one synthesis case. The kibbutz is presented tonight as
+      one example of how earlier traditions converged into a 20th-century form — not as
+      the centerpiece. Religious communalism, anarchist tradition, and utopian socialism
+      get equal weight.
+    </aside>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- LINEAGE OVERVIEW DIAGRAM -->
+  <!-- ============================================================ -->
+
+  <section>
+    <h2>The lineage at a glance</h2>
+    <svg class="diagram" viewBox="0 0 1200 380" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#d4a373"/>
+        </marker>
+      </defs>
+      <!-- Era ribbon -->
+      <line x1="40" y1="200" x2="1160" y2="200" stroke="#444" stroke-width="2"/>
+      <g font-size="11" fill="#888">
+        <text x="40" y="225">375 BCE</text>
+        <text x="180" y="225">1516</text>
+        <text x="280" y="225">1649</text>
+        <text x="380" y="225">1747</text>
+        <text x="490" y="225">1808</text>
+        <text x="590" y="225">1840</text>
+        <text x="700" y="225">1871</text>
+        <text x="800" y="225">1902</text>
+        <text x="900" y="225">1910</text>
+        <text x="1000" y="225">1936</text>
+        <text x="1100" y="225">2026</text>
+      </g>
+      <!-- Utopian band (top) -->
+      <g>
+        <circle cx="60"  cy="120" r="9" fill="#B5651D"/><text x="60"  y="100" text-anchor="middle" font-size="11">Plato</text>
+        <circle cx="180" cy="120" r="9" fill="#B5651D"/><text x="180" y="100" text-anchor="middle" font-size="11">More</text>
+        <circle cx="280" cy="120" r="9" fill="#B5651D"/><text x="280" y="100" text-anchor="middle" font-size="11">Diggers</text>
+        <circle cx="490" cy="120" r="11" fill="#B5651D"/><text x="490" y="100" text-anchor="middle" font-size="11">Owen · Fourier</text>
+        <circle cx="590" cy="120" r="9" fill="#B5651D"/><text x="590" y="100" text-anchor="middle" font-size="11">Cabet · Brook Farm</text>
+      </g>
+      <!-- Religious band (middle-top) -->
+      <g>
+        <circle cx="380" cy="160" r="9" fill="#6B7785"/><text x="380" y="148" text-anchor="middle" font-size="11">Shakers</text>
+        <circle cx="700" cy="160" r="9" fill="#6B7785"/><text x="700" y="148" text-anchor="middle" font-size="11">Oneida</text>
+        <circle cx="780" cy="160" r="9" fill="#6B7785"/><text x="780" y="148" text-anchor="middle" font-size="11">Amana</text>
+      </g>
+      <!-- Anarchist band (middle-bottom) -->
+      <g>
+        <circle cx="590" cy="265" r="9" fill="#8B0000"/><text x="590" y="290" text-anchor="middle" font-size="11">Proudhon</text>
+        <circle cx="700" cy="265" r="9" fill="#8B0000"/><text x="700" y="290" text-anchor="middle" font-size="11">Paris Commune · Bakunin</text>
+        <circle cx="800" cy="265" r="11" fill="#8B0000"/><text x="800" y="290" text-anchor="middle" font-size="11">Kropotkin · Landauer</text>
+        <circle cx="1000" cy="265" r="9" fill="#8B0000"/><text x="1000" y="290" text-anchor="middle" font-size="11">Spain 1936</text>
+      </g>
+      <!-- Kibbutz/synthesis band (bottom) -->
+      <g>
+        <circle cx="900" cy="320" r="9" fill="#D4A24C"/><text x="900" y="345" text-anchor="middle" font-size="11">Degania</text>
+        <circle cx="1100" cy="320" r="9" fill="#2D5A3D"/><text x="1100" y="345" text-anchor="middle" font-size="11">Today</text>
+      </g>
+      <!-- Connecting arrows -->
+      <g stroke="#d4a373" stroke-width="1.2" fill="none" stroke-opacity="0.6" marker-end="url(#arr)">
+        <path d="M 60 130 Q 120 200 180 120"/>
+        <path d="M 180 130 Q 220 200 280 120"/>
+        <path d="M 490 130 Q 540 200 590 120"/>
+        <path d="M 590 270 Q 645 285 700 270"/>
+        <path d="M 700 270 Q 750 285 800 270"/>
+        <path d="M 800 275 Q 900 320 900 320"/>
+        <path d="M 800 270 Q 900 290 1000 270"/>
+        <path d="M 280 130 Q 340 160 380 160"/>
+      </g>
+      <!-- Legend -->
+      <g font-size="11">
+        <rect x="40" y="30" width="14" height="14" fill="#B5651D"/><text x="60" y="42" fill="#E0A878">Utopian socialists</text>
+        <rect x="220" y="30" width="14" height="14" fill="#6B7785"/><text x="240" y="42" fill="#B5C2D0">Religious communalists</text>
+        <rect x="430" y="30" width="14" height="14" fill="#8B0000"/><text x="450" y="42" fill="#E89090">Anarchist communalists</text>
+        <rect x="640" y="30" width="14" height="14" fill="#D4A24C"/><text x="660" y="42" fill="#F0CB85">Kibbutz</text>
+        <rect x="730" y="30" width="14" height="14" fill="#2D5A3D"/><text x="750" y="42" fill="#8DC79E">Today's communes</text>
+      </g>
+    </svg>
+    <p class="tiny" style="margin-top: 0.8em;">A simplified map. The arrows are influences — read, translated, met in person, argued with. The actual graph is denser.</p>
+    <aside class="notes">
+      This is the map for the night. We'll move roughly left to right but with detours.
+      Notice the cross-band arrows — utopian thinkers fed into anarchist theorists; religious
+      communalism feeds across the diagram into both branches; everything converges in the
+      kibbutz and beyond. Stay oriented to this map; we'll return to it.
+    </aside>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- BLOCK 1 — PRE-HISTORY -->
+  <!-- ============================================================ -->
+
+  <section>
+    <span class="chip chip-utopian">Pre-history</span>
+    <h1 style="margin-top: 0.6em;">Three early sparks</h1>
+    <p class="lede">Before there was a movement, there were images: of a city without coin, of an island without owners, of a hill where anyone could plant beans.</p>
+    <aside class="notes">
+      The earliest sparks — Plato, More, the Diggers — give the tradition its imaginative
+      vocabulary. Brief tour, three slides, then we move to the 19th-century designers.
+    </aside>
+  </section>
+
+  <section>
+    <div class="person-grid">
+      <div>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Plato_Silanion_Musei_Capitolini_MC1377.jpg?width=600" alt="Plato bust"/>
+        <span class="credit">Roman copy of bust by Silanion, Capitoline Museums.<br/><a href="https://commons.wikimedia.org/wiki/File:Plato_Silanion_Musei_Capitolini_MC1377.jpg">Wikimedia Commons</a> · Public domain</span>
       </div>
-      <div class="lens-card">
-        <div class="name">Outside</div>
-        Federated, isolated, vanguard, integrated?
+      <div>
+        <span class="chip chip-utopian">Pre-history</span>
+        <h2 style="margin-top:0.4em;">Plato <span class="meta">· c. 428–348 BCE</span></h2>
+        <p class="small meta">Athens · The <em>Republic</em>, Book V (c. 375 BCE)</p>
+        <blockquote>"Friends have all things in common."<cite>— Plato, Republic IV, 424a</cite></blockquote>
+        <p class="small">Plato was the first to ask, in writing, the question every commune still answers: <em>who shares what, at what scale, and what binds them?</em></p>
+        <div class="takeaway">Bequeathed: <strong>common meals as the basic unit of communal life.</strong> The thread runs through Spartan syssitia → monastic refectories → Fourier's grand hall → kibbutz dining hall → cohousing common house.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Republic_(Plato)">Wikipedia</a> · <a href="https://www.gutenberg.org/files/1497/1497-h/1497-h.htm">Full text (Project Gutenberg)</a> · <a href="https://plato.stanford.edu/entries/plato-ethics-politics/">SEP entry</a></p>
       </div>
     </div>
     <aside class="notes">
-      Pause here. Tell people: write these five down. We'll come back to them every time we
-      meet a new tradition. By Block 4 you'll have a comparison grid filled in your head.
+      Plato's communalism was for the guardian class only — not universal. But the
+      thought-experiment matters: he asked the questions. Common dining is the lasting
+      structural innovation that comes through every later tradition.
     </aside>
   </section>
 
   <section>
-    <h2>The plan tonight</h2>
-    <ol>
-      <li><strong>Utopian socialists</strong> — Plato to Cabet, plus the Marxist takedown <span class="small">(45m)</span></li>
-      <li><strong>Anarchist tradition</strong> — Proudhon, Bakunin, Kropotkin, Landauer + the real revolutions <span class="small">(50m)</span></li>
-      <li><strong>Kibbutz tradition</strong> — Gordon to Degania to privatization <span class="small">(22m)</span></li>
-      <li><strong>Comparison</strong> — how ideology shaped structure <span class="small">(25m)</span></li>
-      <li><strong>Workshop</strong> — your values statement <span class="small">(15m)</span></li>
-    </ol>
-    <p class="small" style="margin-top: 1em;">Two short breaks. Interrupt freely.</p>
-    <aside class="notes">
-      Set expectations on pacing. This is a lot. We'll move briskly. The point isn't to
-      master each thinker — it's to give you a map you can come back to. The reading
-      packet has the depth.
-    </aside>
-  </section>
-
-  <!-- =================================================================== -->
-  <!-- BLOCK 1 — UTOPIAN SOCIALISTS -->
-  <!-- =================================================================== -->
-
-  <section>
-    <span class="label">Block 1</span>
-    <h1>The Utopian Socialists</h1>
-    <p class="lede">Imagine a better society in enough detail that someone might try to build it.</p>
-    <aside class="notes">
-      The "utopian socialists" is a label Marx and Engels stuck on a cluster of thinkers
-      to dismiss them. We'll use it but with respect — these are the people who first said
-      "we could just live differently" loud enough that other people built things. Their
-      tradition has two layers: the imaginative literature (More, Fourier) and the
-      experimental colonies (Owen, Cabet).
-    </aside>
-  </section>
-
-  <section>
-    <h2>Pre-history: three sparks</h2>
-    <div class="threecol">
+    <div class="person-grid">
       <div>
-        <h3>Plato, ~375 BCE</h3>
-        <em>Republic</em>, Book V.<br />
-        Guardians hold property and family in common. Communism for the elite, not the masses.
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hans_Holbein%2C_the_Younger_-_Sir_Thomas_More_-_Google_Art_Project.jpg?width=600" alt="Thomas More by Holbein"/>
+        <span class="credit">Hans Holbein the Younger, <em>Sir Thomas More</em>, 1527. Frick Collection.<br/><a href="https://commons.wikimedia.org/wiki/File:Hans_Holbein,_the_Younger_-_Sir_Thomas_More_-_Google_Art_Project.jpg">Wikimedia Commons</a> · Public domain</span>
       </div>
       <div>
-        <h3>More, 1516</h3>
-        <em>Utopia</em>. Common storehouses, six-hour workday, religious tolerance, slavery for criminals. Coined the genre — and the word.
-      </div>
-      <div>
-        <h3>Diggers, 1649</h3>
-        Winstanley occupies St George's Hill: <em>"the earth was made to be a common treasury for all."</em> Crushed in a year.
-      </div>
-    </div>
-    <p class="small" style="margin-top: 1em;">Three modes: philosophical, literary, insurrectionary. All three return.</p>
-    <aside class="notes">
-      I'm compressing 2000 years into a slide. The point is: communalist imagination
-      predates industrial capitalism by a long way. Plato is communism-for-the-rulers
-      (think: Bezos's bunker). More invents the modern utopia genre and is ambivalent about
-      his own picture. The Diggers are the first European group to *try* it as direct
-      action. Each of these prefigures something we'll see tonight.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Why the 19th century?</h2>
-    <ul>
-      <li>Industrial revolution → first mass urban poverty in modern form</li>
-      <li>French Revolution had already broken the legitimacy of the old order</li>
-      <li>Printing + literacy made manifestos a viable medium</li>
-      <li>And: cheap land in the Americas to actually try it</li>
-    </ul>
-    <p class="small">The utopians are responding to a specific shock — the visible misery of early factory life — with the conviction that another economy is designable.</p>
-    <aside class="notes">
-      Frame this as a moment of crisis-and-possibility, like ours but more so. Visible
-      child labor, 14-hour days, tenement disease. And the political legitimacy of
-      hierarchy had cracked. So: write a plan.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Robert Owen (1771–1858)</h2>
-    <div class="twocol">
-      <div>
-        <p>Welsh textile manufacturer turned reformer.</p>
-        <p>Ran <strong>New Lanark</strong> (Scotland) as a model factory: shorter hours, education, no child labor under 10. Profitable.</p>
-        <p>Pivoted to "villages of cooperation" — planned communities of 500–1500 people, common property, productive agriculture + light industry.</p>
-      </div>
-      <div>
-        <blockquote>
-          "Any general character, from the best to the worst, from the most ignorant to the most enlightened, may be given to any community… by the application of the proper means."
-          <cite>— Owen, A New View of Society, 1813</cite>
-        </blockquote>
+        <span class="chip chip-utopian">Pre-history</span>
+        <h2 style="margin-top:0.4em;">Thomas More <span class="meta">· 1478–1535</span></h2>
+        <p class="small meta">London · <em>Utopia</em> (1516)</p>
+        <blockquote>"Wherever you have private property, and money is the measure of all things, it is hardly ever possible for a commonwealth to be governed justly or happily."<cite>— More, Utopia, Book I</cite></blockquote>
+        <p class="small">Coined the word and the genre. The fictional travelogue as design document — every later utopian writer (Bacon, Cabet, Bellamy, Le Guin) inherits the form.</p>
+        <div class="takeaway">Bequeathed: <strong>rotation between agricultural and craft labor</strong> — the direct ancestor of Fourier's "butterfly principle," Marx's hunter/fisherman, kibbutz <em>toranut</em>, and Twin Oaks' labor credits.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Utopia_(book)">Wikipedia</a> · <a href="https://www.gutenberg.org/files/2130/2130-h/2130-h.htm">Full text</a> · <a href="https://plato.stanford.edu/entries/thomas-more/">SEP</a></p>
       </div>
     </div>
     <aside class="notes">
-      Owen is a rationalist — he believes character is environmentally formed, so design
-      the environment and you design the person. This is the seed of nearly every modern
-      "intentional community" pitch. He was also a paternalist factory owner who
-      genuinely believed his workers were better off — which they probably were, by the
-      standards of 1810. Hold both.
+      More's structural inheritance: 6-hour workday, 54 nearly-identical cities, housing
+      reassigned every ten years, two-year rotations between city and country. The form
+      is the message — a fully-imagined alternative society, written down so others can
+      argue with it and try to build it.
     </aside>
   </section>
 
   <section>
-    <h2>New Harmony, Indiana, 1825</h2>
-    <ul>
-      <li>Owen buys a town from the Rappites for $135,000</li>
-      <li>Recruits 800 settlers via newspaper ads — "all classes of society"</li>
-      <li>No vetting. No shared religion. Constitution rewritten seven times in two years.</li>
-      <li>Collapses by 1827. Owen loses 80% of his fortune.</li>
-    </ul>
-    <p class="lede small">Lesson logged for every commune since: open membership without shared values is fast collapse.</p>
-    <aside class="notes">
-      This is one of the most instructive failures in commune history. Owen's mistake is
-      legible: he believed environment shaped character so completely that he didn't need
-      to filter who came in. He thought the form would do the work. It did not. Pin this
-      to your wall: who you let in is who you become.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Charles Fourier (1772–1837)</h2>
-    <div class="twocol">
+    <div class="person-grid">
       <div>
-        <p>French clerk. Self-taught. Strange.</p>
-        <p>Designed the <strong>phalanstère</strong>: a single building housing exactly <strong>1,620 people</strong>, the optimal number to express all human "passional types."</p>
-        <p>Labor organized into "Series" — short rotating tasks, chosen by passion, never more than two hours at one job.</p>
-        <p>Predicted the seas would turn to lemonade.</p>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Levellers_declaration_and_standard.gif?width=600" alt="Levellers Declaration"/>
+        <span class="credit">Title page of the Levellers/Diggers declaration, 1649.<br/><a href="https://commons.wikimedia.org/wiki/File:Levellers_declaration_and_standard.gif">Wikimedia Commons</a> · Public domain</span>
       </div>
       <div>
-        <blockquote>
-          "The passions, thwarted in their natural direction, like waters dammed up, recoil and produce ravages."
-          <cite>— Fourier, Theory of the Four Movements, 1808</cite>
-        </blockquote>
+        <span class="chip chip-utopian">Pre-history</span>
+        <h2 style="margin-top:0.4em;">Winstanley & the Diggers <span class="meta">· 1649</span></h2>
+        <p class="small meta">St George's Hill, Surrey · April 1, 1649</p>
+        <blockquote>"The Earth was made by Almighty God to be a Common Treasury of livelihood to whole mankind, in all his branches, without respect of persons."<cite>— Gerrard Winstanley, The True Levellers Standard Advanced, April 1649</cite></blockquote>
+        <p class="small">Ten weeks after Charles I was beheaded, Winstanley led a small band onto common land and started planting parsnips and beans. Within weeks: nine other Digger camps across England.</p>
+        <div class="takeaway">Bequeathed: <strong>the prefigurative occupation</strong> — don't wait for the revolution, plant beans on the hill now. Lineage runs through 19th-century homesteading → 1960s land trusts → Greenham Common → ZAD Notre-Dame-des-Landes.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Diggers">Wikipedia</a> · <a href="https://oll.libertyfund.org/titles/winstanley-the-works-of-gerrard-winstanley">Winstanley's Works (OLL)</a> · <a href="https://www.marxists.org/reference/archive/winstanley/index.htm">Marxists.org archive</a></p>
       </div>
     </div>
     <aside class="notes">
-      Fourier is the patron saint of every weird commune since. His core move is radical:
-      he says human passions aren't sinful or to be suppressed — they're the engine.
-      Design society so that doing what you want at any moment also does the work that
-      needs doing. Match labor to attraction. The lemonade-seas thing is real and is
-      cited every time someone wants to dismiss him. Don't dismiss him. The labor-rotation
-      idea ends up everywhere — including kibbutz.
+      The Diggers were broken up within a year by local landowners and hired thugs.
+      They are the high-risk pole of the spectrum: no legal title, no shared religious
+      bond strong enough to survive private violence. But the gesture — direct action
+      on common land — is the founding move of every land-occupation tradition since.
     </aside>
   </section>
 
+  <!-- ============================================================ -->
+  <!-- BLOCK 2 — UTOPIAN SOCIALISTS -->
+  <!-- ============================================================ -->
+
   <section>
-    <h2>Fourier's structural ideas that traveled</h2>
-    <ul>
-      <li><strong>Passional attraction</strong> — assign work by what people are drawn to, not by hierarchy</li>
-      <li><strong>Short rotations</strong> — no one stays at any task long enough to be ground down</li>
-      <li><strong>The "Minimum"</strong> — every member guaranteed food, clothing, shelter regardless of contribution</li>
-      <li><strong>Architecture as politics</strong> — a single building shapes a single society</li>
-    </ul>
-    <p class="small">Echoes: Israeli kibbutz dining halls, modern co-housing common houses, UBI, gig-style task variety.</p>
+    <span class="chip chip-utopian">Utopian Socialists</span>
+    <h1 style="margin-top: 0.6em;">The 19th-century designers</h1>
+    <p class="lede">Faced with the visible misery of early factory life, they did the most radical thing imaginable: they sat down and drew the alternative in detail.</p>
     <aside class="notes">
-      I always teach Fourier with this slide because the man himself sounds insane but
-      the structural ideas are everywhere. Labor rotation is a kibbutz feature. The
-      Minimum is essentially UBI. Architectural determinism is in every co-housing
-      design. He was wrong about a lot and right about more than people credit.
+      The "utopians" is a label Marx and Engels stuck on this group to dismiss them. We'll
+      use it without apology — these are the people who first said "we could just live
+      differently" loud enough that other people built things. Their toolkit is enormous.
     </aside>
   </section>
 
   <section>
-    <h2>Real Fourierist colonies (1840s US)</h2>
-    <ul>
-      <li><strong>Brook Farm</strong> (Massachusetts, 1841–1847) — Transcendentalist; Hawthorne lived there and hated it; converted to Fourierism in 1844; burned down</li>
-      <li><strong>North American Phalanx</strong> (New Jersey, 1843–1856) — the longest-lasting; ~110 members at peak; ended in financial collapse + religious schism</li>
-      <li>~30 phalanxes total in the US in the 1840s. Most died within 3 years.</li>
-    </ul>
-    <p class="small">The pattern: idealism + undercapitalization + interpersonal friction = ~3 years.</p>
-    <aside class="notes">
-      Connect back to Session 2 on lifecycles. The "3-year cliff" is real and has a
-      shape: the founders' enthusiasm carries the first year, the cracks show in the
-      second, and the third year either institutionalizes or collapses. Every tradition
-      we look at tonight has a version of this curve.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Saint-Simon (1760–1825)</h2>
-    <div class="twocol">
+    <div class="person-grid">
       <div>
-        <p>French aristocrat → revolutionary → speculator → prophet.</p>
-        <p>Argued that society should be reorganized around <strong>industry and science</strong>, governed by engineers and producers — not landlords or clerics.</p>
-        <p>"Each according to his capacity, each capacity according to its works." Hierarchy of merit, not birth.</p>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Robert_Owen_by_William_Henry_Brooke.jpg?width=600" alt="Robert Owen"/>
+        <span class="credit">Engraving after William Henry Brooke, 1834. National Portrait Gallery.<br/><a href="https://commons.wikimedia.org/wiki/File:Robert_Owen_by_William_Henry_Brooke.jpg">Wikimedia Commons</a> · Public domain</span>
       </div>
       <div>
-        <p>Less of a commune-builder than the others. Matters because:</p>
-        <ul class="small">
-          <li>Frames socialism as a question of <em>who runs the economy</em>, not just who owns it</li>
-          <li>Direct ancestor of technocratic & state-socialist traditions</li>
-          <li>Disciples (Enfantin, Bazard) tried colony experiments after his death</li>
-        </ul>
+        <span class="chip chip-utopian">Utopian Socialist</span>
+        <h2 style="margin-top:0.4em;">Robert Owen <span class="meta">· 1771–1858</span></h2>
+        <p class="small meta">Welsh saddler's son · cotton mill manager at 19 · coined "socialism" in 1827</p>
+        <blockquote>"Any general character, from the best to the worst, from the most ignorant to the most enlightened, may be given to any community, even to the world at large, by the application of proper means."<cite>— Owen, A New View of Society, First Essay (1813)</cite></blockquote>
+        <div class="takeaway"><strong>Owen proved that humane industrial labor is more profitable than brutal industrial labor.</strong> New Lanark made money for 25 years and was visited by 20,000 people. This single empirical fact armed every cooperative movement since.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Robert_Owen">Wikipedia</a> · <a href="https://www.marxists.org/reference/subject/economics/owen/index.htm">A New View of Society (full)</a> · <a href="https://www.britannica.com/biography/Robert-Owen">Britannica</a></p>
       </div>
     </div>
     <aside class="notes">
-      Saint-Simon is the odd one out — not really a commune guy, more of a "let's
-      reorganize France" guy. I include him because his line of thought leads to
-      state socialism, technocracy, and eventually to the kibbutz movement's
-      Histadrut/state-builder wing. He's also the source of the meritocratic version
-      of socialism that competes with the egalitarian version.
+      Owen ran New Lanark (1800-1825) as Europe's most-visited factory. Tsar Nicholas
+      I, princes of Austria, 20,000 visitors signing the book over a decade. He was a
+      paternalist, but the empirics are real: shorter hours, no child labor under 10,
+      the first infant school in Britain, an Institute for the Formation of Character —
+      and the mills were profitable. This is the foundational proof point.
     </aside>
   </section>
 
   <section>
-    <h2>Étienne Cabet (1788–1856)</h2>
-    <div class="twocol">
+    <span class="chip chip-utopian">Place</span>
+    <h2 style="margin-top:0.5em;">New Lanark, Scotland <span class="meta" style="font-size:0.55em;color:var(--muted);">· 1800–1825 (Owen) · UNESCO 2001</span></h2>
+    <img class="scene" src="https://commons.wikimedia.org/wiki/Special:FilePath/New_Lanark_buildings_2009.jpg?width=1024" alt="New Lanark mill village"/>
+    <span class="credit">New Lanark on the River Clyde — UNESCO World Heritage Site since 2001. Photo via <a href="https://commons.wikimedia.org/wiki/File:New_Lanark_buildings_2009.jpg">Wikimedia Commons</a> · CC BY-SA 3.0</span>
+    <div class="stat-grid" style="margin-top:1em;">
+      <div class="stat"><span class="num">2,000</span><span class="label">workforce, ~500 children</span></div>
+      <div class="stat"><span class="num">10.5h</span><span class="label">workday (vs 14+ standard)</span></div>
+      <div class="stat"><span class="num">20,000</span><span class="label">visitors logged 1815–25</span></div>
+    </div>
+    <div class="takeaway">First infant school in Britain (1816) · co-op store with profits returned to workers · murals in classrooms · paid wages during 1806 cotton embargo. Mills profitable until 1968.</div>
+    <aside class="notes">
+      Don't romanticize the paternalism — Owen still owned the mill. But the empirical
+      record is: better conditions plus better education plus continued wages during
+      stoppages produced higher productivity and lower turnover. This is the demonstration
+      that opens the entire cooperative tradition.
+    </aside>
+  </section>
+
+  <section>
+    <div class="person-grid">
       <div>
-        <p>French lawyer in exile in London. Wrote <em>Voyage en Icarie</em> (1840) — utopian novel of the country of Icaria.</p>
-        <p>Best-selling. Cabet's followers ("Icarians") demanded the real thing.</p>
-        <p>Bought land in <strong>Texas</strong>, then <strong>Nauvoo, Illinois</strong> (1849), then Iowa, then California. Communities ran for ~50 years total.</p>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Charles_Fourier.jpg?width=600" alt="Charles Fourier"/>
+        <span class="credit">Charles Fourier, 19th-century engraving.<br/><a href="https://commons.wikimedia.org/wiki/File:Charles_Fourier.jpg">Wikimedia Commons</a> · Public domain</span>
       </div>
       <div>
-        <blockquote>
-          "From each according to his abilities, to each according to his needs."
-          <cite>— attributed to Cabet, Louis Blanc, and others before Marx famously used it (1875)</cite>
-        </blockquote>
+        <span class="chip chip-utopian">Utopian Socialist</span>
+        <h2 style="margin-top:0.4em;">Charles Fourier <span class="meta">· 1772–1837</span></h2>
+        <p class="small meta">French clerk · self-taught · coined the word <em>féminisme</em> (1837)</p>
+        <blockquote>"The extension of the privileges of women is the fundamental cause of all social progress."<cite>— Fourier, Théorie des quatre mouvements (1808), Note H</cite></blockquote>
+        <p class="small">Lived alone in cheap rented rooms in Lyon and Paris with potted flowers and cats. For twenty years he advertised in newspapers that he'd be home at noon to receive any wealthy patron. <em>No one ever came.</em></p>
+        <div class="takeaway">Bequeathed: <strong>passional attraction</strong> (assign work by what people are drawn to), <strong>short rotations</strong> (the butterfly principle, max 2h per task), and <strong>the Minimum</strong> — guaranteed subsistence regardless of contribution. The first systematic UBI, 150 years early.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Charles_Fourier">Wikipedia</a> · <a href="https://www.marxists.org/reference/archive/fourier/works/index.htm">Selected works</a> · <a href="https://plato.stanford.edu/entries/fourier/">SEP</a></p>
       </div>
     </div>
     <aside class="notes">
-      Two things to flag. First, Icaria is the longest-lived of the utopian socialist
-      experiments — half a century. That's worth noticing. Second, the famous "from
-      each, to each" formula didn't originate with Marx. It floats around in 1830s-40s
-      French socialism. Cabet uses it. Louis Blanc uses it. Marx picks it up and
-      canonizes it.
+      The man himself sounded insane (he believed the seas would turn to lemonade) but
+      the structural ideas are everywhere. Labor rotation is in every commune. The
+      Minimum is essentially UBI. Even his architectural prescriptions — the rue-galerie,
+      the indoor-street — became the shopping arcade and the modern indoor mall.
     </aside>
   </section>
 
   <section>
-    <h2>The American utopian wave (1820s–1860s)</h2>
-    <table>
-      <thead>
-        <tr><th>Community</th><th>Founded</th><th>Tradition</th><th>What it did</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>New Harmony</td><td>1825</td><td>Owenite</td><td>Open-membership disaster</td></tr>
-        <tr><td>Brook Farm</td><td>1841</td><td>Transcendental → Fourierist</td><td>Intellectuals on a farm; insolvent</td></tr>
-        <tr><td>North American Phalanx</td><td>1843</td><td>Fourierist</td><td>Longest-lived phalanx</td></tr>
-        <tr><td>Oneida</td><td>1848</td><td>Religious (Perfectionist)</td><td>Complex marriage; silverware company</td></tr>
-        <tr><td>Icarian colonies</td><td>1848</td><td>Cabetist</td><td>Lasted ~50y across 4 states</td></tr>
-        <tr><td>Amana</td><td>1855</td><td>German Pietist</td><td>Refrigerator company</td></tr>
-        <tr><td>Shaker villages</td><td>1780s–</td><td>Religious (celibate)</td><td>Peaked at ~6,000; furniture</td></tr>
-      </tbody>
-    </table>
-    <p class="small">Pattern: religious bonds outlast secular bonds. Almost without exception.</p>
+    <span class="chip chip-utopian">Diagram</span>
+    <h2 style="margin-top:0.5em;">Fourier's phalanstère</h2>
+    <p class="small">A single building for exactly 1,620 souls — 810 personality types × 2 sexes.</p>
+    <svg class="diagram" viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer building footprint, U-shape -->
+      <path d="M 80 70 L 620 70 L 620 360 L 460 360 L 460 200 L 240 200 L 240 360 L 80 360 Z"
+            fill="rgba(245, 222, 179, 0.05)" stroke="#B5651D" stroke-width="3"/>
+      <!-- Central court -->
+      <rect x="240" y="200" width="220" height="160" fill="rgba(212, 163, 115, 0.05)" stroke="#B5651D" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="350" y="280" text-anchor="middle" fill="#E0A878" font-style="italic" font-size="14">Court of the Phalanx</text>
+      <text x="350" y="300" text-anchor="middle" fill="#B5651D" font-size="11">festivals · gardens · parades</text>
+      <!-- Zone labels -->
+      <text x="350" y="105" text-anchor="middle" fill="#F5DEB3" font-weight="600" font-size="14">CENTRAL WING</text>
+      <text x="350" y="125" text-anchor="middle" fill="#E0A878" font-size="12">Grand Hall · Dining · Library · Opera</text>
+      <text x="160" y="110" text-anchor="middle" fill="#F5DEB3" font-weight="600" font-size="13">EAST WING</text>
+      <text x="160" y="130" text-anchor="middle" fill="#E0A878" font-size="11">Workshops</text>
+      <text x="160" y="146" text-anchor="middle" fill="#B5651D" font-size="10">("noisy work" + Little Hordes)</text>
+      <text x="540" y="110" text-anchor="middle" fill="#F5DEB3" font-weight="600" font-size="13">WEST WING</text>
+      <text x="540" y="130" text-anchor="middle" fill="#E0A878" font-size="11">Residences</text>
+      <text x="540" y="146" text-anchor="middle" fill="#B5651D" font-size="10">(apartments by passional series)</text>
+      <text x="160" y="320" text-anchor="middle" fill="#E0A878" font-size="11">Stables · craft</text>
+      <text x="540" y="320" text-anchor="middle" fill="#E0A878" font-size="11">Children's wing</text>
+      <!-- Rue-galerie -->
+      <line x1="80" y1="160" x2="620" y2="160" stroke="#d4a373" stroke-width="2" stroke-dasharray="3,3"/>
+      <text x="350" y="180" text-anchor="middle" fill="#d4a373" font-size="11" font-style="italic">rue-galerie — the heated, glass-roofed indoor street</text>
+    </svg>
+    <p class="tiny" style="text-align:center; margin-top:0.5em;">Direct architectural ancestor of the kibbutz dining hall layout, Le Corbusier's <em>Unité d'Habitation</em>, and the modern shopping arcade.</p>
     <aside class="notes">
-      This table is doing a lot of work — it's the empirical record. The pattern is
-      hard to miss: the secular communities lasted years, the religious ones lasted
-      generations. Shakers, Amana, Hutterites — religious commitment provides a
-      filter, a glue, a succession mechanism, and a meaning-frame. Whether that's
-      replicable without religion is one of the central questions of every secular
-      commune since.
+      Fourier specified the building in obsessive detail. Wings for noisy and quiet
+      activities. The rue-galerie — heated, glass-roofed corridors connecting everything
+      so you never need a coat — is the direct ancestor of the indoor mall and arcade.
+      Le Corbusier explicitly cited Fourier when designing the Unité d'Habitation in 1947.
     </aside>
   </section>
 
   <section>
-    <h2>Oneida & the Shakers — quick aside</h2>
-    <div class="twocol">
+    <div class="person-grid">
       <div>
-        <h3>Oneida (1848–1881)</h3>
-        <ul class="small">
-          <li>Perfectionist Christianity — heaven achievable on earth</li>
-          <li>"Complex marriage" — every adult member married to every other</li>
-          <li>"Mutual criticism" — group feedback rituals (look up: pre-figures encounter groups, Mao-era struggle sessions, modern group therapy)</li>
-          <li>Dissolved into a joint-stock company that still exists (Oneida silverware)</li>
-        </ul>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Henri_de_Saint-simon_portrait.jpg?width=600" alt="Saint-Simon"/>
+        <span class="credit">Henri de Saint-Simon, early-19th-c. portrait.<br/><a href="https://commons.wikimedia.org/wiki/File:Henri_de_Saint-simon_portrait.jpg">Wikimedia Commons</a> · Public domain</span>
       </div>
       <div>
-        <h3>Shakers (1747–today)</h3>
-        <ul class="small">
-          <li>Celibate. Membership by conversion only.</li>
-          <li>Peak: ~6,000 members across 19 villages</li>
-          <li>Famous for: furniture, music, architecture, gender-equal leadership</li>
-          <li>2 members alive in 2026 at Sabbathday Lake, Maine</li>
-        </ul>
-      </div>
-    </div>
-    <p class="small">Religious communalism solves the succession problem in opposite ways: total reproductive control vs. forced exogamy.</p>
-    <aside class="notes">
-      I include these because they're going to come up. Oneida invented "mutual
-      criticism" — a structured group feedback ritual that everyone since who's done
-      group therapy or T-groups owes a debt to. Shakers chose celibacy and recruited
-      from outside, which works for centuries but has a known failure mode: the recruiting
-      pool dries up. Both are religious solutions to the problem of how communes
-      reproduce themselves.
-    </aside>
-  </section>
-
-  <section>
-    <h2>The Marxist takedown</h2>
-    <div class="twocol">
-      <div>
-        <p>Marx & Engels coined "utopian socialists" as a put-down in the <em>Communist Manifesto</em> (1848) and developed the critique in Engels' <em>Socialism: Utopian and Scientific</em> (1880).</p>
-        <p>The argument: utopians design the future from their armchairs. They appeal to reason, philanthropy, the goodwill of capitalists. They build islands. They lose.</p>
-      </div>
-      <div>
-        <blockquote>
-          "To make a science of socialism, it had first to be placed upon a real basis."
-          <cite>— Engels, Socialism: Utopian and Scientific, 1880</cite>
-        </blockquote>
-        <blockquote class="small">
-          "They reject all political, and especially all revolutionary action; they wish to attain their ends by peaceful means, and endeavor, by small experiments, necessarily doomed to failure…"
-          <cite>— Marx & Engels, Communist Manifesto, 1848</cite>
-        </blockquote>
+        <span class="chip chip-utopian">Utopian Socialist</span>
+        <h2 style="margin-top:0.4em;">Henri de Saint-Simon <span class="meta">· 1760–1825</span></h2>
+        <p class="small meta">Aristocrat → Yorktown veteran → speculator → prophet of industrial society</p>
+        <blockquote>"The whole of society ought to strive towards the amelioration of the moral and physical existence of the poorest class; society ought to organize itself in the way best adapted for attaining this end."<cite>— Saint-Simon, Nouveau Christianisme (1825), Second Dialogue</cite></blockquote>
+        <p class="small">Hired Auguste Comte (the future founder of sociology) as his secretary. His disciples surveyed the route for the Suez Canal, founded the Crédit Mobilier, and built half the railways of the Second Empire.</p>
+        <div class="takeaway">Bequeathed: <strong>the engineering imagination</strong> — that productive infrastructure (electricity, irrigation, transport) is not the enemy of community but its precondition. The agrarian-<em>industrial</em> commune — exactly the form this course is designing — is Saint-Simonian.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Henri_de_Saint-Simon">Wikipedia</a> · <a href="https://www.marxists.org/reference/subject/philosophy/works/fr/st-simon.htm">Selections</a> · <a href="https://plato.stanford.edu/entries/saint-simon/">SEP</a></p>
       </div>
     </div>
     <aside class="notes">
-      Engels' book is short and worth reading. The critique has teeth: utopian
-      experiments are islands; capitalism is a system; islands get drowned by
-      systems. The Marxist alternative is not "build a better island" but "take
-      state power and remake the system." For our purposes tonight, this is the
-      crossroads — and we're about to go right toward Kropotkin, who answers
-      "no, actually, federated islands." Hold the tension.
+      Saint-Simon is the technocratic-industrial current that the other utopians lacked.
+      Where Owen and Fourier built villages, Saint-Simonians built railways and banks.
+      The lasting bequest: a commune needs a productive vocation, not just a residential
+      design. Without industry, communes drift.
     </aside>
   </section>
 
   <section>
-    <h2>What the utopians got right</h2>
-    <ul>
-      <li><strong>Imagination is a precondition.</strong> You cannot build what no one has described.</li>
-      <li><strong>Concrete experiments produce real data</strong> — failure modes that pure theory can't predict.</li>
-      <li><strong>The structural ideas traveled</strong> — labor rotation, common storehouse, the Minimum, mutual feedback rituals.</li>
-      <li><strong>They named the problem</strong> — alienation, isolation, atomization — decades before sociology did.</li>
-    </ul>
+    <div class="person-grid">
+      <div>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Etienne_Cabet_(1849).jpg?width=600" alt="Étienne Cabet"/>
+        <span class="credit">Étienne Cabet, 1849.<br/><a href="https://commons.wikimedia.org/wiki/File:Etienne_Cabet_(1849).jpg">Wikimedia Commons</a> · Public domain</span>
+      </div>
+      <div>
+        <span class="chip chip-utopian">Utopian Socialist</span>
+        <h2 style="margin-top:0.4em;">Étienne Cabet <span class="meta">· 1788–1856</span></h2>
+        <p class="small meta">Lawyer · exile · author of <em>Voyage en Icarie</em> (1840)</p>
+        <blockquote>"Communism is the doctrine of community, of fraternity, of equality, and of liberty. It is the gospel — the good news — presented in conformity with reason, with progress, and with the interests of the people."<cite>— Cabet, Voyage en Icarie, expanded preface (1840)</cite></blockquote>
+        <p class="small">By 1846 there were ~100,000 self-described "Icarians" in French cities, organized in correspondence networks. <strong>Arguably the first mass communist movement in history</strong> — two years before the <em>Manifesto</em>.</p>
+        <div class="takeaway">Bequeathed: <strong>print as organizational infrastructure.</strong> <em>Le Populaire</em> (4,500 subscribers, 1846) is the proto-internet for movement-building. Every later movement — Owenite <em>New Moral World</em>, Fourierist <em>Phalanx</em>, kibbutz federation newsletters, modern community magazines — descends from this.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/%C3%89tienne_Cabet">Wikipedia</a> · <a href="https://archive.org/details/voyageenicarie00cabe">Voyage en Icarie (Internet Archive)</a> · <a href="https://en.wikipedia.org/wiki/Icarians">Icarians article</a></p>
+      </div>
+    </div>
     <aside class="notes">
-      Resist the Marxist dismissal. Some of these experiments were genuinely
-      productive — Oneida ran for 30 years and produced silverware your grandmother
-      ate from. The structural innovations are everywhere. And the act of writing
-      down a detailed alternative is not nothing — it's a precondition.
+      Cabet was authoritarian — he was eventually expelled from his own community in
+      1856. But the Icarian colonies that *survived* his expulsion lasted 50 years across
+      four states (Iowa, Illinois, Texas, California). The longest-lived secular commune
+      of 19th-century America. The lesson: build founder-removal procedures into the
+      constitution.
     </aside>
   </section>
 
   <section>
-    <h2>What the utopians got wrong</h2>
-    <ul>
-      <li><strong>Open membership without shared values</strong> → fast collapse (Owen, Brook Farm)</li>
-      <li><strong>Charismatic founder dependency</strong> → succession crisis on death (Cabet, Noyes)</li>
-      <li><strong>Undercapitalization</strong> → 3-year cliff</li>
-      <li><strong>Treating the colony as the unit of change</strong> while ignoring the surrounding political economy</li>
-      <li><strong>Not having a religion</strong>, when religion was doing the work</li>
-    </ul>
-    <p class="lede small">The next tradition we'll meet — the anarchists — accepts most of these critiques and tries to answer them differently than Marx did.</p>
+    <span class="chip chip-utopian">Place</span>
+    <h2 style="margin-top:0.5em;">Brook Farm <span class="meta" style="font-size:0.55em;color:var(--muted);">· West Roxbury, MA · 1841–1847</span></h2>
+    <img class="scene" src="https://commons.wikimedia.org/wiki/Special:FilePath/BrookFarm-PrintShop.jpg?width=1024" alt="Brook Farm print shop"/>
+    <span class="credit">Brook Farm print shop, contemporary engraving — <a href="https://commons.wikimedia.org/wiki/File:BrookFarm-PrintShop.jpg">Wikimedia Commons</a> · Public domain</span>
+    <div class="twocol" style="margin-top:1em; font-size:0.78em;">
+      <div>
+        <p>Founded by Unitarian minister George Ripley out of the Transcendentalist Club. Members & visitors: <strong>Hawthorne, Margaret Fuller, Emerson, Thoreau, Charles Dana, Isaac Hecker</strong>.</p>
+      </div>
+      <div>
+        <p>Equal pay across all jobs (farm = kitchen = teaching). Excellent progressive school. Converted to Fourierism in 1844; the diaspora alumni shaped American letters for the next century.</p>
+      </div>
+    </div>
+    <div class="takeaway">Bequeathed: <strong>self-cultivation as a commune's purpose</strong>, not just structural reform. The transcendentalist root passes forward into the back-to-the-land movement, Findhorn, Esalen, and the human-potential commune tradition.</div>
     <aside class="notes">
-      The cleanest summary of utopian failure modes. Each of these gets answered
-      differently by what's next. Anarchists answer "the political-economy problem"
-      with federation instead of state-seizure. Religious communalists answered the
-      values + succession problems with theology. The kibbutz answered the
-      undercapitalization problem with a state that backed them.
+      Brook Farm is the genealogical root of "intentional community" with a personal-growth
+      emphasis. When the Phalanstery building burned in March 1846, the colony never
+      financially recovered — but the alumni network became culturally outsized:
+      Hawthorne's novels, Dana's New York Sun, Hecker's Paulist Fathers. Diaspora
+      outlives the commune.
     </aside>
   </section>
 
-  <section style="text-align: center;">
+  <section>
+    <span class="chip chip-utopian">Place</span>
+    <h2 style="margin-top:0.5em;">North American Phalanx <span class="meta" style="font-size:0.55em;color:var(--muted);">· Colts Neck, NJ · 1843–1856</span></h2>
+    <div class="twocol" style="margin-top:1em;">
+      <div>
+        <h3>The longest-lived Fourierist colony</h3>
+        <p class="small">Founded with editorial support from Horace Greeley, who put Fourierist columns on the front page of the <em>New York Tribune</em>. ~125 members at peak in a 150-foot communal Phalanstery.</p>
+        <p class="small"><strong>Inverse-prestige pay:</strong> the unpleasant work paid <em>more</em>, not less. Direct ancestor of modern compensating-differentials and egalitarian wage schemes.</p>
+        <p class="small"><strong>Industrial diversification:</strong> grist mill, saw mill, boxmaking shop, the famous "Phalanx Tomato Catsup" sold in NYC.</p>
+      </div>
+      <div>
+        <div class="stat-grid" style="grid-template-columns: 1fr;">
+          <div class="stat"><span class="num">12y 9m</span><span class="label">longest secular Fourierist run</span></div>
+          <div class="stat"><span class="num">125</span><span class="label">members at peak</span></div>
+          <div class="stat"><span class="num">~30</span><span class="label">phalanxes in 1840s US</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway">Bequeathed: <strong>Fourier's Series and Groups system actually works at scale.</strong> Twin Oaks (1967–present) explicitly cites NAP. The kibbutz <em>toranut</em> rotation and Mondragón's compressed wage ratios both descend from the NAP demonstration.</div>
+    <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/North_American_Phalanx">Wikipedia</a> · <a href="https://archive.org/details/harbingerdevoted01broo">The Harbinger (1845–49)</a> · Carl Guarneri, <em>The Utopian Alternative</em> (Cornell, 1991)</p>
+    <aside class="notes">
+      NAP is the proof-of-concept for everything that came later in the labor-credit
+      tradition. Task rotation through the day did not produce chaos. Transparent
+      labor accounting did not generate constant resentment. Inverse-prestige pay did
+      not drive away the skilled. These structural innovations passed forward.
+    </aside>
+  </section>
+
+  <section>
+    <span class="chip chip-utopian">Place</span>
+    <h2 style="margin-top:0.5em;">The Icarian arc <span class="meta" style="font-size:0.55em;color:var(--muted);">· 1848–1898 · four states · ~50 years</span></h2>
+    <svg class="diagram" viewBox="0 0 1100 240" xmlns="http://www.w3.org/2000/svg">
+      <line x1="50" y1="120" x2="1050" y2="120" stroke="#B5651D" stroke-width="2"/>
+      <g font-family="Inter, sans-serif">
+        <circle cx="100" cy="120" r="14" fill="#B5651D"/>
+        <text x="100" y="155" text-anchor="middle" fill="#E0A878" font-size="13" font-weight="600">Paris</text>
+        <text x="100" y="172" text-anchor="middle" fill="#888" font-size="11">1840 — book published</text>
+        <text x="100" y="186" text-anchor="middle" fill="#888" font-size="10">~100k readers by 1846</text>
+
+        <circle cx="290" cy="120" r="14" fill="#B5651D"/>
+        <text x="290" y="155" text-anchor="middle" fill="#E0A878" font-size="13" font-weight="600">Texas</text>
+        <text x="290" y="172" text-anchor="middle" fill="#888" font-size="11">1848 — yellow fever</text>
+        <text x="290" y="186" text-anchor="middle" fill="#888" font-size="10">retreat to New Orleans</text>
+
+        <circle cx="480" cy="120" r="14" fill="#B5651D"/>
+        <text x="480" y="155" text-anchor="middle" fill="#E0A878" font-size="13" font-weight="600">Nauvoo, IL</text>
+        <text x="480" y="172" text-anchor="middle" fill="#888" font-size="11">1849–1856</text>
+        <text x="480" y="186" text-anchor="middle" fill="#888" font-size="10">~500 residents · Cabet expelled 1856</text>
+
+        <circle cx="700" cy="120" r="18" fill="#B5651D" stroke="#d4a373" stroke-width="2"/>
+        <text x="700" y="155" text-anchor="middle" fill="#F5DEB3" font-size="13" font-weight="600">Corning, IA</text>
+        <text x="700" y="172" text-anchor="middle" fill="#888" font-size="11">1860–1898</text>
+        <text x="700" y="186" text-anchor="middle" fill="#888" font-size="10">working farm · French until 1890s</text>
+
+        <circle cx="900" cy="120" r="12" fill="#B5651D" opacity="0.7"/>
+        <text x="900" y="155" text-anchor="middle" fill="#E0A878" font-size="13" font-weight="600">Cloverdale, CA</text>
+        <text x="900" y="172" text-anchor="middle" fill="#888" font-size="11">1881–1886</text>
+        <text x="900" y="186" text-anchor="middle" fill="#888" font-size="10">"Young Party" offshoot</text>
+      </g>
+      <text x="550" y="40" text-anchor="middle" fill="#d4a373" font-style="italic" font-size="14">"The commune is its constitution and its members — not its land."</text>
+    </svg>
+    <div class="takeaway">Bequeathed: <strong>migration as organizational strategy</strong> · <strong>schism survival</strong> (the 1878 Old/Young split <em>strengthened</em> both successors) · <strong>the founding-memoir tradition</strong>. Every later movement that relocates, splits, or self-documents follows this template.</div>
+    <p class="tiny">Refs: <a href="https://en.wikipedia.org/wiki/Icarians">Wikipedia · Icarians</a> · Robert Sutton, <em>Les Icariens</em> (Illinois, 1994)</p>
+    <aside class="notes">
+      50 years across 4 states. The Icarians proved a commune is portable — that what
+      makes it a commune is the body of members and the constitution, not the parcel of
+      land. That principle frees every later movement.
+    </aside>
+  </section>
+
+  <section style="text-align:center;">
     <h2>Break (5 min)</h2>
-    <p class="lede">Stretch. Water. Then: anarchists.</p>
+    <p class="lede">Stretch. Water. Then: religious communalists, the lineage that survived centuries.</p>
+    <aside class="notes">First hard break.</aside>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- BLOCK 3 — RELIGIOUS COMMUNALISTS -->
+  <!-- ============================================================ -->
+
+  <section>
+    <span class="chip chip-religious">Religious Communalists</span>
+    <h1 style="margin-top:0.6em;">The lineage that lasted</h1>
+    <p class="lede">When secular communes count their lives in years, religious communes count theirs in centuries. The toolkit they handed forward is enormous — and largely unsung.</p>
     <aside class="notes">
-      Hard break. Don't skip. People need to reset before the anarchist block, which
-      is the densest of the night.
+      Religious communalism is the senior tradition. The Hutterites have been at it
+      continuously since 1528. The Shakers since 1747. Modern secular communalism is
+      in many ways an inheritor that has had to reinvent — without theology — the
+      ritual and structural technologies these communities developed first.
     </aside>
   </section>
 
-  <!-- =================================================================== -->
-  <!-- BLOCK 2 — ANARCHIST TRADITION -->
-  <!-- =================================================================== -->
+  <section>
+    <div class="person-grid">
+      <div>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Shakers_near_Lebanon_state_of_N._York%2C_their_mode_of_worship_LCCN00650589.jpg?width=600" alt="Shaker worship dance"/>
+        <span class="credit">"Shakers near Lebanon, NY — their mode of worship," c. 1870 lithograph (Library of Congress).<br/><a href="https://commons.wikimedia.org/wiki/File:Shakers_near_Lebanon_state_of_N._York,_their_mode_of_worship_LCCN00650589.jpg">Wikimedia Commons</a> · Public domain</span>
+      </div>
+      <div>
+        <span class="chip chip-religious">Religious</span>
+        <h2 style="margin-top:0.4em;">The Shakers <span class="meta">· founded 1747 · still alive 2026</span></h2>
+        <p class="small meta">Mother Ann Lee · Manchester → New Lebanon, NY · peak 6,000 across 19 villages</p>
+        <blockquote>"Put your hands to work, and your hearts to God."<cite>— attrib. Mother Ann Lee, in Testimonies of the Life of Mother Ann Lee (1888 ed.)</cite></blockquote>
+        <p class="small"><strong>Dual-natured Father–Mother God</strong> made gender equality a metaphysical necessity. Every village had paired Elder/Eldress, Deacon/Deaconess. The "shaking" was a disciplined collective dance — the worship was the choreography.</p>
+        <div class="takeaway">Bequeathed: <strong>work as practice.</strong> Shaker furniture quality came from treating production as formative spiritual work. Every modern maker collective, craft cooperative, or "right livelihood" community translates this into secular form. Plus: <strong>gender-paired co-leadership</strong> is the structural ancestor of mazkir/mazkira pairs and modern cooperative co-direction.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Shakers">Wikipedia</a> · <a href="https://www.maineshakers.com/">Sabbathday Lake (last living village)</a> · Stephen Stein, <em>The Shaker Experience in America</em> (Yale)</p>
+      </div>
+    </div>
+    <aside class="notes">
+      The Shakers are still here. Two members at Sabbathday Lake, Maine, as of 2026,
+      with Sister April Baxter joining in 2025. The society remains formally open to
+      novices. They invented gender-paired leadership, an aesthetic vocabulary the
+      whole world borrowed, and music that's still in the American canon ("Simple
+      Gifts" is theirs).
+    </aside>
+  </section>
 
   <section>
-    <span class="label">Block 2</span>
-    <h1>The Anarchist Tradition</h1>
-    <p class="lede">Federated communes, mutual aid, no state — and the revolutions where they tried it.</p>
+    <div class="person-grid">
+      <div>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hutterite_colony_in_Martinsdale_Montana.jpg?width=600" alt="Hutterite colony, Martinsdale Montana"/>
+        <span class="credit">A Hutterite colony in Martinsdale, Montana. <a href="https://commons.wikimedia.org/wiki/File:Hutterite_colony_in_Martinsdale_Montana.jpg">Wikimedia Commons</a> · CC BY-SA</span>
+      </div>
+      <div>
+        <span class="chip chip-religious">Religious</span>
+        <h2 style="margin-top:0.4em;">The Hutterites <span class="meta">· founded 1528 · ~58,000 today</span></h2>
+        <p class="small meta">Anabaptist · Moravia → Slovakia → Russia → North America (1874) · ~544 colonies in 2026</p>
+        <blockquote>"Just as there is nothing in our body that our body keeps for itself alone, so there should be no member of the church who keeps anything for himself."<cite>— Peter Riedemann, Account of Our Religion, Doctrine and Faith (1545)</cite></blockquote>
+        <p class="small">Total community of goods, grounded in <em>Acts 2:44–47</em> — "all things in common" — treated as the <em>permanent</em> shape of Christian discipleship. <strong>500 years of continuous practice.</strong></p>
+        <div class="takeaway">Bequeathed: <strong>the 150-person rule.</strong> When a colony grows past ~150 it "daughters out" — half the members move and start a new colony. This is Dunbar's number, arrived at four centuries before the anthropology was written. Used today by the Bruderhof, by federation-design in anarchist communalism, and by every cohousing project that targets 30–80 households.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Hutterites">Wikipedia</a> · <a href="https://hutterites.org/">Hutterites.org</a> · John Hostetler, <em>Hutterite Society</em> (JHU Press)</p>
+      </div>
+    </div>
     <aside class="notes">
-      The anarchist tradition is the one that takes communalism most seriously as a
-      total social form — neither retreat (utopians) nor state-capture (Marxists)
-      but federation from below. It's also the tradition that produced the
-      largest-scale real-world experiments — the Spanish revolution, the Makhnovshchina,
-      the Paris Commune. We're going to spend ~50 minutes here.
+      When skeptics say "communism doesn't work at scale or over time," the Hutterites
+      are the standing 500-year counter-example. Combine 16th-century communal economics
+      with industrial-scale modern agriculture. Daughtering-out at 150 is the structural
+      genius — they refuse to grow any colony past the face-to-face commons.
+    </aside>
+  </section>
+
+  <section>
+    <div class="person-grid">
+      <div>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Oneida_Community_Mansion.jpg?width=600" alt="Oneida Mansion House"/>
+        <span class="credit">Oneida Community Mansion House — 93,000 sq ft, built 1862–1878. Still standing as a museum.<br/><a href="https://commons.wikimedia.org/wiki/File:Oneida_Community_Mansion.jpg">Wikimedia Commons</a></span>
+      </div>
+      <div>
+        <span class="chip chip-religious">Religious</span>
+        <h2 style="margin-top:0.4em;">Oneida <span class="meta">· 1848–1881 → silverware brand still operates today</span></h2>
+        <p class="small meta">John Humphrey Noyes · Oneida, NY · ~300 members at peak</p>
+        <blockquote>"Criticism is the great instrument of moral cure. We have found by experience that this is the most effective spiritual machinery for transforming character that has ever been invented."<cite>— Noyes, Mutual Criticism (1876), Introduction</cite></blockquote>
+        <p class="small">Invented <strong>mutual criticism</strong> — every member periodically subjected to structured group feedback. Industrial diversification (steel animal traps → fruit preserves → silk → silverware). In <strong>1881 they reincorporated as a joint-stock company</strong>: the only major American commune that <em>converted</em> rather than collapsed.</p>
+        <div class="takeaway">Bequeathed: <strong>mutual criticism is the direct ancestor of every modern group-feedback ritual</strong> — Quaker clearness committees, Kurt Lewin's T-groups (1946), encounter groups, contemporary therapy circles, even Agile retrospectives. Plus: <strong>graceful exit via re-incorporation</strong> as a model for aging cooperatives.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Oneida_Community">Wikipedia</a> · <a href="https://archive.org/details/mutualcriticism00onei">Mutual Criticism (1876, full text)</a> · <a href="https://www.oneidacommunity.org/">Mansion House Museum</a></p>
+      </div>
+    </div>
+    <aside class="notes">
+      Oneida is the richest single laboratory in 19th-century communalism. Mutual
+      criticism is the load-bearing inheritance — every modern feedback ritual descends
+      from it. The 1881 conversion to joint-stock with shares proportional to
+      contribution is the cleanest model for graceful exit anywhere in the record.
+      The silverware brand still exists.
+    </aside>
+  </section>
+
+  <section>
+    <span class="chip chip-religious">Place</span>
+    <h2 style="margin-top:0.5em;">Amana Colonies, Iowa <span class="meta" style="font-size:0.55em;color:var(--muted);">· 1855–1932 communal · then joint-stock corporation</span></h2>
+    <img class="scene" src="https://commons.wikimedia.org/wiki/Special:FilePath/Amana_Colonies.JPG?width=1024" alt="Amana Colonies, Iowa"/>
+    <span class="credit">An Amana village street in Iowa. <a href="https://commons.wikimedia.org/wiki/File:Amana_Colonies.JPG">Wikimedia Commons</a></span>
+    <div class="twocol" style="margin-top:1em; font-size:0.78em;">
+      <div>
+        <h3>The Inspirationists</h3>
+        <p class="small">German Pietist sect founded 1714 around <em>Werkzeuge</em> — living human "instruments" through whom God still speaks. Migrated to Iowa in 1855 with ~1,200 members on 26,000 acres, founding seven villages.</p>
+        <p class="small"><strong>77 years of full communal property</strong> — the longest-running American secular-leaning commune.</p>
+      </div>
+      <div>
+        <h3>The Great Change</h3>
+        <p class="small">In 1932, members voted to separate the religious community (still active today) from the economic community (reorganized as the Amana Society, joint-stock). George Foerstner span out a beverage cooler in 1934 → <strong>Amana Refrigeration</strong>.</p>
+        <p class="small">Like Oneida, Amana converted gracefully. The brand carries 19th-century communalist origins into your kitchen today.</p>
+      </div>
+    </div>
+    <div class="takeaway">Bequeathed: <strong>village-scale communal kitchens.</strong> Amana's 50+ village kitchens are the structural ancestor of the kibbutz <em>cheder ochel</em>, modern cohousing's "common house meal," and every commune that recognizes shared cooking as the backbone of a commons.</div>
+    <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Amana_Colonies">Wikipedia</a> · <a href="https://amanaheritage.org/">Amana Heritage Society</a></p>
+    <aside class="notes">
+      Amana is the cleanest "commune-to-corporation" precedent. The 1932 vote separating
+      church from economy is a textbook governance event that aging cooperatives study
+      today. And the village kitchens — meals served collectively, no household cooking —
+      are the prototype the kibbutz dining hall built on.
+    </aside>
+  </section>
+
+  <section>
+    <div class="person-grid">
+      <div>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Eberhard_Arnold.jpg?width=600" alt="Eberhard Arnold"/>
+        <span class="credit">Eberhard Arnold, founder of the Bruderhof.<br/><a href="https://commons.wikimedia.org/wiki/File:Eberhard_Arnold.jpg">Wikimedia Commons</a> · Public domain</span>
+      </div>
+      <div>
+        <span class="chip chip-religious">Religious</span>
+        <h2 style="margin-top:0.4em;">The Bruderhof <span class="meta">· founded 1920 · ~3,000 today across 25 communities</span></h2>
+        <p class="small meta">Eberhard & Emmy Arnold · Sannerz, Hesse → US, UK, Australia, Paraguay, Germany</p>
+        <blockquote>"We want to live in such a way that anyone who comes to us would feel: this is the way of the early Christians; this is community of love."<cite>— Eberhard Arnold, Why We Live in Community (1925)</cite></blockquote>
+        <p class="small"><strong>Communally-owned firm.</strong> Internal: common purse, no salaries. External: a competitive enterprise. <strong>Community Playthings</strong> (wooden classroom furniture) and <strong>Rifton Equipment</strong> (adaptive medical gear for kids with disabilities) are the income engines.</p>
+        <div class="takeaway">Bequeathed: <strong>the commune-as-firm</strong>. The Bruderhof model — competitive in the market, communal internally — is the prototype every worker-cooperative federation rediscovers: Mondragón, Evergreen, modern platform cooperatives. The answer to "how does a commune fund itself in a market economy?"</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Bruderhof_Communities">Wikipedia</a> · <a href="https://www.bruderhof.com/">Bruderhof.com</a> · <a href="https://www.plough.com/">Plough Quarterly</a></p>
+      </div>
+    </div>
+    <aside class="notes">
+      The Bruderhof translates Hutterite Gütergemeinschaft into 20th-century industrial
+      conditions. Their economic genius: be a firm in the market while remaining a
+      commune internally. Every modern worker cooperative discovers some version of
+      this — the Bruderhof has been doing it since 1920.
+    </aside>
+  </section>
+
+  <section>
+    <h2>What religious communalism teaches the secular tradition</h2>
+    <ul style="font-size:0.82em; margin-top:1em;">
+      <li><strong>Membership filter strength predicts longevity.</strong> Centuries of empirical data. The filter doesn't have to be religious — but it has to be something.</li>
+      <li><strong>Daughter-out at ~150.</strong> The face-to-face commons has a real upper bound. Don't try to grow past it; multiply instead.</li>
+      <li><strong>Shared ritual outlasts shared rules.</strong> Common meals, common worship, common feedback — the rituals carry the community across generations.</li>
+      <li><strong>A productive vocation funds the community.</strong> Furniture, silverware, classroom toys, agriculture. The Bruderhof / Oneida / Amana model.</li>
+      <li><strong>Graceful exit is possible.</strong> Oneida (1881) and Amana (1932) both converted to joint-stock with shares proportional to contribution. The brand and the network can outlive the commune.</li>
+    </ul>
+    <div class="takeaway">Religion did the binding work. The open question for every secular commune: <strong>what plays the role that religion played?</strong> Hold the question — we'll come back to it.</div>
+    <aside class="notes">
+      This is the load-bearing slide for the religious block. Five inheritances. The
+      open question — what does the binding work in a secular commune? — is one of the
+      hardest design questions of the night, and we'll return to it in Block 6.
+    </aside>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- BLOCK 4 — ANARCHIST THEORISTS -->
+  <!-- ============================================================ -->
+
+  <section>
+    <span class="chip chip-anarchist">Anarchist Communalists</span>
+    <h1 style="margin-top:0.6em;">Federation, mutual aid, and the new world in the shell of the old</h1>
+    <p class="lede">The tradition that took communalism most seriously as a total social form — neither retreat nor state-capture, but federation from below.</p>
+    <aside class="notes">
+      The anarchist tradition is the one that gives the rest of communalism its political
+      backbone. Four theorists, three real revolutions. We'll spend ~50 minutes here.
+      The vocabulary you'll come away with: mutual aid, prefiguration, federation,
+      possession-vs-property, recallable delegates.
     </aside>
   </section>
 
   <section>
     <h2>What "anarchism" means here</h2>
-    <ul>
-      <li>Not chaos. Not "no rules." Not bomb-throwing.</li>
-      <li><em>An-archē</em> — without a ruler. Order without domination.</li>
-      <li>Three commitments most strands share:
-        <ul>
-          <li>Voluntary association as the unit of social life</li>
-          <li>Federation, not centralization, when scaling up</li>
-          <li>The means must prefigure the ends</li>
-        </ul>
-      </li>
+    <p class="small">Not chaos. Not "no rules." Not bomb-throwing.</p>
+    <p style="font-size:1.2em; line-height:1.6; margin-top:1em;" class="lede">An-archē — without a ruler.<br/>Order without domination.</p>
+    <ul style="font-size:0.8em; margin-top:1em; max-width: 800px; margin-left: auto; margin-right: auto;">
+      <li>Voluntary association as the unit of social life</li>
+      <li>Federation, not centralization, when scaling up</li>
+      <li>The means must prefigure the ends</li>
     </ul>
-    <blockquote class="small">"Anarchy is order without power." <cite>— Proudhon</cite></blockquote>
+    <blockquote style="margin: 1.5em auto; max-width:700px;">"Anarchy is order without power."<cite>— Pierre-Joseph Proudhon</cite></blockquote>
     <aside class="notes">
-      Reset the term. Most people walked in tonight thinking anarchism = chaos. The
-      tradition is in fact obsessed with order — just order produced by association
-      from below rather than imposed from above. The "prefigurative" commitment is
-      worth lingering on: the means must look like the ends. You don't build
-      libertarian socialism with a Bolshevik party. This will matter when we hit
-      Bakunin's break with Marx.
+      Reset the term. Most people walked in tonight with a cartoon picture. The tradition
+      is in fact obsessed with order — just order produced by association from below
+      rather than imposed from above. The "prefigurative" commitment matters: the means
+      must look like the ends.
     </aside>
   </section>
 
   <section>
-    <h2>Pierre-Joseph Proudhon (1809–1865)</h2>
-    <div class="twocol">
+    <div class="person-grid">
       <div>
-        <p>French printer. First person to call himself an anarchist (1840).</p>
-        <p><em>What is Property?</em> (1840) — the answer is on the next slide.</p>
-        <p>Develops <strong>mutualism</strong>: workers organized into federations of producer cooperatives, exchanging at cost via labor-time, financed by a "People's Bank."</p>
-        <p>Distinguishes <strong>property</strong> (rent-extracting) from <strong>possession</strong> (use-rights).</p>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Portrait_of_Pierre_Joseph_Proudhon_1865.jpg?width=600" alt="Proudhon"/>
+        <span class="credit">Pierre-Joseph Proudhon, 1865.<br/><a href="https://commons.wikimedia.org/wiki/File:Portrait_of_Pierre_Joseph_Proudhon_1865.jpg">Wikimedia Commons</a> · Public domain</span>
       </div>
       <div>
-        <blockquote>"Property is theft."<cite>— Proudhon, 1840</cite></blockquote>
-        <blockquote class="small">"To be governed is to be watched, inspected, spied upon, directed, law-driven, numbered, regulated, enrolled, indoctrinated…"<cite>— Proudhon, General Idea of the Revolution, 1851</cite></blockquote>
+        <span class="chip chip-anarchist">Anarchist</span>
+        <h2 style="margin-top:0.4em;">Pierre-Joseph Proudhon <span class="meta">· 1809–1865</span></h2>
+        <p class="small meta">Cooper's son · self-taught printer · first to call himself "anarchist" (1840)</p>
+        <blockquote>"What is the principle of mutuality? Service for service, product for product, loan for loan, insurance for insurance, credit for credit, security for security, guarantee for guarantee."<cite>— Proudhon, General Idea of the Revolution, Fifth Study (1851)</cite></blockquote>
+        <p class="small">Set type for theology and philosophy as a printer's apprentice — taught himself Hebrew, Greek, and the entire reading list of European thought as it passed through his press.</p>
+        <div class="takeaway">Bequeathed: <strong>property vs. possession.</strong> Property = the right to extract rent without working. Possession = the right of the user-occupier (the farmer who tills, the family in the house). Every <strong>community land trust</strong> implements this distinction. Every credit union descends from his People's Bank.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Pierre-Joseph_Proudhon">Wikipedia</a> · <a href="https://theanarchistlibrary.org/library/pierre-joseph-proudhon-what-is-property-an-inquiry-into-the-principle-of-right-and-of-government">What is Property?</a> · <a href="https://plato.stanford.edu/entries/anarchism/">SEP: Anarchism</a></p>
       </div>
     </div>
     <aside class="notes">
-      Proudhon is the spine of European anarchism. The property/possession
-      distinction is essential and is exactly what land trusts and most modern
-      cooperatives operationalize: you can use it, you can't extract rent from it.
-      Mutualism is the moderate wing — it's pro-market, pro-cooperative, anti-rent.
-      Bakunin and Kropotkin will push past this toward common ownership.
+      Proudhon is the spine of European anarchism. The property/possession distinction is
+      essential and is exactly what land trusts and most modern cooperatives operationalize.
+      "Property is theft" attacks rentier extraction; the toothbrush isn't theft. Hold both.
     </aside>
   </section>
 
   <section>
-    <h2>Mikhail Bakunin (1814–1876)</h2>
-    <div class="twocol">
+    <div class="person-grid">
       <div>
-        <p>Russian aristocrat turned revolutionary. Imprisoned, escaped Siberia eastward through Japan and the US.</p>
-        <p>Pushes Proudhon's mutualism toward <strong>collectivism</strong>: means of production held in common, but distribution still by labor.</p>
-        <p>Famously broke with Marx in the First International (1872) — argued any "dictatorship of the proletariat" would become the dictatorship <em>of</em> the proletariat by a new ruling class.</p>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mikhail_Bakunin_Nader_%283x4_cropped%29.jpg?width=600" alt="Bakunin"/>
+        <span class="credit">Bakunin photographed by Nadar, c. 1863.<br/><a href="https://commons.wikimedia.org/wiki/File:Mikhail_Bakunin_Nader_(3x4_cropped).jpg">Wikimedia Commons</a> · Public domain</span>
       </div>
       <div>
-        <blockquote>"Liberty without socialism is privilege and injustice; socialism without liberty is slavery and brutality."<cite>— Bakunin, Federalism, Socialism, Anti-Theologism, 1867</cite></blockquote>
-      </div>
-    </div>
-    <aside class="notes">
-      Bakunin's prediction of how Marxism would degenerate into a new ruling class
-      was published in 1873 and looks prophetic in retrospect. The split with Marx
-      is the original schism in modern socialism — state vs. federation, vanguard vs.
-      direct action. Almost every later left-wing argument re-runs this fight.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Peter Kropotkin (1842–1921)</h2>
-    <div class="twocol">
-      <div>
-        <p>Russian prince. Geographer. Naturalist. Revolutionary.</p>
-        <p>Rejected his title at 12. Did fieldwork in Siberia. Imprisoned in France and Russia. Returned to Russia in 1917 — disgusted by Bolshevism, died in 1921.</p>
-        <p>Two foundational books for us:</p>
-        <ul>
-          <li><em>The Conquest of Bread</em> (1892) — the picture of a free society</li>
-          <li><em>Mutual Aid: A Factor of Evolution</em> (1902) — the scientific case</li>
-        </ul>
-      </div>
-      <div>
-        <p style="font-size: 0.8em;">Kropotkin is the central figure of tonight's anarchist block. He gives the tradition:</p>
-        <ul class="small">
-          <li>A <strong>biological/anthropological</strong> grounding</li>
-          <li>A <strong>positive program</strong> (federated communes)</li>
-          <li>An <strong>economic blueprint</strong> (anarcho-communism)</li>
-          <li>And the <strong>moral psychology</strong> behind all of it</li>
-        </ul>
+        <span class="chip chip-anarchist">Anarchist</span>
+        <h2 style="margin-top:0.4em;">Mikhail Bakunin <span class="meta">· 1814–1876</span></h2>
+        <p class="small meta">Russian aristocrat → Dresden barricade → Peter & Paul Fortress → escape east through Japan</p>
+        <blockquote>"Liberty without socialism is privilege and injustice; socialism without liberty is slavery and brutality."<cite>— Bakunin, Federalism, Socialism, Anti-Theologism (1867)</cite></blockquote>
+        <p class="small">Fought on the Dresden barricades in 1849 alongside <em>Richard Wagner</em>. Survived two death sentences and six years of solitary in the Tsar's fortresses. In 1861 escaped Siberia <strong>eastward</strong> through Hakodate, San Francisco, Panama, New York, London.</p>
+        <div class="takeaway">Bequeathed: <strong>the prophetic critique of the vanguard.</strong> In 1873 (44 years before October 1917) Bakunin wrote that a "people's state" run by ex-workers and intellectuals will become a new aristocracy of administrators. Every later libertarian-left's immune system against authoritarian "transitions" runs on this insight.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Mikhail_Bakunin">Wikipedia</a> · <a href="https://theanarchistlibrary.org/library/mikhail-bakunin-god-and-the-state">God and the State</a> · <a href="https://www.marxists.org/reference/archive/bakunin/works/1873/statism-anarchy.htm">Statism and Anarchy</a></p>
       </div>
     </div>
     <aside class="notes">
-      Spend a beat on Kropotkin's biography. The fact that he was a Russian prince
-      who renounced his title and became the leading scientific anarchist is itself
-      important — class betrayal is a structural ingredient in most of these
-      movements. He's also the rare 19th-century radical who comes off as
-      <em>kind</em> in his writing. People who met him used the word "saint." That
-      tonal quality matters and survives in his books.
+      Bakunin's escape from Siberia eastward through Japan and the US is one of the
+      great revolutionary biographies. His 1873 forecast of how Marxism would degenerate
+      reads as direct testimony from October 1917 — written 44 years before. The split
+      with Marx in 1872 at the Hague Congress is the original schism in modern socialism.
     </aside>
   </section>
 
   <section>
-    <h2>Mutual Aid — the argument</h2>
-    <p>Kropotkin's response to Social Darwinism (Huxley, Spencer):</p>
-    <ol>
-      <li>Darwin's "struggle for existence" was misread as <em>between</em> members of a species. It's mostly <em>against the environment</em>.</li>
-      <li>Within species, <strong>cooperation is the dominant survival strategy.</strong></li>
-      <li>He documents this across animals (insects, birds, mammals), then "savages," then medieval cities, then modern guilds and unions.</li>
-      <li>Therefore: communism is not against human nature — it <em>is</em> human nature, suppressed by state and market.</li>
-    </ol>
-    <p class="small">This is the first systematic biological argument for cooperation. Modern evolutionary biology vindicates large parts of it (kin selection, reciprocal altruism, eusociality).</p>
+    <div class="person-grid">
+      <div>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Peter_Kropotkin_circa_1900.jpg?width=600" alt="Kropotkin"/>
+        <span class="credit">Peter Kropotkin, c. 1900.<br/><a href="https://commons.wikimedia.org/wiki/File:Peter_Kropotkin_circa_1900.jpg">Wikimedia Commons</a> · Public domain</span>
+      </div>
+      <div>
+        <span class="chip chip-anarchist">Anarchist · the centerpiece</span>
+        <h2 style="margin-top:0.4em;">Peter Kropotkin <span class="meta">· 1842–1921</span></h2>
+        <p class="small meta">Prince → Tsar's page at 15 → Siberian field biologist → revolutionary → returned to Russia 1917 → buried Bolshevism in his diary</p>
+        <blockquote>"The mutual-aid tendency in man has so remote an origin, and is so deeply interwoven with all the past evolution of the human race, that it has been maintained by mankind up to the present time, notwithstanding all vicissitudes of history."<cite>— Kropotkin, Mutual Aid (1902), Chapter VIII</cite></blockquote>
+        <p class="small">Older blood than the Romanovs. Renounced his title at 12. Did fieldwork in Siberia with Darwin in his saddlebag — and saw the opposite of "struggle for existence." Came home with a counter-thesis that took him 40 years to publish.</p>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Peter_Kropotkin">Wikipedia</a> · <a href="https://theanarchistlibrary.org/library/petr-kropotkin-mutual-aid-a-factor-of-evolution">Mutual Aid</a> · <a href="https://theanarchistlibrary.org/library/petr-kropotkin-the-conquest-of-bread">The Conquest of Bread</a> · <a href="https://theanarchistlibrary.org/library/petr-kropotkin-fields-factories-and-workshops">Fields, Factories and Workshops</a></p>
+      </div>
+    </div>
     <aside class="notes">
-      <em>Mutual Aid</em> is the most under-read foundational text in social thought.
-      The whole 20th century would have been less stupid if more people had read it.
-      The argument matters because it inverts the framing: defenders of capitalism
-      always say "we'd love to share but human nature." Kropotkin says: actually,
-      sharing is the human nature, and capitalism is the deviation. Modern
-      evolutionary bio supports a chunk of this — not all of it, but enough.
+      Kropotkin gets two slides because he's the centerpiece. His funeral procession
+      through Moscow in 1921 was the LAST legal anarchist demonstration in Soviet
+      Russia — banners read "Where there is authority, there is no freedom." Kronstadt
+      erupted three weeks later. He's the rare radical who comes off as kind in his
+      writing — people who met him used the word "saint."
     </aside>
   </section>
 
   <section>
-    <h2>Kropotkin in his own words</h2>
-    <blockquote>
-      "Don't compete! — competition is always injurious to the species, and you have plenty of resources to avoid it!" That is the tendency of nature, not always realized in full, but always present. That is the watchword which comes to us from the bush, the forest, the river, the ocean. <em>Therefore combine — practice mutual aid!</em>
-      <cite>— Kropotkin, Mutual Aid, 1902, Chapter II (paraphrasing the lesson he draws from animal behavior)</cite>
-    </blockquote>
-    <blockquote class="small">
-      "The mutual-aid tendency in man has so remote an origin, and is so deeply interwoven with all the past evolution of the human race, that it has been maintained by mankind up to the present time, notwithstanding all vicissitudes of history."
-      <cite>— Kropotkin, Mutual Aid, Chapter VIII</cite>
-    </blockquote>
+    <span class="chip chip-anarchist">Diagram · Mutual Aid</span>
+    <h2 style="margin-top:0.5em;">Kropotkin's argument, visualized</h2>
+    <p class="small">Cooperation is not utopian — it's how life on Earth actually works.</p>
+    <svg class="diagram" viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg">
+      <!-- Edges first -->
+      <g stroke="#8B0000" stroke-width="1.2" stroke-opacity="0.6" fill="none">
+        <line x1="180" y1="120" x2="280" y2="80"/>
+        <line x1="180" y1="120" x2="240" y2="200"/>
+        <line x1="280" y1="80"  x2="380" y2="120"/>
+        <line x1="280" y1="80"  x2="340" y2="180"/>
+        <line x1="240" y1="200" x2="340" y2="180"/>
+        <line x1="240" y1="200" x2="220" y2="300"/>
+        <line x1="340" y1="180" x2="440" y2="220"/>
+        <line x1="380" y1="120" x2="500" y2="160"/>
+        <line x1="440" y1="220" x2="500" y2="160"/>
+        <line x1="440" y1="220" x2="520" y2="300"/>
+        <line x1="220" y1="300" x2="320" y2="340"/>
+        <line x1="320" y1="340" x2="440" y2="380"/>
+        <line x1="440" y1="380" x2="520" y2="300"/>
+        <line x1="220" y1="300" x2="320" y2="240"/>
+        <line x1="320" y1="240" x2="440" y2="220"/>
+        <line x1="320" y1="240" x2="340" y2="180"/>
+        <line x1="320" y1="340" x2="440" y2="220"/>
+        <line x1="500" y1="160" x2="600" y2="200"/>
+        <line x1="600" y1="200" x2="640" y2="300"/>
+        <line x1="520" y1="300" x2="640" y2="300"/>
+      </g>
+      <!-- Nodes -->
+      <g fill="#B85050">
+        <circle cx="180" cy="120" r="9"/>
+        <circle cx="280" cy="80"  r="11"/>
+        <circle cx="380" cy="120" r="9"/>
+        <circle cx="240" cy="200" r="10"/>
+        <circle cx="340" cy="180" r="13"/>
+        <circle cx="440" cy="220" r="11"/>
+        <circle cx="500" cy="160" r="10"/>
+        <circle cx="600" cy="200" r="9"/>
+        <circle cx="220" cy="300" r="10"/>
+        <circle cx="320" cy="240" r="9"/>
+        <circle cx="320" cy="340" r="11"/>
+        <circle cx="440" cy="380" r="10"/>
+        <circle cx="520" cy="300" r="9"/>
+        <circle cx="640" cy="300" r="9"/>
+      </g>
+      <text x="400" y="430" text-anchor="middle" font-style="italic" fill="#d4a373" font-size="14">"Don't compete! Combine — practice mutual aid!"</text>
+      <text x="400" y="450" text-anchor="middle" font-size="11" fill="#888">— Kropotkin, Mutual Aid, Chapter II</text>
+    </svg>
+    <p class="tiny" style="text-align:center; margin-top:0.5em;">Modern evolutionary biology vindicates the core: kin selection, reciprocal altruism, eusociality — all forms of the cooperation Kropotkin documented in 1902.</p>
     <aside class="notes">
-      Read the first quote out loud. It lands differently spoken. The second is the
-      thesis of the book in one sentence. If anyone in the room wants to argue with
-      Kropotkin, this is where to do it — these are testable claims and the
-      modern literature on cooperation is mixed-but-largely-supportive.
+      The teaching move: this network IS the argument. Every dot is an organism, every
+      line is a cooperative interaction. Kropotkin's claim is that this density of
+      cooperation is the dominant survival strategy within species. Modern biology
+      supports a chunk of this — not all of it, but enough that the framing has
+      vindicated rather than failed.
     </aside>
   </section>
 
   <section>
     <h2>Anarcho-communism — the positive program</h2>
-    <ul>
-      <li><strong>Property:</strong> abolished. Means of production and consumption goods held in common.</li>
-      <li><strong>Distribution:</strong> "from each according to ability, to each according to <em>need</em>" — Kropotkin pushes past Bakunin's labor-token version.</li>
+    <ul style="font-size:0.78em; max-width: 850px; margin: 1em auto;">
+      <li><strong>Property:</strong> abolished as private. Means of production and consumption goods held in common.</li>
+      <li><strong>Distribution:</strong> "from each according to ability, to each according to <em>need</em>" (Kropotkin pushes past Bakunin's labor-token version).</li>
       <li><strong>Governance:</strong> direct democracy in the commune; <em>federation</em> across communes by recallable delegates.</li>
       <li><strong>Scale:</strong> communes the size of a quarter or village, federated regionally and globally.</li>
-      <li><strong>Labor:</strong> abolished as wage-labor; rotation between manual and intellectual work; 4–5 hours a day suffices.</li>
+      <li><strong>Labor:</strong> 4–5 hours a day suffices once parasitism is abolished; rotation between manual and intellectual work.</li>
     </ul>
-    <p class="small">In <em>The Conquest of Bread</em>, Kropotkin literally calculates how many hours of work the population of Paris would need to feed and house itself. It's a startlingly concrete book.</p>
+    <p class="small" style="text-align:center; margin-top:1.5em;">In <em>The Conquest of Bread</em>, Kropotkin literally calculates how many work-hours Paris would need to feed and house itself.<br/><strong>It is a startlingly concrete book.</strong></p>
+    <p class="tiny" style="margin-top:0.8em; text-align:center;"><a href="https://theanarchistlibrary.org/library/petr-kropotkin-the-conquest-of-bread">Read The Conquest of Bread</a></p>
     <aside class="notes">
-      The Conquest of Bread is the answer to "but what would your society actually
-      look like?" Kropotkin walks through agriculture, industry, housing, clothing,
-      and time-use. He is the rare anarchist with a spreadsheet. This is the book
-      that influenced the Spanish anarchists when they actually had to run things.
+      The Conquest of Bread is the answer to "but what would your society actually look
+      like?" Kropotkin walks through agriculture, industry, housing, clothing, and time-use.
+      He's the rare anarchist with a spreadsheet. This is the book that influenced the
+      Spanish anarchists when they actually had to run things.
     </aside>
   </section>
 
   <section>
-    <h2>Gustav Landauer (1870–1919)</h2>
-    <div class="twocol">
+    <div class="person-grid">
       <div>
-        <p>German-Jewish anarchist. Translator of Whitman and Kropotkin.</p>
-        <p>Argued that the state isn't a thing to be smashed — it's <strong>a relationship between people</strong>, and we leave it by relating differently.</p>
-        <p>Briefly minister of culture in the Bavarian Soviet Republic (1919). Killed by Freikorps within weeks.</p>
-        <p>Direct influence on Buber, on the kibbutz movement, and on what we'd now call prefigurative politics.</p>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Photo_-_Portrait_-_Gustav_Landauer_%28cropped%29.jpg?width=600" alt="Landauer"/>
+        <span class="credit">Gustav Landauer, portrait photograph.<br/><a href="https://commons.wikimedia.org/wiki/File:Photo_-_Portrait_-_Gustav_Landauer_(cropped).jpg">Wikimedia Commons</a> · Public domain</span>
       </div>
       <div>
-        <blockquote>"The state is a condition, a certain relationship between human beings, a mode of behavior… we destroy it by contracting other relationships, by behaving differently toward one another."<cite>— Landauer, Weak Statesmen, Weaker People, 1910</cite></blockquote>
-      </div>
-    </div>
-    <aside class="notes">
-      Landauer is the bridge between European anarchism and the kibbutz movement.
-      Buber idolized him. His shift — from "smash the state" to "withdraw from the
-      state by living differently" — is the move that makes communalism possible
-      as a strategy distinct from revolution. It's also why he matters to us: we're
-      not planning to seize state power. We're planning to live differently.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Federation as the alternative to the state</h2>
-    <p>The anarchist answer to "but how does society scale?":</p>
-    <ul>
-      <li>Local commune: face-to-face, direct democracy</li>
-      <li>Regional federation: <strong>recallable delegates</strong> with bound mandates</li>
-      <li>Continental + global: nested federations of federations</li>
-      <li>Coordination by voluntary agreement; no enforcement above the local level</li>
-    </ul>
-    <p class="small">The model: Swiss Jura watchmaker federations of Bakunin's era, the medieval communes Kropotkin documents, and (later) the Spanish CNT.</p>
-    <aside class="notes">
-      Federation is the critical structural concept. Modern people often miss this
-      because we conflate "no central state" with "no large-scale coordination."
-      Anarchists from Proudhon onward distinguish coordination from command.
-      Recallable delegates with bound mandates ≠ representatives. They cannot vote
-      their conscience; they vote their commune's instructions.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Three real revolutions</h2>
-    <p class="lede">Anarchist communalism wasn't only theory. It ran territory.</p>
-    <ul>
-      <li><strong>Paris Commune</strong> — March–May 1871, 72 days, ~2 million people</li>
-      <li><strong>Makhnovshchina</strong> — Ukraine, 1918–1921, ~7 million people at peak</li>
-      <li><strong>Spanish Revolution</strong> — Catalonia & Aragón, 1936–1939, ~8 million people</li>
-    </ul>
-    <p class="small">All three crushed by external military force. None failed internally first.</p>
-    <aside class="notes">
-      This slide does important work: it puts the anarchist tradition's empirical
-      record on the table. These weren't 50-person colonies — these were millions
-      of people running large industrial and agricultural economies. Each ended in
-      military defeat, not internal collapse. That's a meaningful pattern.
-    </aside>
-  </section>
-
-  <section>
-    <h2>The Paris Commune (1871)</h2>
-    <ul>
-      <li>March 18: Parisian National Guard refuses to disarm; revolutionary government declared</li>
-      <li>72 days of self-rule under siege by the French government from Versailles</li>
-      <li>Mostly Proudhonist + Blanquist + early Marxist; relatively few avowed anarchists, but anarchist <em>structure</em></li>
-      <li>Innovations: recallable delegates capped at workers' wages, separation of church and state, women's clubs, abolition of night work in bakeries</li>
-      <li>"<em>Semaine sanglante</em>" (Bloody Week), May 21–28: ~20,000 Communards killed by the French army</li>
-    </ul>
-    <p class="small">Marx wrote <em>The Civil War in France</em> defending it. Bakunin saw it as vindication. It became the founding myth of nearly every later revolutionary tradition.</p>
-    <aside class="notes">
-      72 days is the answer to "how long can a horizontal society last under
-      siege?" The Commune is short on positive achievements and long on innovations
-      <em>under attack</em>. The bloody week is the ancestor of every massacre of
-      revolutionaries that followed. We remember it because both Marx and Bakunin
-      claimed it, and because the structural innovations — wage caps, recallable
-      delegates — shaped everything that came after.
-    </aside>
-  </section>
-
-  <section>
-    <h2>The Makhnovshchina (1918–1921)</h2>
-    <ul>
-      <li>Nestor Makhno's anarchist army holds southeastern Ukraine for ~3 years during the Russian Civil War</li>
-      <li>~7 million people at peak under "Free Territory" administration</li>
-      <li>Land socialized, redistributed to peasants on use-rights basis</li>
-      <li>Volunteer army, elected officers, soviets without Bolshevik party control</li>
-      <li>Fought Whites, Germans, and (eventually) Bolsheviks. Crushed by the Red Army in 1921.</li>
-    </ul>
-    <p class="small">Most under-taught major experiment in 20th-century political history. Read: Voline, <em>The Unknown Revolution</em>; Skirda, <em>Nestor Makhno</em>.</p>
-    <aside class="notes">
-      The Makhnovshchina is omitted from almost every Western history of the Russian
-      Revolution because it doesn't fit either Cold War narrative — it's neither
-      Bolshevik nor White. It's the largest pure-anarchist administered territory
-      in history and it ran for three years under sustained military assault from
-      multiple directions. Its destruction by the Red Army is the moment Bolshevism
-      reveals its character to the libertarian left.
-    </aside>
-  </section>
-
-  <section>
-    <h2>The Spanish Revolution (1936–1939)</h2>
-    <div class="twocol">
-      <div>
-        <ul class="small">
-          <li>July 1936: Franco's coup fails in Catalonia, Aragón, Valencia</li>
-          <li>CNT-FAI anarchists collectivize land and industry over weeks</li>
-          <li>~7 million people in collectivized regions; 60% of Catalan industry under worker control</li>
-          <li>Aragón: ~450 collectivized villages, money abolished in many of them</li>
-          <li>Crushed by Franco (with German/Italian help) by 1939; <em>also</em> attacked from inside by Stalinist republicans (Barcelona, May 1937)</li>
-        </ul>
-      </div>
-      <div>
-        <p class="small">First-hand sources to give participants:</p>
-        <ul class="small">
-          <li>Orwell, <em>Homage to Catalonia</em></li>
-          <li>Sam Dolgoff, <em>The Anarchist Collectives</em></li>
-          <li>Gaston Leval, <em>Collectives in the Spanish Revolution</em></li>
-          <li>Ken Loach, <em>Land and Freedom</em> (film)</li>
-        </ul>
+        <span class="chip chip-anarchist">Anarchist</span>
+        <h2 style="margin-top:0.4em;">Gustav Landauer <span class="meta">· 1870–1919</span></h2>
+        <p class="small meta">German-Jewish anarchist · translator of Whitman & Kropotkin · Bavarian Soviet culture minister · killed by Freikorps</p>
+        <blockquote>"The state is a condition, a certain relationship between human beings, a mode of behavior; we destroy it by contracting other relationships, by behaving differently toward one another."<cite>— Landauer, Schwache Staatsmänner, schwacheres Volk! (1910)</cite></blockquote>
+        <p class="small">Best friend of Martin Buber. Through Buber, Landauer's ideas seeded the early kibbutz movement.</p>
+        <div class="takeaway">Bequeathed: <strong>prefigurative politics.</strong> Don't wait for the barricade — already <em>be</em> the new society in embryo. Every intentional community, ecovillage, Catholic Worker farm, mutual-aid network — and the COVID-era shift from protest to <em>building</em> — is operating in Landauer's frame: behave differently toward one another, and the state recedes.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Gustav_Landauer">Wikipedia</a> · <a href="https://theanarchistlibrary.org/library/gustav-landauer-for-socialism">For Socialism (1911)</a> · <a href="https://www.pmpress.org/index.php?l=product_detail&p=375">Revolution and Other Writings (PM Press)</a></p>
       </div>
     </div>
     <aside class="notes">
-      Spain is the most studied of the three because anarchists wrote it down and
-      Orwell witnessed it. The Aragón collectives are the closest historical
-      analog to what people in this room are designing — small-scale agrarian
-      collectives federated across a region, with a participating but uncoercive
-      relationship to a wider economy. Read Dolgoff. The economic detail is
-      remarkable.
+      Landauer is the bridge between European anarchism and the kibbutz movement. His
+      pivot — from "smash the state" to "withdraw from the state by living differently"
+      — is the move that makes communalism possible as a strategy distinct from
+      revolution. We're not planning to seize state power. We're planning to live
+      differently. That's pure Landauer.
     </aside>
   </section>
 
   <section>
-    <h2>Anarchist tradition — the score</h2>
-    <ul>
-      <li><strong>What worked:</strong> federation as a real coordination mechanism; recallable delegates; the link between values and structure was tight; under siege, they didn't internally collapse</li>
-      <li><strong>What didn't:</strong> military vulnerability; over-reliance on charismatic figures (Makhno); difficulty handling internal heterogeneity (anarchist vs. Stalinist republican in Spain)</li>
-      <li><strong>Theoretical legacy:</strong> mutual aid, prefiguration, federation, the means/ends commitment — all alive in 2026</li>
-    </ul>
-    <p class="lede small">Most contemporary attempts at horizontal organization (Occupy, Standing Rock, contemporary co-ops, Rojava) are downstream of this tradition.</p>
+    <span class="chip chip-anarchist">Diagram · Federation</span>
+    <h2 style="margin-top:0.5em;">Federation: the alternative to the state</h2>
+    <svg class="diagram" viewBox="0 0 700 600" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrfed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#d4a373"/>
+        </marker>
+      </defs>
+      <!-- Continental ring -->
+      <circle cx="350" cy="300" r="270" fill="none" stroke="#B85050" stroke-width="2" stroke-dasharray="6,4"/>
+      <text x="350" y="50" text-anchor="middle" fill="#E89090" font-weight="600" font-size="14">CONTINENTAL CONFEDERATION</text>
+      <!-- Regional ring -->
+      <circle cx="350" cy="300" r="180" fill="none" stroke="#B85050" stroke-width="2"/>
+      <text x="350" y="135" text-anchor="middle" fill="#E89090" font-weight="500" font-size="12">REGIONAL FEDERATION</text>
+      <!-- Local communes -->
+      <g fill="#8B0000">
+        <circle cx="350" cy="220" r="22"/>
+        <circle cx="430" cy="260" r="22"/>
+        <circle cx="430" cy="340" r="22"/>
+        <circle cx="350" cy="380" r="22"/>
+        <circle cx="270" cy="340" r="22"/>
+        <circle cx="270" cy="260" r="22"/>
+        <circle cx="408" cy="218" r="22"/>
+        <circle cx="292" cy="218" r="22"/>
+      </g>
+      <text x="350" y="305" text-anchor="middle" fill="#f3ead3" font-weight="600" font-size="11">local</text>
+      <text x="350" y="320" text-anchor="middle" fill="#f3ead3" font-size="9">commune</text>
+      <!-- Delegate flow arrows (outward + inward) -->
+      <g stroke="#d4a373" stroke-width="1.8" fill="none">
+        <path d="M 350 220 L 350 130" marker-end="url(#arrfed)"/>
+        <path d="M 350 130 L 350 200" marker-end="url(#arrfed)" stroke-dasharray="3,3"/>
+        <path d="M 430 260 L 480 200" marker-end="url(#arrfed)"/>
+        <path d="M 430 340 L 480 380" marker-end="url(#arrfed)"/>
+      </g>
+      <text x="350" y="565" text-anchor="middle" fill="#d4a373" font-style="italic" font-size="14">Mandates flow up (solid) · recall flows back (dashed)</text>
+      <text x="350" y="585" text-anchor="middle" fill="#888" font-size="11">Sovereignty stays at the base.</text>
+    </svg>
     <aside class="notes">
-      Note Rojava as the live contemporary example. Open Murray Bookchin's
-      <em>libertarian municipalism</em> as a pointer if anyone asks — that's the
-      direct ideological lineage of Rojava and a 20th-century update of Kropotkin
-      that's worth knowing about. We won't cover it in depth tonight.
+      Federation is the critical structural concept. Recallable delegates with bound
+      mandates — they cannot vote their conscience, they vote their commune's
+      instructions. The Zapatistas call this "leading by obeying." Rojava implements
+      it today. The Spanish CNT ran it for three years. Different from
+      "representation" — fundamentally different.
     </aside>
   </section>
 
-  <section style="text-align: center;">
+  <!-- ============================================================ -->
+  <!-- BLOCK 5 — REAL ANARCHIST EXPERIMENTS -->
+  <!-- ============================================================ -->
+
+  <section>
+    <span class="chip chip-anarchist">Real revolutions</span>
+    <h1 style="margin-top:0.6em;">Three proofs at three scales</h1>
+    <p class="lede">Anarchist communalism wasn't only theory. It administered millions of people, in three places, in three centuries.</p>
+    <div class="stat-grid" style="margin-top: 2em;">
+      <div class="stat"><span class="num">2M / 72d</span><span class="label">Paris Commune (1871) — under siege</span></div>
+      <div class="stat"><span class="num">7M / 3y</span><span class="label">Free Territory · Ukraine (1918–21)</span></div>
+      <div class="stat"><span class="num">7M / 3y</span><span class="label">Spanish Revolution (1936–39)</span></div>
+    </div>
+    <p class="small" style="margin-top: 1.5em; text-align:center;">All three ended by external military force. None failed internally first.</p>
+    <aside class="notes">
+      These are the three proof points. Not 50-person colonies — millions of people running
+      large industrial and agricultural economies. Each was destroyed by armies, not by
+      contradiction. That pattern is meaningful.
+    </aside>
+  </section>
+
+  <section>
+    <span class="chip chip-anarchist">Place</span>
+    <h2 style="margin-top:0.5em;">The Paris Commune <span class="meta" style="font-size:0.55em;color:var(--muted);">· March 18 – May 28, 1871 · 72 days</span></h2>
+    <img class="scene" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fallen_Vend%C3%B4me_Column_WDL1286.png?width=1024" alt="Fallen Vendôme Column 1871"/>
+    <span class="credit">The Vendôme Column toppled during the Paris Commune, May 16, 1871. <a href="https://commons.wikimedia.org/wiki/File:Fallen_Vend%C3%B4me_Column_WDL1286.png">Wikimedia Commons</a> · Public domain</span>
+    <div class="twocol" style="margin-top:1em; font-size:0.74em;">
+      <div>
+        <h3>What they built in 72 days</h3>
+        <ul>
+          <li>Recallable delegates, capped at workers' wages</li>
+          <li>Separation of church and state</li>
+          <li>Workers' management of abandoned workshops (Apr 16)</li>
+          <li>Abolition of night work in bakeries (Apr 20)</li>
+          <li>Free, secular, compulsory education for both sexes</li>
+          <li>Women's Union — first mass women's organization in modern history</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Daily life under the red flag</h3>
+        <p class="small">Cafés stayed open. Theatres ran under workers' management. Pawned items under 20 francs returned free. Crucifixes removed from courtrooms. Tipping forbidden. Eugène Pottier, hiding in a Paris attic in June 1871, wrote the lyrics of <em>L'Internationale</em>.</p>
+      </div>
+    </div>
+    <div class="takeaway">Bequeathed: <strong>two million people, under siege, with no preparation, governed themselves for 72 days through directly elected, recallable delegates without descending into chaos.</strong> Bread baked. Schools opened to girls for the first time in French history. The Commune is the first proof in industrial modernity that the city is a possible unit of self-government.</div>
+    <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Paris_Commune">Wikipedia</a> · <a href="https://www.marxists.org/archive/marx/works/1871/civil-war-france/">Marx, Civil War in France</a> · <a href="https://www.versobooks.com/products/2007-communal-luxury">Kristin Ross, Communal Luxury (Verso)</a></p>
+    <aside class="notes">
+      Read aloud: every social innovation the Commune announced — eight-hour day,
+      women's suffrage, secular education, workers' management — has since become
+      normal, often centuries later. They weren't ahead of their time. They were the time.
+    </aside>
+  </section>
+
+  <section>
+    <div class="person-grid">
+      <div>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Louise_Michel%2C_grayscale.jpg?width=600" alt="Louise Michel"/>
+        <span class="credit">Louise Michel, photographic portrait. <a href="https://commons.wikimedia.org/wiki/File:Louise_Michel,_grayscale.jpg">Wikimedia Commons</a> · Public domain</span>
+      </div>
+      <div>
+        <span class="chip chip-anarchist">Communard</span>
+        <h2 style="margin-top:0.4em;">Louise Michel <span class="meta">· 1830–1905</span></h2>
+        <p class="small meta">Schoolteacher · "the Red Virgin" · fought with the 61st battalion in men's uniform</p>
+        <blockquote>"Si je ne suis pas coupable, faites de moi ce que vous voudrez. Si je suis coupable, frappez-moi de la balle."<br/>("If I am not guilty, do with me as you will. If I am guilty, kill me with a bullet.")<cite>— Louise Michel, before the 6th Council of War, December 16, 1871</cite></blockquote>
+        <p class="small">Surrendered to save her mother. Deported to New Caledonia, where she sided with the <strong>Kanak revolt of 1878</strong> — extending revolutionary solidarity across colonial lines, decades before this was politically articulated.</p>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Louise_Michel">Wikipedia</a> · <a href="https://libcom.org/article/red-virgin-memoirs-louise-michel">The Red Virgin: Memoirs</a></p>
+      </div>
+    </div>
+    <aside class="notes">
+      Louise Michel runs an ambulance, fights at the barricades, runs a school, and after
+      her deportation joins the Kanak indigenous revolt against French colonization in
+      New Caledonia. The internationalist lineage of solidarity across colonized peoples
+      starts here, in practice, before it's a theory.
+    </aside>
+  </section>
+
+  <section>
+    <div class="person-grid">
+      <div>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/1921._%D0%9D%D0%B5%D1%81%D1%82%D0%BE%D1%80_%D0%9C%D0%B0%D1%85%D0%BD%D0%BE_%D0%B2_%D0%BB%D0%B0%D0%B3%D0%B5%D1%80%D0%B5_%D0%B4%D0%BB%D1%8F_%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D1%89%D0%B5%D0%BD%D0%BD%D1%8B%D1%85_%D0%BB%D0%B8%D1%86_%D0%B2_%D0%A0%D1%83%D0%BC%D1%8B%D0%BD%D0%B8%D0%B8.jpg?width=600" alt="Nestor Makhno"/>
+        <span class="credit">Nestor Makhno in a Romanian displaced-persons camp, 1921, after the retreat from Ukraine. <a href="https://en.wikipedia.org/wiki/Nestor_Makhno">via Wikipedia</a> · Public domain</span>
+      </div>
+      <div>
+        <span class="chip chip-anarchist">Free Territory</span>
+        <h2 style="margin-top:0.4em;">The Makhnovshchina <span class="meta">· 1918–1921 · ~7M people · 75,000 km²</span></h2>
+        <p class="small meta">Nestor Makhno · Huliaipole, Ukraine · spent 9 years in Butyrka prison reading Kropotkin in irons</p>
+        <blockquote>"Land to the peasants, factories to the workers, all power to the Soviets of workers, peasants and insurgents — but not to political parties."<cite>— Declaration of the Revolutionary Insurrectionary Army of Ukraine, 1919</cite></blockquote>
+        <p class="small">Three <strong>Regional Congresses of Peasants, Workers and Insurgents</strong> elected from village and factory assemblies. Voluntary army of ~40,000 with elected officers. Land redistributed on use-rights. Free communes coexisted with individual smallholdings — pluralism within the Territory.</p>
+        <div class="takeaway">Bequeathed: <strong>proof that anarchist administration scales to seven million people across a region larger than Belgium</strong> — under continuous war on multiple fronts. The largest pure-anarchist administered territory in modern history.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Free_Territory">Wikipedia · Free Territory</a> · <a href="https://theanarchistlibrary.org/library/peter-arshinov-history-of-the-makhnovist-movement-1918-1921">Arshinov, History of the Makhnovist Movement</a> · <a href="https://theanarchistlibrary.org/library/voline-the-unknown-revolution-1917-1921">Voline, The Unknown Revolution</a></p>
+      </div>
+    </div>
+    <aside class="notes">
+      The Makhnovshchina is omitted from most Western histories of the Russian Revolution
+      because it doesn't fit either Cold War narrative. It's neither Bolshevik nor White.
+      It's the largest pure-anarchist administered territory in history and it ran for
+      three years under sustained military assault from multiple directions. Crushed by
+      the Red Army in November 1920 — the moment Bolshevism reveals its character to the
+      libertarian left.
+    </aside>
+  </section>
+
+  <section>
+    <div class="person-grid">
+      <div>
+        <img class="portrait" src="https://commons.wikimedia.org/wiki/Special:FilePath/Buenaventura_Durruti.jpg?width=600" alt="Durruti"/>
+        <span class="credit">Buenaventura Durruti, c. 1936. <a href="https://commons.wikimedia.org/wiki/File:Buenaventura_Durruti.jpg">Wikimedia Commons</a> · Public domain</span>
+      </div>
+      <div>
+        <span class="chip chip-anarchist">Spanish Revolution</span>
+        <h2 style="margin-top:0.4em;">Spain 1936–1939 <span class="meta">· CNT-FAI · ~7M people in collectivized regions</span></h2>
+        <p class="small meta">Catalonia 60% of industry · ~450 collectivized villages in Aragón · 1.5M CNT members at peak</p>
+        <blockquote>"We carry a new world here, in our hearts. That world is growing this minute."<cite>— Buenaventura Durruti, Toronto Daily Star, July 1936</cite></blockquote>
+        <p class="small">Workers seized factories, trams, telephones, cinemas. Barcelona's tram system — run by 7,000 workers — increased cars in service from 600 to 700 in weeks <strong>and turned a profit</strong>. Catalonia produced <em>tanks and aircraft from scratch</em> within months.</p>
+        <div class="takeaway">Bequeathed: <strong>proof that anarcho-syndicalist coordination can run a wartime industrial economy.</strong> Mondragón Cooperative Corporation (founded 1956, 70,000+ employees today) draws directly on the suppressed CNT industrial-cooperative tradition.</div>
+        <p class="tiny" style="margin-top:1em;">Refs: <a href="https://en.wikipedia.org/wiki/Spanish_Revolution_of_1936">Wikipedia</a> · <a href="https://theanarchistlibrary.org/library/sam-dolgoff-the-anarchist-collectives">Dolgoff, The Anarchist Collectives</a> · <a href="https://www.george-orwell.org/Homage_to_Catalonia/index.html">Orwell, Homage to Catalonia</a></p>
+      </div>
+    </div>
+    <aside class="notes">
+      Spain is the most studied because anarchists wrote it down and Orwell witnessed
+      it. The Aragón collectives are the closest historical analog to what people in
+      this room are designing — small-scale agrarian collectives federated across a
+      region, in a participating but uncoercive relationship to a wider economy. Read
+      Dolgoff. The economic detail is remarkable.
+    </aside>
+  </section>
+
+  <section>
+    <span class="chip chip-anarchist">Witness</span>
+    <h2 style="margin-top:0.5em;">Orwell in Barcelona, December 1936</h2>
+    <blockquote style="font-size:1.0em; max-width:900px; margin:1em auto;">
+      "I had dropped more or less by chance into the only community of any size in Western Europe where political consciousness and disbelief in capitalism were more normal than their opposites. Up here in Aragón one was among tens of thousands of people, mainly though not entirely of working-class origin, all living at the same level and mingling on terms of equality. In theory it was perfect equality, and even in practice it was not far from it... There was much in it that I did not understand, in some ways I did not even like it, but I recognized it immediately as a state of affairs worth fighting for."
+      <cite>— George Orwell, Homage to Catalonia (1938), Chapter 1</cite>
+    </blockquote>
+    <p class="small" style="text-align:center; margin-top:1em;">A first-hand account from a witness who arrived skeptical and left transformed.</p>
+    <p class="tiny" style="text-align:center;"><a href="https://www.george-orwell.org/Homage_to_Catalonia/index.html">Read Homage to Catalonia (full text, free)</a></p>
+    <aside class="notes">
+      Read this aloud. Slowly. It lands. Orwell came to fight fascism and didn't expect
+      to find a society. The phrase "a state of affairs worth fighting for" is the one
+      that should stay in the room.
+    </aside>
+  </section>
+
+  <section style="text-align:center;">
     <h2>Break (5 min)</h2>
     <p class="lede">One more tradition, then comparison and workshop.</p>
-    <aside class="notes">Last hard break of the night.</aside>
+    <aside class="notes">Last hard break.</aside>
   </section>
 
-  <!-- =================================================================== -->
-  <!-- BLOCK 3 — KIBBUTZ TRADITION (TONED DOWN, ~22 min) -->
-  <!-- =================================================================== -->
+  <!-- ============================================================ -->
+  <!-- BLOCK 6 — KIBBUTZ AS ONE EXAMPLE -->
+  <!-- ============================================================ -->
 
   <section>
-    <span class="label">Block 3</span>
-    <h1>The Kibbutz Tradition</h1>
-    <p class="lede">A 20th-century synthesis of labor Zionism and German-Jewish communalism — the most successful instance of agrarian commune-building, and the one with the most complicated arc.</p>
+    <span class="chip chip-kibbutz">One example among many</span>
+    <h1 style="margin-top:0.6em;">The kibbutz: a 20th-century synthesis</h1>
+    <p class="lede">Not the centerpiece — one example of how Tolstoyan anarchism, Kropotkin's mutual aid, and Landauer's communalism converged into a 20th-century communal form that ran at scale.</p>
     <aside class="notes">
-      Kibbutz is one tradition among several. I'm presenting it briefly because
-      it gets disproportionate airtime in commune discussions just because it's
-      the most recent large-scale example most people have heard of. We'll be
-      honest about both the achievements and the entanglements.
+      Brief block. The kibbutz is interesting because it shows what happens when the
+      previous traditions fuse. Tolstoy + Kropotkin + Landauer + labor Zionism =
+      Degania 1910. We'll cover roots, the founding, the structural innovations that
+      traveled, and one honest reckoning slide.
     </aside>
   </section>
 
   <section>
-    <h2>The intellectual roots — three figures</h2>
-    <div class="threecol">
+    <h2>Where it came from — three threads converging</h2>
+    <div class="threecol" style="margin-top:1em;">
       <div>
         <h3>A.D. Gordon</h3>
-        <span class="small">"Religion of labor." Manual work on the land as spiritual practice — a Jewish answer to Tolstoy.</span>
+        <p class="small">Self-taught Russian estate manager who arrived in Palestine at <strong>age 48</strong> and joined the orange-grove laborers. Wrote his "religion of labor" in the evenings by oil lamp.</p>
       </div>
       <div>
         <h3>Ber Borochov</h3>
-        <span class="small">Marxist labor Zionism. Material analysis: diaspora Jews lack a normal class structure; the project is to build one through productive labor.</span>
+        <p class="small">Marxist labor Zionist, 36 when he died. Theorized the <em>inverted pyramid</em>: a community severed from its productive base must rebuild it materially.</p>
       </div>
       <div>
         <h3>Martin Buber</h3>
-        <span class="small">Picks up Landauer. <em>Paths in Utopia</em> (1949): the kibbutz as "the experiment that did not fail."</span>
+        <p class="small">Best friend of Landauer. Through Buber, European anarchism reached Palestine. Called the kibbutz "the experiment that did not fail."</p>
       </div>
     </div>
-    <p class="small">Plus practical influence from Tolstoyan anarchism, Russian narodnichestvo, and Kropotkin himself — read by the founders.</p>
+    <p class="small" style="margin-top:1.5em;">Plus: Tolstoy and Kropotkin were on every founder's reading list.</p>
+    <p class="tiny">Refs: <a href="https://en.wikipedia.org/wiki/A._D._Gordon">Gordon</a> · <a href="https://en.wikipedia.org/wiki/Ber_Borochov">Borochov</a> · <a href="https://theanarchistlibrary.org/library/martin-buber-paths-in-utopia-en">Buber, Paths in Utopia (full text)</a></p>
     <aside class="notes">
-      The three roots map cleanly: Gordon = the spiritual ground, Borochov = the
-      political-economic ground, Buber = the philosophical ground. Buber's link
-      to Landauer is the through-line back to European anarchism — kibbutz is
-      not theoretically isolated, it's a downstream of the same ideas we just
-      covered.
+      Three roots in 30 seconds: Gordon = the spiritual ground (labor as sacrament),
+      Borochov = the political-economic ground (rebuilding the productive base),
+      Buber = the philosophical ground (community as ontological category, federation
+      as form). Plus the heavy reading of Tolstoy and Kropotkin among the founders.
     </aside>
   </section>
 
   <section>
-    <h2>Degania, 1910</h2>
-    <ul>
-      <li>Twelve people on the south shore of the Sea of Galilee</li>
-      <li>Founded as a <em>kvutza</em> ("small group") — deliberately small, intimate, no hierarchy</li>
-      <li>Common purse, common labor, common dining</li>
-      <li>Established the structural template that scales (with modifications) for 80 years</li>
-    </ul>
-    <blockquote class="small">"We were a community of seekers… we wanted to live by what we believed, not write about it."<cite>— Joseph Baratz, founding member of Degania</cite></blockquote>
-    <aside class="notes">
-      Twelve people. The number matters — Dunbar-style small group, where consensus
-      is achievable face-to-face. The kvutza model is the original kibbutz. The
-      later "kibbutz meuhad" model scales it up and trades intimacy for capacity.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Distinctive structural features</h2>
-    <ul>
-      <li><strong>Common purse</strong> — no member salary; needs met collectively</li>
-      <li><strong>Common dining hall</strong> — central social institution; meals together as ritual</li>
-      <li><strong>Children's houses</strong> (controversial) — children slept and were raised collectively rather than nuclear-family</li>
-      <li><strong>Labor rotation</strong> — direct echo of Fourier; manual and administrative work shared</li>
-      <li><strong>General assembly</strong> — weekly all-member decision-making</li>
-      <li><strong>Hired-labor taboo</strong> — members work the kibbutz; bringing in wage labor is a values violation</li>
-    </ul>
-    <p class="small">Note how many of these features are direct implementations of ideas from Blocks 1 and 2.</p>
-    <aside class="notes">
-      Pause on the children's houses — this is the most controversial feature and
-      it's the one that didn't survive. Most kibbutzim moved children back to family
-      housing in the 70s-80s. Worth asking the room: which of these features feels
-      transferable? Which feels like an artifact of 1920s ideology?
-    </aside>
-  </section>
-
-  <section>
-    <h2>The arc — peak (1910–1985)</h2>
-    <ul>
-      <li>By 1948: ~125 kibbutzim, ~5% of Jewish population in Palestine, but disproportionate share of military and political leadership of the new state</li>
-      <li>By 1980s: ~270 kibbutzim, ~3% of Israel's population, ~33% of agricultural output, ~9% of industrial output</li>
-      <li>Embedded in the Histadrut (labor federation) and party structures — receiving substantial state subsidies</li>
-      <li>Internal differentiation: Hashomer Hatzair (Marxist), Ihud (Labor Zionist), Kibbutz Dati (religious)</li>
-    </ul>
-    <p class="small">This isn't an island experiment — it's a movement <em>institutionally entangled</em> with a state. That's both why it scaled and why it eventually unraveled.</p>
-    <aside class="notes">
-      The big difference from every prior tradition: the kibbutz was state-supported.
-      Cheap loans, protected markets, military integration. That's the answer to
-      "how did this one not collapse in 3 years?" — but it's also the answer to
-      "why did it unravel when the state stopped supporting it?"
-    </aside>
-  </section>
-
-  <section>
-    <h2>The arc — crisis and privatization</h2>
-    <ul>
-      <li><strong>1985:</strong> Israeli hyperinflation crisis. Kibbutz movement carrying ~$5B in collective debt; bailed out by government with strings attached</li>
-      <li><strong>1990s–2000s:</strong> wave of <em>hafrata</em> (privatization) — differential salaries, individual budgets, members own homes, hired labor accepted</li>
-      <li>By 2010, ~75% of kibbutzim had moved to "renewed" (privatized) model. ~25% remain "shitufi" (collectivist)</li>
-      <li>Underlying drivers: generational exit of children; ideological hollowing of Labor Zionism; integration of Israeli economy into global capitalism</li>
-    </ul>
-    <p class="lede small">A communal form can be successful for ~75 years and still convert to its opposite under economic and cultural pressure. Worth sitting with.</p>
-    <aside class="notes">
-      This slide is where the lesson lives. 75 years is a long time. Long enough
-      to raise three generations. And the form still converted. Why? Because the
-      kibbutz was always entangled with a wider economy that it didn't control,
-      and when that wider economy moved, the kibbutz moved with it. This is the
-      central cautionary tale for anyone designing a commune embedded in
-      capitalism. State support cuts both ways.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Honest reckoning</h2>
-    <ul>
-      <li>Kibbutzim were core to the Zionist settlement project and to Israel's military-territorial expansion. Many were established on land from which Palestinians were displaced in 1948.</li>
-      <li>The "redemption of the land through labor" ideology had a specific meaning in a settler-colonial context that the European utopian sources didn't share.</li>
-      <li>This is not separable from the structural achievements. A serious teaching of communalism has to hold both at once.</li>
-    </ul>
-    <p class="small">For depth: Gershon Shafir, <em>Land, Labor and the Origins of the Israeli-Palestinian Conflict</em>; Zeev Sternhell, <em>The Founding Myths of Israel</em>.</p>
-    <aside class="notes">
-      I keep this slide brief but I do not skip it. The kibbutz is the most
-      successful agrarian commune of the 20th century AND it was an instrument of
-      a settler-colonial project. Both true. A course about designing communes
-      that didn't address this would be teaching a sanitized history. Take questions
-      if they come; don't dwell.
-    </aside>
-  </section>
-
-  <section>
-    <h2>What kibbutz contributes to our analysis</h2>
-    <ul>
-      <li><strong>Scale at length</strong> — the form actually ran an agrarian-industrial economy for decades</li>
-      <li><strong>Labor rotation worked</strong> at scales much larger than Fourier imagined</li>
-      <li><strong>The common dining hall</strong> as a social institution proved load-bearing</li>
-      <li><strong>State entanglement</strong> is a double-edged sword — it enables scale and creates the conditions for unraveling</li>
-      <li><strong>Children's houses</strong> mostly didn't take, even within ideologically committed communities — a data point about family</li>
-    </ul>
-    <aside class="notes">
-      Quick review. These are the transferable findings. The takeaway for
-      participants designing their own commune: rotation works, common eating
-      works, total collectivization of childcare is a hard sell, and your
-      relationship to the surrounding political economy is a structural choice
-      that will shape your fate.
-    </aside>
-  </section>
-
-  <!-- =================================================================== -->
-  <!-- BLOCK 4 — HOW IDEOLOGY SHAPES STRUCTURE -->
-  <!-- =================================================================== -->
-
-  <section>
-    <span class="label">Block 4</span>
-    <h1>How Ideology Shapes Structure</h1>
-    <p class="lede">All five lenses, all the traditions, in one comparison.</p>
-    <aside class="notes">
-      We're going to spend ~25 minutes here. This block is where the night earns
-      its keep — applying the five lenses across the traditions to see the
-      patterns. Encourage interruptions.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Lens 1 — Property</h2>
-    <table>
-      <thead>
-        <tr><th>Tradition</th><th>Property regime</th><th>Why this follows from belief</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Owen</td><td>Common; managed by the community</td><td>Character formed by environment ⇒ design the environment ⇒ pool the resources</td></tr>
-        <tr><td>Fourier</td><td>Joint-stock; profits divided by labor + capital + talent</td><td>Passions matched to roles ⇒ unequal contribution is fine</td></tr>
-        <tr><td>Proudhon</td><td>Possession (use-rights); no rent</td><td>"Property is theft" but the toothbrush isn't theft — distinguish use from extraction</td></tr>
-        <tr><td>Kropotkin</td><td>Common; abolished as private</td><td>Mutual aid is the human nature ⇒ no need for property to motivate</td></tr>
-        <tr><td>Spanish CNT</td><td>Collectivized in industry; mixed in agriculture</td><td>Pragmatic application of anarcho-communism under wartime conditions</td></tr>
-        <tr><td>Kibbutz (classic)</td><td>Common; even personal items pooled in early decades</td><td>Labor as spiritual practice ⇒ no private capital to corrupt it</td></tr>
-        <tr><td>Religious (Shaker, Hutterite)</td><td>Common; held by the church</td><td>Property is a worldly attachment ⇒ surrender it for spiritual reasons</td></tr>
-      </tbody>
-    </table>
-    <aside class="notes">
-      Walk down the table. Notice: the property regime is never arbitrary — it
-      always follows from a deeper belief about human nature, work, or salvation.
-      When you write your values statement later tonight, your property regime
-      should follow from your beliefs the same way.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Lens 2 — Governance</h2>
-    <table>
-      <thead>
-        <tr><th>Tradition</th><th>Governance form</th><th>Underlying belief</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Owen</td><td>Benevolent founder, council</td><td>Educated reason can guide the rest</td></tr>
-        <tr><td>Fourier</td><td>Council of elders + passion-matched committees</td><td>Trust attraction more than election</td></tr>
-        <tr><td>Cabet (Icaria)</td><td>Elected president, popular assembly</td><td>Republican democracy applied to communism</td></tr>
-        <tr><td>Proudhon / Bakunin / Kropotkin</td><td>Direct democracy + recallable federated delegates</td><td>Domination is the enemy; coordination ≠ command</td></tr>
-        <tr><td>Kibbutz</td><td>Weekly general assembly, rotating committees</td><td>All members are workers; all workers decide</td></tr>
-        <tr><td>Shaker</td><td>Hierarchical: ministry, elders, deacons</td><td>Spiritual gifts unequally distributed</td></tr>
-        <tr><td>Oneida</td><td>Founder + mutual criticism</td><td>Perfectionism: ongoing collective scrutiny perfects the saints</td></tr>
-      </tbody>
-    </table>
-    <aside class="notes">
-      Governance is the most variable lens. There's no consensus across the
-      traditions even on basic questions like majority rule vs. consensus. Note
-      that religious communalism tolerates hierarchy in a way secular
-      communalism mostly doesn't — because authority can be legitimated
-      theologically.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Lens 3 — Labor</h2>
-    <table>
-      <thead>
-        <tr><th>Tradition</th><th>Labor organization</th><th>Underlying belief</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Owen</td><td>Mixed industry + agriculture, 8h day</td><td>Education + reduced hours improves character</td></tr>
-        <tr><td>Fourier</td><td>Short rotations, max 2h per task, by passion</td><td>Boredom and force are the enemies of productivity</td></tr>
-        <tr><td>Kropotkin</td><td>4–5h/day, manual + intellectual rotation, all healthy adults</td><td>Once parasitism is abolished, abundance is easy</td></tr>
-        <tr><td>Spanish collectives</td><td>Variable; some kept piece-rates, others didn't</td><td>Wartime pragmatism inside an anarcho-communist frame</td></tr>
-        <tr><td>Kibbutz</td><td>Rotation, no hired labor (originally), gender-equal in principle</td><td>Labor on the land as spiritual practice (Gordon)</td></tr>
-        <tr><td>Shakers</td><td>Specialized craft, gendered, intense</td><td>Work as worship — "hands to work, hearts to God"</td></tr>
-      </tbody>
-    </table>
-    <aside class="notes">
-      Labor is where ideology bites hardest. The Fourierist insistence on short
-      rotations is gone in a society that wants competence. Kibbutz held labor
-      rotation for decades and gradually lost it. Shaker craft excellence came
-      from specialization plus religious motivation — those two together are
-      hard to replicate secularly.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Lens 4 — Membership</h2>
-    <table>
-      <thead>
-        <tr><th>Tradition</th><th>Membership rule</th><th>Effect</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Owen (New Harmony)</td><td>Open, advertised in newspapers</td><td>Collapse in 2 years</td></tr>
-        <tr><td>Fourierist phalanxes</td><td>Joint-stock buy-in</td><td>Class filter; modest stability</td></tr>
-        <tr><td>Cabet (Icaria)</td><td>Vetted; ideological commitment required</td><td>~50 years</td></tr>
-        <tr><td>Anarchist collectives</td><td>Living + working there = membership</td><td>Mass scale, but porous</td></tr>
-        <tr><td>Kibbutz</td><td>Multi-year candidacy; ideological + ethnic vetting</td><td>~75 years before transformation</td></tr>
-        <tr><td>Shakers</td><td>Conversion required; celibacy bar</td><td>Centuries; eventual demographic decline</td></tr>
-        <tr><td>Hutterites</td><td>Birth + religious endorsement; high retention</td><td>Centuries; growing</td></tr>
-      </tbody>
-    </table>
-    <p class="lede small">The pattern: tightness of membership filter ↔ longevity of community. Almost without exception.</p>
-    <aside class="notes">
-      This is the lens that has the cleanest empirical signal across the whole
-      record. Open membership = fast death. Tight membership filter = long life.
-      The interesting question is not whether to filter — it's how to filter
-      without becoming a cult or replicating exclusion you find immoral. Hold
-      this for the workshop.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Lens 5 — Relation to outside</h2>
-    <table>
-      <thead>
-        <tr><th>Tradition</th><th>Stance</th><th>Belief about the wider world</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Owen / Fourier / Cabet</td><td>Demonstration: "show them"</td><td>The example will spread by reason</td></tr>
-        <tr><td>Diggers / Shakers</td><td>Withdrawal</td><td>The world is fallen; build the alternative</td></tr>
-        <tr><td>Kropotkin / Landauer</td><td>Federation + prefiguration</td><td>The new world is built in the shell of the old</td></tr>
-        <tr><td>Bakunin</td><td>Insurrection</td><td>Federation requires sweeping the state away</td></tr>
-        <tr><td>Marxists (contrast)</td><td>Vanguard + state seizure</td><td>Islands lose; only the system can be transformed</td></tr>
-        <tr><td>Kibbutz</td><td>State-builder / partner</td><td>Communal form serves and is served by national project</td></tr>
-      </tbody>
-    </table>
-    <aside class="notes">
-      This is the lens that determines geopolitics. Withdrawal vs. federation vs.
-      vanguard vs. state-partnership are radically different strategies and they
-      produce radically different outcomes. Most failed communes failed because
-      they couldn't decide on this lens, or they chose one strategy verbally and
-      a different one in practice.
-    </aside>
-  </section>
-
-  <section>
-    <h2>Cross-cutting patterns</h2>
-    <ol>
-      <li><strong>Religious communities outlast secular ones</strong> — by an order of magnitude. Why?</li>
-      <li><strong>Membership filter strength predicts longevity</strong> — across the entire record</li>
-      <li><strong>Charismatic founders are a liability at succession</strong> — the founder's death is a crisis</li>
-      <li><strong>State entanglement scales but binds</strong> — kibbutz is the cleanest case</li>
-      <li><strong>Common dining works wherever it's tried</strong> — small finding, robust signal</li>
-      <li><strong>Total collectivization of childcare doesn't take</strong> — even in committed communities</li>
-    </ol>
-    <aside class="notes">
-      These are the empirical findings I'd defend. Each of them has counterexamples
-      but the central tendency is strong. When you write your values statement
-      tonight, treat these as the constraints reality has already imposed on what
-      you're free to design.
-    </aside>
-  </section>
-
-  <section>
-    <h2>What travels — what doesn't</h2>
-    <div class="twocol">
+    <span class="chip chip-kibbutz">Place</span>
+    <h2 style="margin-top:0.5em;">Degania Aleph <span class="meta" style="font-size:0.55em;color:var(--muted);">· founded 1910 · "Mother of the Kibbutzim"</span></h2>
+    <img class="scene" src="https://commons.wikimedia.org/wiki/Special:FilePath/130831_the_first_house_in_degnia_a._PikiWiki_Israel.jpg?width=1024" alt="Degania Alef first house"/>
+    <span class="credit">The first house at Degania Alef, on the south shore of the Sea of Galilee. <a href="https://commons.wikimedia.org/wiki/File:130831_the_first_house_in_degnia_a._PikiWiki_Israel.jpg">PikiWiki Israel / Wikimedia Commons</a> · CC BY 2.5</span>
+    <div class="twocol" style="margin-top:1em; font-size:0.78em;">
       <div>
-        <h3>Travels well</h3>
+        <p>Twelve people on a malarial riverbank. Founded as a <em>kvutza</em> — small group, deliberately intimate, no hierarchy. Common purse, common labor, common dining.</p>
+        <p class="small">Yosef Baratz, twenty years old at the founding, later wrote one of the most readable communal-founding memoirs in print: <em>A Village by the Jordan</em> (1954).</p>
+      </div>
+      <div>
+        <blockquote style="font-size:0.95em;">"We were happy enough working on the land, but we knew more and more certainly that the ways of the old settlements were not for us. We thought there shouldn't be employers and employed at all. There must be a better way."<cite>— Joseph Baratz, A Village by the Jordan, opening pages</cite></blockquote>
+      </div>
+    </div>
+    <aside class="notes">
+      Twelve people. Dunbar-style small group, where consensus is achievable face-to-face.
+      The kvutza model is the original kibbutz. Baratz's memoir is the most accessible
+      primary document of any 20th-century commune founding — reads like a New England
+      farmer's diary.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Structural innovations that traveled</h2>
+    <ul style="font-size:0.78em; max-width:850px; margin:1em auto;">
+      <li><strong>Common dining hall</strong> (cheder ochel) — descendant of Plato's syssitia, Fourier's grand hall, Amana village kitchens. Proven civic architecture.</li>
+      <li><strong>Labor rotation (toranut)</strong> — direct lineage from Fourier and More.</li>
+      <li><strong>General assembly</strong> — weekly all-member governance.</li>
+      <li><strong>Federation across kibbutzim</strong> — Kibbutz Artzi, Kibbutz Meuhad, regional movements.</li>
+      <li><strong>Industrial vocation</strong> — Kibbutz Hatzerim's <em>Netafim</em> (drip irrigation) became a global firm. The Saint-Simonian inheritance.</li>
+    </ul>
+    <p class="small" style="margin-top:1em;">Each of these features is an inheritance from earlier tradition, integrated into a single working form.</p>
+    <aside class="notes">
+      Notice how many of these features are direct implementations of ideas from earlier
+      blocks. The kibbutz is not its own thing — it's a confluence. That's why it's
+      useful to study: it shows the toolkit being applied at scale.
+    </aside>
+  </section>
+
+  <section>
+    <h2>The arc, in one curve</h2>
+    <svg class="diagram" viewBox="0 0 900 380" xmlns="http://www.w3.org/2000/svg">
+      <line x1="60" y1="320" x2="860" y2="320" stroke="#888" stroke-width="1.5"/>
+      <line x1="60" y1="40"  x2="60"  y2="320" stroke="#888" stroke-width="1.5"/>
+      <g font-size="11" fill="#888" text-anchor="middle" font-family="JetBrains Mono, monospace">
+        <text x="80"  y="345">1910</text>
+        <text x="220" y="345">1948</text>
+        <text x="400" y="345">1985</text>
+        <text x="580" y="345">2000</text>
+        <text x="820" y="345">2026</text>
+      </g>
+      <text x="40" y="60" font-size="10" fill="#888">members</text>
+      <!-- Curve -->
+      <path d="M 80 315 Q 140 295 220 250 Q 300 180 400 90 Q 470 75 540 100 Q 620 170 720 220 Q 800 230 860 200"
+            fill="none" stroke="#D4A24C" stroke-width="3"/>
+      <g font-size="11" fill="#f3ead3">
+        <line x1="80" y1="315" x2="80" y2="295" stroke="#D4A24C"/>
+        <text x="100" y="290">1910 — Degania, 12 people</text>
+        <line x1="220" y1="250" x2="220" y2="225" stroke="#D4A24C"/>
+        <text x="240" y="220">1948 — ~50,000 (5% of Yishuv)</text>
+        <line x1="400" y1="90" x2="400" y2="65" stroke="#D4A24C"/>
+        <text x="420" y="60" font-weight="600">1985 — peak ~129,000 across 270 kibbutzim</text>
+        <line x1="580" y1="100" x2="580" y2="120" stroke="#D4A24C"/>
+        <text x="430" y="135">1990s — privatization wave</text>
+        <line x1="820" y1="200" x2="820" y2="180" stroke="#D4A24C"/>
+        <text x="780" y="170">today — 75% renewed, 25% shitufi</text>
+      </g>
+      <text x="450" y="375" text-anchor="middle" fill="#d4a373" font-style="italic" font-size="13">The curve is not a death — it is a metamorphosis.</text>
+    </svg>
+    <p class="tiny" style="margin-top:0.6em;">~75 years of fully-collective form, then a long gradient toward differential salaries and renewed-kibbutz models. Both forms continue today.</p>
+    <aside class="notes">
+      The kibbutz teaches: a communal form can run at scale for ~75 years and still
+      converge with the surrounding economy when the surrounding economy moves. State
+      support cuts both ways. The form that emerged on the other side ("renewed" /
+      privatized) still preserves a lot — common land trusts, mutual aid funds,
+      collective decision-making — but redistributes individual income.
+    </aside>
+  </section>
+
+  <section>
+    <h2>An honest acknowledgment</h2>
+    <p class="small">The kibbutz movement was integral to the Zionist settlement project. Many kibbutzim were established on or near Palestinian villages whose inhabitants were displaced in 1948. This is part of the historical record. A serious teaching has to hold both truths at once:</p>
+    <div class="twocol" style="margin-top:1em; font-size:0.75em;">
+      <div>
+        <p><strong>The communal form works.</strong> Generations of children raised collectively. A productive agrarian-industrial economy run democratically for decades. The dining hall as civic architecture. Federation as economic resilience.</p>
+      </div>
+      <div>
+        <p><strong>And.</strong> The form was deployed inside a settler-colonial project, on land from which others were displaced. The fact of structural achievement does not erase or excuse the colonial context.</p>
+      </div>
+    </div>
+    <p class="tiny" style="margin-top:1.5em;">Refs: Gershon Shafir, <em>Land, Labor and the Origins of the Israeli-Palestinian Conflict</em> (Cambridge, 1989) · Zeev Sternhell, <em>The Founding Myths of Israel</em> (Princeton, 1998)</p>
+    <aside class="notes">
+      Brief, honest, not minimizing, not consuming the block. We hold both truths and
+      move on. For students who want to dig deeper, Shafir is the indispensable text.
+    </aside>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- BLOCK 7 — CROSS-CUTTING -->
+  <!-- ============================================================ -->
+
+  <section>
+    <span class="chip chip-frame">Comparison</span>
+    <h1 style="margin-top:0.6em;">The shared toolkit, made visible</h1>
+    <p class="lede">Three slides that put every tradition on the same axes — so you can see what each contributed, and what your commune can borrow.</p>
+    <aside class="notes">
+      Block 7 is the synthesis. Three comparison slides, then the deeper question, then
+      the workshop. About 25 minutes total.
+    </aside>
+  </section>
+
+  <section>
+    <h2>The property spectrum</h2>
+    <svg class="diagram" viewBox="0 0 1100 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="propgrad" x1="0%" x2="100%">
+          <stop offset="0%"  stop-color="#3E4C59"/>
+          <stop offset="50%" stop-color="#D4A24C"/>
+          <stop offset="100%" stop-color="#8B0000"/>
+        </linearGradient>
+      </defs>
+      <rect x="60" y="120" width="980" height="22" rx="11" fill="url(#propgrad)"/>
+      <text x="60" y="180" font-weight="600" fill="#B5C2D0" font-size="13">TOTAL PRIVATE</text>
+      <text x="60" y="198" font-size="11" fill="#888">classical liberal</text>
+      <text x="1040" y="180" text-anchor="end" font-weight="600" fill="#E89090" font-size="13">TOTAL COMMON</text>
+      <text x="1040" y="198" text-anchor="end" font-size="11" fill="#888">communist anarchism</text>
+      <g font-size="11">
+        <line x1="200" y1="100" x2="200" y2="142" stroke="#B5C2D0" stroke-width="2"/>
+        <text x="200" y="90" text-anchor="middle" fill="#B5C2D0">Mondragón</text>
+        <line x1="340" y1="100" x2="340" y2="142" stroke="#B5C2D0" stroke-width="2"/>
+        <text x="340" y="90" text-anchor="middle" fill="#B5C2D0">Owen / New Lanark</text>
+        <line x1="490" y1="100" x2="490" y2="142" stroke="#D4A24C" stroke-width="2"/>
+        <text x="490" y="90" text-anchor="middle" fill="#F0CB85">Renewed Kibbutz</text>
+        <line x1="620" y1="100" x2="620" y2="142" stroke="#D4A24C" stroke-width="2"/>
+        <text x="620" y="90" text-anchor="middle" fill="#F0CB85">Amana 1855–1932</text>
+        <line x1="760" y1="100" x2="760" y2="142" stroke="#B5C2D0" stroke-width="2"/>
+        <text x="760" y="90" text-anchor="middle" fill="#B5C2D0">Classical Kibbutz</text>
+        <line x1="880" y1="100" x2="880" y2="142" stroke="#B5C2D0" stroke-width="2"/>
+        <text x="880" y="90" text-anchor="middle" fill="#B5C2D0">Hutterites · Bruderhof</text>
+        <line x1="970" y1="100" x2="970" y2="142" stroke="#E89090" stroke-width="2"/>
+        <text x="970" y="90" text-anchor="middle" fill="#E89090">Shakers · Spanish CNT</text>
+      </g>
+      <text x="550" y="225" text-anchor="middle" font-style="italic" fill="#d4a373" font-size="13">The deepest commons of all are religious. Secular commons mostly cluster left of them.</text>
+    </svg>
+    <p class="tiny" style="margin-top:0.5em; text-align:center;">Knowing your position on this axis is one of the first hard decisions any commune has to make.</p>
+    <aside class="notes">
+      The spectrum is empirical. Religious communities go further on common ownership
+      than secular ones do. That doesn't mean a secular community can't go all the way,
+      just that historically the religious ones have. The spectrum also clarifies that
+      "commune" is not one thing — it's a position on this axis.
+    </aside>
+  </section>
+
+  <section>
+    <h2>How ideology shaped structure — five lenses, six traditions</h2>
+    <table style="margin: 0.6em auto;">
+      <thead>
+        <tr><th>Tradition</th><th>Property</th><th>Governance</th><th>Labor</th><th>Membership</th><th>Outside</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="chip chip-utopian">Owen</span></td>
+          <td>Common, managed</td>
+          <td>Benevolent founder + council</td>
+          <td>Reduced hours, mixed</td>
+          <td>Open (the lesson logged)</td>
+          <td>Demonstration</td>
+        </tr>
+        <tr>
+          <td><span class="chip chip-utopian">Fourier / NAP</span></td>
+          <td>Joint-stock</td>
+          <td>Series + Council</td>
+          <td>Rotation, max 2h/task</td>
+          <td>Buy-in</td>
+          <td>Demonstration</td>
+        </tr>
+        <tr>
+          <td><span class="chip chip-religious">Hutterites</span></td>
+          <td>Total common</td>
+          <td>Elected pastors + ministers</td>
+          <td>Specialized + religious</td>
+          <td>Birth + endorsement</td>
+          <td>Withdrawal · 500y</td>
+        </tr>
+        <tr>
+          <td><span class="chip chip-religious">Oneida</span></td>
+          <td>Total common</td>
+          <td>Founder + mutual criticism</td>
+          <td>Rotating "bee" labor</td>
+          <td>Conversion + commitment</td>
+          <td>Withdrawal → exit</td>
+        </tr>
+        <tr>
+          <td><span class="chip chip-anarchist">Spanish CNT</span></td>
+          <td>Collectivized</td>
+          <td>Federated assemblies + recallable delegates</td>
+          <td>Variable; egalitarian</td>
+          <td>Living + working = membership</td>
+          <td>Federation</td>
+        </tr>
+        <tr>
+          <td><span class="chip chip-kibbutz">Classical Kibbutz</span></td>
+          <td>Total common (originally)</td>
+          <td>Weekly assembly + committees</td>
+          <td>Rotation + no hired labor</td>
+          <td>Multi-year candidacy</td>
+          <td>State partner</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="tiny" style="margin-top:1em; text-align:center;">No single answer is "right." Every answer here is a working design that produced a functioning community for some duration.</p>
+    <aside class="notes">
+      Walk down the table. Notice: every property regime, every governance form is
+      legible — it follows from a deeper belief and a context. When you write your values
+      statement later tonight, your answers should follow from your beliefs the same way.
+    </aside>
+  </section>
+
+  <section>
+    <h2>What travels — what every modern commune borrows</h2>
+    <div class="twocol" style="margin-top:1em; font-size:0.78em;">
+      <div>
+        <h3 style="color: var(--accent);">Universally inherited tools</h3>
         <ul>
-          <li>Common dining</li>
-          <li>Labor rotation (with limits)</li>
-          <li>Recallable delegates</li>
-          <li>Mutual criticism / structured feedback</li>
-          <li>Use-rights distinction (Proudhon)</li>
-          <li>The Minimum (Fourier)</li>
+          <li><strong>Common dining</strong> — Plato → Fourier → Amana → kibbutz → cohousing</li>
+          <li><strong>Labor rotation</strong> — More → Fourier → NAP → kibbutz → Twin Oaks</li>
+          <li><strong>Recallable delegates</strong> — Proudhon → Paris Commune → CNT → Zapatistas → Rojava</li>
+          <li><strong>Mutual criticism</strong> — Oneida → T-groups → encounter groups → Agile retros</li>
+          <li><strong>Property vs. possession</strong> — Proudhon → land trusts</li>
+          <li><strong>The Minimum</strong> — Fourier → modern UBI proposals</li>
+          <li><strong>Print infrastructure</strong> — Cabet → kibbutz federation → modern community magazines</li>
+          <li><strong>Daughter-out at ~150</strong> — Hutterites → Bruderhof → cohousing scale targets</li>
+          <li><strong>Mutual aid networks</strong> — Kropotkin → Spanish 1936 → COVID-19 networks</li>
+          <li><strong>Graceful exit via re-incorporation</strong> — Oneida 1881 → Amana 1932 → modern aging cooperatives</li>
         </ul>
       </div>
       <div>
-        <h3>Doesn't travel</h3>
+        <h3 style="color: var(--accent);">Honest constraints to design around</h3>
         <ul>
-          <li>Total childcare collectivization</li>
-          <li>Charismatic founder dependency</li>
-          <li>Religious bonding without religion</li>
-          <li>Open membership</li>
-          <li>Total dependency on a host state</li>
-          <li>Phalanx-scale architecture (1,620!)</li>
+          <li>Open membership without shared values converges fast</li>
+          <li>Founder dependency creates a succession bottleneck</li>
+          <li>Total childcare collectivization is a hard sell across most cultures</li>
+          <li>Religious bonding is hard to replicate without religion (the open question)</li>
+          <li>Total dependence on a host state moves with the state</li>
+          <li>Single points of failure (one building, one industry) are fragile</li>
         </ul>
+        <p class="small" style="margin-top:1em;">These aren't reasons not to try — they're the design constraints reality has already given us.</p>
       </div>
     </div>
-    <p class="small">This list is your toolbox for the workshop.</p>
     <aside class="notes">
-      Concretely: when you write your values statement, you're licensed to import
-      from the left column and you should be skeptical of the right column —
-      not because they're wrong in principle, but because the historical record
-      says they're hard.
+      Left column is the gift. Right column is the constraint. Together: the licensed
+      starting position. Every modern commune is the inheritor of these tools and lives
+      with these constraints.
     </aside>
   </section>
 
-  <section>
+  <section style="text-align:center;">
     <h2>The deeper question</h2>
-    <p class="lede" style="font-size: 1.2em;">If religious communities outlast secular ones — and you're building a secular community — what plays the role that religion played?</p>
-    <p class="small" style="margin-top: 1.5em;">Hold this question for the workshop. It's the single hardest design question you'll face.</p>
+    <p class="lede" style="font-size:1.3em; margin-top:1.5em;">If religious communities outlast secular ones, and you're building a secular community —<br/><strong>what plays the role that religion played?</strong></p>
+    <p class="small" style="margin-top:2em;">Hold this question for the workshop. It's the single hardest design question you'll face.</p>
+    <p class="small" style="margin-top:1em; opacity:0.8;">Some traditions have offered partial answers: explicit ideology, shared aesthetic, shared work, shared practice, shared place. None replaces religion fully. All do <em>some</em> of the work religion did.</p>
     <aside class="notes">
-      I want to leave the room with this question. It's not rhetorical and I
-      don't have a clean answer. Some options people have tried: explicit
-      ideology (kibbutz), shared aesthetic / culture (Burning Man-adjacent
-      communes), shared work (Mondragón — but that's next week), shared
-      practice (zazen-based sanghas). None replace religion fully. All do
-      <em>some</em> of the work religion did. Your values statement is partly
-      an attempt to answer this question.
+      Leave the room with this question. It's not rhetorical and there's no clean
+      answer. Some options people have tried: explicit ideology (kibbutz), shared
+      aesthetic (intentional community / Burning Man), shared work (Mondragón —
+      next week), shared practice (zen sangha, permaculture). Your values statement
+      tonight is partly an answer to this.
     </aside>
   </section>
 
-  <!-- =================================================================== -->
-  <!-- BLOCK 5 — WORKSHOP -->
-  <!-- =================================================================== -->
+  <!-- ============================================================ -->
+  <!-- BLOCK 8 — WORKSHOP -->
+  <!-- ============================================================ -->
 
   <section>
-    <span class="label">Workshop</span>
-    <h1>Your Values Statement</h1>
-    <p class="lede">Identify the traditions you most align with. Draft the document that will guide every later decision.</p>
+    <span class="chip chip-frame">Workshop</span>
+    <h1 style="margin-top:0.6em;">Your values statement</h1>
+    <p class="lede">Identify the traditions you align with. Draft the document that will guide every later decision.</p>
     <aside class="notes">
-      We have ~15 minutes. The full draft will be a homework continuation. Tonight
-      we just want to get something on paper. Pen and paper, please. No laptops.
+      We have ~15 minutes. The full draft is homework continuation. Tonight just get
+      something on paper. Pen and paper, please. No laptops.
     </aside>
   </section>
 
   <section>
     <h2>What a values statement does</h2>
-    <ul>
+    <ul style="font-size:0.82em; max-width:800px; margin:1em auto;">
       <li>It's the <strong>load-bearing document</strong> when you have to make a hard call later</li>
       <li>It tells a prospective member what they're joining (and not joining)</li>
       <li>It makes the implicit explicit so disagreement is about substance, not vibes</li>
       <li>It's <strong>shorter</strong> than you think — one page, ideally</li>
     </ul>
-    <p class="small">Reference: read Twin Oaks' "Bylaws," the Bruderhof's "First Law," the Camphill "Pledge." All short. All do load-bearing work.</p>
+    <p class="small" style="margin-top:1.5em;">References to read short, working values statements: <a href="https://www.twinoaks.org/community/our-bylaws/">Twin Oaks Bylaws</a> · <a href="https://www.bruderhof.com/en/who-we-are/foundations">Bruderhof "First Law"</a> · <a href="https://www.camphill.org/about/">Camphill Pledge</a></p>
     <aside class="notes">
-      Stress: short. The temptation is to write a manifesto. Don't. The values
-      statement should be readable in 90 seconds and useful in a fight.
+      Stress: short. The temptation is to write a manifesto. Don't. The values statement
+      should be readable in 90 seconds and useful in a fight.
     </aside>
   </section>
 
   <section>
     <h2>Seven prompts</h2>
-    <ol>
+    <ol style="font-size:0.78em; max-width:850px; margin:1em auto;">
       <li><strong>Property:</strong> What's held in common? What stays personal?</li>
       <li><strong>Decision-making:</strong> Consensus, majority, council, sortition? When can someone decide alone?</li>
       <li><strong>Membership:</strong> How does someone become a full member? How do they stop being one?</li>
@@ -1397,52 +1666,133 @@
       <li><strong>Conflict:</strong> What's the process when members fundamentally disagree?</li>
       <li><strong>Succession:</strong> What persists if the founders leave or die?</li>
     </ol>
-    <p class="small">For each prompt: one or two sentences. Don't aim for completeness; aim for a position.</p>
+    <p class="small" style="margin-top:1em; text-align:center;">For each prompt: one or two sentences. Don't aim for completeness; aim for a position.</p>
     <aside class="notes">
-      These are the prompts. Each prompt corresponds to one of the lenses (with
-      conflict and succession added because they're where actual communes break).
-      Tell people: pick the one that scares you most and start there.
+      Seven prompts — the five lenses plus conflict and succession (added because they're
+      where actual communes break). Tell people: pick the one that scares you most and
+      start there.
     </aside>
   </section>
 
   <section>
-    <h2>Tonight: 12 minutes of writing</h2>
-    <ul>
+    <h2 style="text-align:center;">12 minutes of writing</h2>
+    <ul style="font-size:0.85em; max-width:800px; margin:1.5em auto;">
       <li>Choose <strong>three</strong> of the seven prompts — the ones you have the strongest take on right now</li>
       <li>Write <strong>two sentences</strong> for each. Position, not justification.</li>
-      <li>Then circle one tradition from tonight that your answers most resemble</li>
+      <li>Then <strong>circle one tradition</strong> from tonight that your answers most resemble</li>
       <li>Then write one sentence on where you <em>differ</em> from that tradition</li>
     </ul>
-    <p class="lede small" style="margin-top: 1em;">12 minutes. Phones off. Pen and paper. Go.</p>
+    <p class="lede" style="text-align:center; margin-top:2em;">Pen and paper. Phones off.<br/><strong>12 minutes. Go.</strong></p>
     <aside class="notes">
-      Set a timer. Walk the room while they write. After 12 minutes, ask for
-      two volunteers to read what they wrote. Don't workshop it tonight — the
-      goal is a first articulation, not a polished document. Tell them they'll
-      iterate this every week.
+      Set a timer. Walk the room while they write. After 12 minutes, ask for two
+      volunteers to read what they wrote. Don't workshop tonight — first articulation,
+      not polished document.
     </aside>
   </section>
+
+  <!-- ============================================================ -->
+  <!-- BLOCK 9 — REFERENCES + CLOSE -->
+  <!-- ============================================================ -->
 
   <section>
     <h2>For next week</h2>
-    <ul>
+    <ul style="font-size:0.8em; max-width:850px; margin:1em auto;">
       <li>Expand tonight's three prompts to all seven</li>
-      <li>Read: Christian, <em>Creating a Life Together</em>, Ch. 2–3</li>
-      <li>Read: Buber, <em>Paths in Utopia</em>, last chapter ("An Experiment That Did Not Fail")</li>
-      <li>Optional: Kropotkin, <em>The Conquest of Bread</em>, Ch. 1–3</li>
+      <li>Read: Diana Leafe Christian, <em>Creating a Life Together</em>, Ch. 2–3</li>
+      <li>Read: Buber, <em>Paths in Utopia</em>, last chapter ("An Experiment That Did Not Fail") — <a href="https://theanarchistlibrary.org/library/martin-buber-paths-in-utopia-en">free online</a></li>
+      <li>Read (optional): Kropotkin, <em>The Conquest of Bread</em>, Ch. 1–3 — <a href="https://theanarchistlibrary.org/library/petr-kropotkin-the-conquest-of-bread">free online</a></li>
       <li>Bring: your one-page values statement, ready to share</li>
     </ul>
-    <p class="small">Next session: the non-weird communes — Mondragón, cohousing, land trusts. The pragmatist counterpart to tonight.</p>
+    <p class="small" style="text-align:center; margin-top:1.5em;">Next session: <strong>The non-weird communes</strong> — Mondragón, cohousing, land trusts. The pragmatist counterpart to tonight.</p>
     <aside class="notes">
-      Close with a clear bridge to next week. Then dinner / informal Q&amp;A.
+      Clear bridge to next week. Then dinner / informal Q&amp;A.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Primary texts (free online)</h2>
+    <div class="threecol" style="font-size:0.7em; margin-top:1em;">
+      <div>
+        <h3>Utopian socialists</h3>
+        <ul>
+          <li><a href="https://www.gutenberg.org/files/2130/2130-h/2130-h.htm">More, Utopia (1516)</a></li>
+          <li><a href="https://www.marxists.org/reference/subject/economics/owen/index.htm">Owen, A New View of Society</a></li>
+          <li><a href="https://www.marxists.org/reference/archive/fourier/works/index.htm">Fourier (selections)</a></li>
+          <li><a href="https://archive.org/details/voyageenicarie00cabe">Cabet, Voyage en Icarie</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Anarchists</h3>
+        <ul>
+          <li><a href="https://theanarchistlibrary.org/library/pierre-joseph-proudhon-what-is-property-an-inquiry-into-the-principle-of-right-and-of-government">Proudhon, What is Property?</a></li>
+          <li><a href="https://theanarchistlibrary.org/library/mikhail-bakunin-god-and-the-state">Bakunin, God and the State</a></li>
+          <li><a href="https://theanarchistlibrary.org/library/petr-kropotkin-mutual-aid-a-factor-of-evolution">Kropotkin, Mutual Aid</a></li>
+          <li><a href="https://theanarchistlibrary.org/library/petr-kropotkin-the-conquest-of-bread">Kropotkin, Conquest of Bread</a></li>
+          <li><a href="https://theanarchistlibrary.org/library/gustav-landauer-for-socialism">Landauer, For Socialism</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Real revolutions</h3>
+        <ul>
+          <li><a href="https://www.marxists.org/archive/marx/works/1871/civil-war-france/">Marx, The Civil War in France</a></li>
+          <li><a href="https://theanarchistlibrary.org/library/peter-arshinov-history-of-the-makhnovist-movement-1918-1921">Arshinov, History of the Makhnovist Movement</a></li>
+          <li><a href="https://theanarchistlibrary.org/library/voline-the-unknown-revolution-1917-1921">Voline, The Unknown Revolution</a></li>
+          <li><a href="https://theanarchistlibrary.org/library/sam-dolgoff-the-anarchist-collectives">Dolgoff, The Anarchist Collectives</a></li>
+          <li><a href="https://www.george-orwell.org/Homage_to_Catalonia/index.html">Orwell, Homage to Catalonia</a></li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      Don't apologize for the reading list. The primary texts are mostly short, free,
+      and online. Anyone who wants to go deeper has a clear path.
+    </aside>
+  </section>
+
+  <section>
+    <h2>Religious communalism · 20th-c. synthesis</h2>
+    <div class="threecol" style="font-size:0.7em; margin-top:1em;">
+      <div>
+        <h3>Religious traditions</h3>
+        <ul>
+          <li><a href="https://www.maineshakers.com/">Sabbathday Lake Shakers</a> (last living village)</li>
+          <li><a href="https://hutterites.org/">Hutterites.org</a></li>
+          <li><a href="https://www.bruderhof.com/">Bruderhof.com</a></li>
+          <li><a href="https://www.oneidacommunity.org/">Oneida Mansion House Museum</a></li>
+          <li><a href="https://amanaheritage.org/">Amana Heritage Society</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Kibbutz tradition</h3>
+        <ul>
+          <li><a href="https://theanarchistlibrary.org/library/martin-buber-paths-in-utopia-en">Buber, Paths in Utopia (full text)</a></li>
+          <li><a href="https://www.marxists.org/archive/borochov/introduction.htm">Borochov collected works</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/A._D._Gordon">A.D. Gordon (overview)</a></li>
+          <li>Daniel Gavron, <em>The Kibbutz: Awakening from Utopia</em> (2000)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Modern reflection</h3>
+        <ul>
+          <li>Kristin Ross, <em>Communal Luxury</em> (Verso, 2015)</li>
+          <li>Carl Guarneri, <em>The Utopian Alternative</em> (Cornell, 1991)</li>
+          <li>Donald Pitzer, <em>America's Communal Utopias</em> (UNC, 1997)</li>
+          <li>Diana Leafe Christian, <em>Creating a Life Together</em></li>
+          <li><a href="https://www.ic.org/">Foundation for Intentional Community</a></li>
+        </ul>
+      </div>
+    </div>
+    <aside class="notes">
+      The packet I send out tomorrow will have PDFs of the open-access materials and
+      a short note on where to find the others.
     </aside>
   </section>
 
   <section style="text-align: center;">
     <h1>Thank you.</h1>
-    <p class="lede">Questions, beers, and the rest is in the room.</p>
-    <p class="small" style="margin-top: 1.5em;">Reading list and these slides go to the group thread tomorrow.</p>
+    <p class="lede" style="margin-top:1em;">A 500-year apprenticeship — and you're standing where the apprentices stand.</p>
     <button class="copy-all-btn" id="copy-all-btn" type="button">Copy all comments</button>
     <span class="copy-status" id="copy-status"></span>
+    <p class="small" style="margin-top:2em;">Slides + reading packet to the group thread tomorrow.</p>
     <aside class="notes">End. Light up the dining hall.</aside>
   </section>
 
@@ -1462,7 +1812,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
 <script>
   Reveal.initialize({
     hash: true,
@@ -1471,8 +1820,8 @@
     backgroundTransition: 'fade',
     width: 1280,
     height: 800,
-    margin: 0.06,
-    plugins: [ RevealHighlight, RevealNotes ]
+    margin: 0.05,
+    plugins: [ RevealNotes ]
   });
 
   // ---------- Big nav buttons ----------
@@ -1481,16 +1830,14 @@
   navPrev.addEventListener('click', () => Reveal.prev());
   navNext.addEventListener('click', () => Reveal.next());
   function updateNavDisabled() {
-    const left = Reveal.isFirstSlide ? Reveal.isFirstSlide() : false;
-    const right = Reveal.isLastSlide ? Reveal.isLastSlide() : false;
-    navPrev.disabled = !!left;
-    navNext.disabled = !!right;
+    navPrev.disabled = !!(Reveal.isFirstSlide && Reveal.isFirstSlide());
+    navNext.disabled = !!(Reveal.isLastSlide && Reveal.isLastSlide());
   }
   Reveal.on('ready', updateNavDisabled);
   Reveal.on('slidechanged', updateNavDisabled);
 
   // ---------- Per-slide comments ----------
-  const STORAGE_KEY = 'session3-comments-v1';
+  const STORAGE_KEY = 'session3-comments-v2';
   const PANEL_HIDDEN_KEY = 'session3-comments-panel-hidden';
   const panel = document.getElementById('comment-panel');
   const textarea = document.getElementById('comment-textarea');
@@ -1524,7 +1871,6 @@
     const all = document.querySelectorAll('.reveal .slides section');
     let n = 0;
     for (const s of all) {
-      // Skip stack containers (sections that hold vertical sub-sections)
       if (s.querySelector(':scope > section')) continue;
       n++;
       if (s === slide) return `${n} / ${countLeafSlides()}`;
@@ -1540,51 +1886,40 @@
 
   let currentKey = null;
 
-  function syncPanelToCurrentSlide() {
-    const slide = Reveal.getCurrentSlide();
-    if (!slide) return;
-    if (currentKey !== null) {
-      const all = loadComments();
-      const v = textarea.value;
-      if (v.trim()) all[currentKey] = { title: all[currentKey]?.title || slideTitleByKey(currentKey), text: v };
-      else delete all[currentKey];
-      saveComments(all);
-    }
-    currentKey = slideKey(slide);
-    const all = loadComments();
-    if (!all[currentKey] || !all[currentKey].title) {
-      if (all[currentKey]) all[currentKey].title = slideTitle(slide);
-      else { /* no entry yet — set title lazily on first save */ }
-    } else {
-      all[currentKey].title = slideTitle(slide); // refresh in case of edits
-      saveComments(all);
-    }
-    textarea.value = (all[currentKey] && all[currentKey].text) || '';
-    slideLabel.textContent = `Slide ${slideNumber(slide)} — ${slideTitle(slide)}`;
-  }
-
   function slideTitleByKey(key) {
     const [h, v] = key.split('.').map(n => parseInt(n, 10));
     const slide = Reveal.getSlide(h, v);
     return slide ? slideTitle(slide) : 'Untitled slide';
   }
 
+  function syncPanelToCurrentSlide() {
+    const slide = Reveal.getCurrentSlide();
+    if (!slide) return;
+    if (currentKey !== null) {
+      const all = loadComments();
+      const v = textarea.value;
+      if (v.trim()) all[currentKey] = { title: slideTitleByKey(currentKey), text: v };
+      else delete all[currentKey];
+      saveComments(all);
+    }
+    currentKey = slideKey(slide);
+    const all = loadComments();
+    textarea.value = (all[currentKey] && all[currentKey].text) || '';
+    slideLabel.textContent = `Slide ${slideNumber(slide)} — ${slideTitle(slide)}`;
+  }
+
   textarea.addEventListener('input', () => {
     if (currentKey === null) return;
     const all = loadComments();
     const text = textarea.value;
-    if (text.trim()) {
-      all[currentKey] = { title: slideTitleByKey(currentKey), text };
-    } else {
-      delete all[currentKey];
-    }
+    if (text.trim()) all[currentKey] = { title: slideTitleByKey(currentKey), text };
+    else delete all[currentKey];
     saveComments(all);
   });
 
   Reveal.on('ready', syncPanelToCurrentSlide);
   Reveal.on('slidechanged', syncPanelToCurrentSlide);
 
-  // Toggle panel: 'c' key or click the handle
   function togglePanel() {
     panel.classList.toggle('hidden');
     localStorage.setItem(PANEL_HIDDEN_KEY, panel.classList.contains('hidden') ? '1' : '0');
@@ -1597,22 +1932,18 @@
       togglePanel();
     }
   });
-
-  // Don't let arrow keys / space inside the textarea navigate slides
   textarea.addEventListener('keydown', (e) => { e.stopPropagation(); });
 
   // ---------- Copy all comments ----------
   function compileComments() {
     const all = loadComments();
-    // Walk all slides in order to produce consistent output
-    const total = Reveal.getTotalSlides();
     const lines = [];
     lines.push('# Session 3 — Theories of Communalism I');
     lines.push('Comments compiled ' + new Date().toISOString());
     lines.push('');
     let count = 0;
-    const horizontal = document.querySelectorAll('.reveal .slides > section');
     let n = 0;
+    const horizontal = document.querySelectorAll('.reveal .slides > section');
     horizontal.forEach((h, hi) => {
       const verticals = h.querySelectorAll(':scope > section');
       if (verticals.length === 0) {
@@ -1656,7 +1987,6 @@
           copyBtn.textContent = 'Copy all comments';
         }, 2400);
       } catch (err) {
-        // Fallback: select-all in a temp textarea
         const ta = document.createElement('textarea');
         ta.value = text;
         document.body.appendChild(ta);
