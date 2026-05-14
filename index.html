@@ -30,6 +30,28 @@
     .reveal h1 { font-size: 1.9em; line-height: 1.15; }
     .reveal h2 { font-size: 1.3em; }
     .reveal h3 { font-size: 1.0em; color: var(--accent); }
+
+    /* ===== Scrollable overflow on overlong slides ===== */
+    /* Reveal positions each slide absolutely with overflow:hidden by default;
+       override so a slide whose content exceeds the logical height can scroll. */
+    .reveal .slides > section,
+    .reveal .slides > section > section {
+      max-height: 100% !important;
+      overflow-y: auto !important;
+      overflow-x: hidden;
+      box-sizing: border-box;
+      padding-top: 8px;
+      padding-bottom: 28px;
+    }
+    /* Pretty scrollbar */
+    .reveal .slides > section::-webkit-scrollbar,
+    .reveal .slides > section > section::-webkit-scrollbar { width: 8px; }
+    .reveal .slides > section::-webkit-scrollbar-track,
+    .reveal .slides > section > section::-webkit-scrollbar-track { background: rgba(212,163,115,0.06); }
+    .reveal .slides > section::-webkit-scrollbar-thumb,
+    .reveal .slides > section > section::-webkit-scrollbar-thumb { background: rgba(212,163,115,0.5); border-radius: 4px; }
+    .reveal .slides > section::-webkit-scrollbar-thumb:hover,
+    .reveal .slides > section > section::-webkit-scrollbar-thumb:hover { background: var(--accent); }
     .reveal blockquote {
       border-left: 3px solid var(--accent);
       padding: 0.4em 1em;
@@ -2195,9 +2217,11 @@ flowchart TB
     slideNumber: 'c/t',
     transition: 'fade',
     backgroundTransition: 'fade',
-    width: 1280,
-    height: 800,
-    margin: 0.05,
+    width: 1400,
+    height: 900,
+    margin: 0.04,
+    minScale: 0.2,
+    maxScale: 2.0,
     plugins: [ RevealNotes ]
   });
 
