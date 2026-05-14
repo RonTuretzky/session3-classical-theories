@@ -42,7 +42,42 @@
       box-sizing: border-box;
       padding-top: 8px;
       padding-bottom: 28px;
+      zoom: var(--slide-zoom, 1);
     }
+
+    /* ===== In-slide zoom controls (bottom-right) ===== */
+    #zoom-controls {
+      position: fixed;
+      bottom: 16px; right: 16px;
+      z-index: 1200;
+      display: flex; gap: 6px;
+      background: rgba(20,20,20,0.7);
+      border: 1px solid var(--accent);
+      border-radius: 22px;
+      padding: 4px 8px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      font-family: "Inter", sans-serif;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    }
+    #zoom-controls button {
+      width: 32px; height: 32px;
+      border: none; background: transparent;
+      color: var(--accent); font-size: 18px; font-weight: 600;
+      cursor: pointer; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.12s;
+      padding: 0;
+    }
+    #zoom-controls button:hover { background: rgba(212,163,115,0.2); }
+    #zoom-controls .zoom-level {
+      display: flex; align-items: center;
+      color: var(--accent); font-size: 11px; min-width: 36px;
+      font-family: "JetBrains Mono", monospace;
+      justify-content: center; letter-spacing: 0.05em;
+    }
+    @media print { #zoom-controls { display: none !important; } }
+    .reveal.print-pdf #zoom-controls { display: none !important; }
     /* Pretty scrollbar */
     .reveal .slides > section::-webkit-scrollbar,
     .reveal .slides > section > section::-webkit-scrollbar { width: 8px; }
@@ -2233,6 +2268,13 @@ flowchart TB
 <button class="big-nav prev" id="big-nav-prev" type="button" aria-label="Previous slide" title="Previous (←)">‹</button>
 <button class="big-nav next" id="big-nav-next" type="button" aria-label="Next slide" title="Next (→)">›</button>
 
+<div id="zoom-controls" title="Zoom · keys: + / − / 0">
+  <button id="zoom-out" type="button" aria-label="Zoom out" title="Zoom out (−)">−</button>
+  <span class="zoom-level" id="zoom-level">100%</span>
+  <button id="zoom-in" type="button" aria-label="Zoom in" title="Zoom in (+)">+</button>
+  <button id="zoom-reset" type="button" aria-label="Reset zoom" title="Reset zoom (0)" style="font-size: 13px;">⤺</button>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
 <script type="module">
@@ -2312,6 +2354,38 @@ flowchart TB
   }
   Reveal.on('ready', updateNavDisabled);
   Reveal.on('slidechanged', updateNavDisabled);
+
+  // ---------- In-slide zoom ----------
+  const ZOOM_KEY = 'session3-slide-zoom-v1';
+  const ZOOM_STEPS = [0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.25, 1.4, 1.6, 1.8, 2.0, 2.4, 2.8, 3.2];
+  let zoomIdx = ZOOM_STEPS.indexOf(1.0);
+  const savedZoom = parseFloat(localStorage.getItem(ZOOM_KEY) || '1');
+  if (!isNaN(savedZoom)) {
+    const idx = ZOOM_STEPS.findIndex(z => Math.abs(z - savedZoom) < 0.001);
+    if (idx >= 0) zoomIdx = idx;
+  }
+  const zoomLevelEl = document.getElementById('zoom-level');
+  function applyZoom() {
+    const z = ZOOM_STEPS[zoomIdx];
+    document.documentElement.style.setProperty('--slide-zoom', z);
+    if (zoomLevelEl) zoomLevelEl.textContent = Math.round(z * 100) + '%';
+    localStorage.setItem(ZOOM_KEY, String(z));
+  }
+  function zoomIn()  { if (zoomIdx < ZOOM_STEPS.length - 1) { zoomIdx++; applyZoom(); } }
+  function zoomOut() { if (zoomIdx > 0) { zoomIdx--; applyZoom(); } }
+  function zoomReset() { zoomIdx = ZOOM_STEPS.indexOf(1.0); applyZoom(); }
+  document.getElementById('zoom-in').addEventListener('click', zoomIn);
+  document.getElementById('zoom-out').addEventListener('click', zoomOut);
+  document.getElementById('zoom-reset').addEventListener('click', zoomReset);
+  document.addEventListener('keydown', (e) => {
+    const inField = ['INPUT', 'TEXTAREA'].includes((document.activeElement || {}).tagName);
+    if (inField) return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === '+' || e.key === '=') { e.preventDefault(); zoomIn(); }
+    else if (e.key === '-' || e.key === '_') { e.preventDefault(); zoomOut(); }
+    else if (e.key === '0') { e.preventDefault(); zoomReset(); }
+  });
+  applyZoom();
 
   // =============================================================
   // INTERACTIVE QUIZ
