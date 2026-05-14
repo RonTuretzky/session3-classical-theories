@@ -754,70 +754,118 @@
 
   <section>
     <h2>The lineage at a glance</h2>
-    <p class="small">Influence travels along the arrows — read, translated, met, argued with.</p>
-    <svg class="diagram" viewBox="0 0 1180 360" xmlns="http://www.w3.org/2000/svg">
+    <p class="small">Each band is a tradition. Vertical position carries no meaning other than tradition; left-to-right is time.</p>
+    <svg class="diagram" viewBox="0 0 1200 440" xmlns="http://www.w3.org/2000/svg" style="margin-top: 0.6em;">
+      <defs>
+        <linearGradient id="util-band" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%"  stop-color="#B5651D" stop-opacity="0.08"/>
+          <stop offset="100%" stop-color="#B5651D" stop-opacity="0.18"/>
+        </linearGradient>
+        <linearGradient id="anar-band" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%"  stop-color="#8B0000" stop-opacity="0.08"/>
+          <stop offset="100%" stop-color="#8B0000" stop-opacity="0.18"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Bands -->
+      <rect x="60" y="80"  width="1080" height="100" rx="50" fill="url(#util-band)" stroke="#B5651D" stroke-width="1.2" stroke-opacity="0.5"/>
+      <rect x="60" y="240" width="1080" height="100" rx="50" fill="url(#anar-band)" stroke="#8B0000" stroke-width="1.2" stroke-opacity="0.5"/>
+
+      <!-- Band labels -->
+      <text x="80" y="70" font-size="13" fill="#E0A878" font-family="Inter, sans-serif" font-weight="600" letter-spacing="0.12em">UTOPIAN SOCIALISTS</text>
+      <text x="80" y="370" font-size="13" fill="#E89090" font-family="Inter, sans-serif" font-weight="600" letter-spacing="0.12em">ANARCHIST COMMUNALISTS</text>
+
+      <!-- Center time axis -->
+      <line x1="60" y1="210" x2="1140" y2="210" stroke="#555" stroke-width="1"/>
+      <g font-size="11" fill="#888" font-family="JetBrains Mono, monospace">
+        <text x="80"  y="226" text-anchor="middle">1516</text>
+        <text x="220" y="226" text-anchor="middle">1649</text>
+        <text x="440" y="226" text-anchor="middle">1808</text>
+        <text x="580" y="226" text-anchor="middle">1840</text>
+        <text x="720" y="226" text-anchor="middle">1871</text>
+        <text x="860" y="226" text-anchor="middle">1902</text>
+        <text x="1000" y="226" text-anchor="middle">1936</text>
+        <text x="1120" y="226" text-anchor="middle">2026</text>
+      </g>
+
+      <!-- Year tick marks -->
+      <g stroke="#666" stroke-width="1">
+        <line x1="80"  y1="205" x2="80"  y2="215"/>
+        <line x1="220" y1="205" x2="220" y2="215"/>
+        <line x1="440" y1="205" x2="440" y2="215"/>
+        <line x1="580" y1="205" x2="580" y2="215"/>
+        <line x1="720" y1="205" x2="720" y2="215"/>
+        <line x1="860" y1="205" x2="860" y2="215"/>
+        <line x1="1000" y1="205" x2="1000" y2="215"/>
+        <line x1="1120" y1="205" x2="1120" y2="215"/>
+      </g>
+
+      <!-- Utopian nodes (top band, y ~130) -->
+      <g>
+        <circle cx="80"  cy="130" r="11" fill="#B5651D" stroke="#f3ead3" stroke-width="2"/>
+        <text x="80"  y="115" text-anchor="middle" font-size="13" fill="#E0A878" font-family="Inter, sans-serif" font-weight="600">More</text>
+        <text x="80"  y="158" text-anchor="middle" font-size="10" fill="#aaa">Utopia</text>
+
+        <circle cx="220" cy="130" r="11" fill="#B5651D" stroke="#f3ead3" stroke-width="2"/>
+        <text x="220" y="115" text-anchor="middle" font-size="13" fill="#E0A878" font-family="Inter, sans-serif" font-weight="600">Diggers</text>
+        <text x="220" y="158" text-anchor="middle" font-size="10" fill="#aaa">St George's Hill</text>
+
+        <circle cx="440" cy="130" r="14" fill="#B5651D" stroke="#f3ead3" stroke-width="2"/>
+        <text x="440" y="113" text-anchor="middle" font-size="13" fill="#E0A878" font-family="Inter, sans-serif" font-weight="600">Owen · Fourier · Saint-Simon</text>
+        <text x="440" y="160" text-anchor="middle" font-size="10" fill="#aaa">designed colonies</text>
+
+        <circle cx="580" cy="130" r="11" fill="#B5651D" stroke="#f3ead3" stroke-width="2"/>
+        <text x="580" y="115" text-anchor="middle" font-size="13" fill="#E0A878" font-family="Inter, sans-serif" font-weight="600">Cabet</text>
+        <text x="580" y="158" text-anchor="middle" font-size="10" fill="#aaa">Icaria</text>
+      </g>
+
+      <!-- Anarchist nodes (bottom band, y ~290) -->
+      <g>
+        <circle cx="580" cy="290" r="11" fill="#8B0000" stroke="#f3ead3" stroke-width="2"/>
+        <text x="580" y="320" text-anchor="middle" font-size="13" fill="#E89090" font-family="Inter, sans-serif" font-weight="600">Proudhon</text>
+        <text x="580" y="338" text-anchor="middle" font-size="10" fill="#aaa">mutualism</text>
+
+        <circle cx="720" cy="290" r="11" fill="#8B0000" stroke="#f3ead3" stroke-width="2"/>
+        <text x="720" y="320" text-anchor="middle" font-size="13" fill="#E89090" font-family="Inter, sans-serif" font-weight="600">Bakunin</text>
+        <text x="720" y="338" text-anchor="middle" font-size="10" fill="#aaa">collectivism</text>
+
+        <circle cx="860" cy="290" r="15" fill="#8B0000" stroke="#f3ead3" stroke-width="2"/>
+        <text x="860" y="322" text-anchor="middle" font-size="13" fill="#E89090" font-family="Inter, sans-serif" font-weight="600">Kropotkin</text>
+        <text x="860" y="340" text-anchor="middle" font-size="10" fill="#aaa">anarchist communism</text>
+
+        <circle cx="1000" cy="290" r="11" fill="#8B0000" stroke="#f3ead3" stroke-width="2"/>
+        <text x="1000" y="320" text-anchor="middle" font-size="13" fill="#E89090" font-family="Inter, sans-serif" font-weight="600">Spanish CNT</text>
+        <text x="1000" y="338" text-anchor="middle" font-size="10" fill="#aaa">1936 revolution</text>
+
+        <circle cx="1120" cy="290" r="9" fill="#8B0000" opacity="0.5" stroke="#f3ead3" stroke-width="2"/>
+        <text x="1120" y="320" text-anchor="middle" font-size="13" fill="#E89090" font-family="Inter, sans-serif" font-weight="600">Today</text>
+        <text x="1120" y="338" text-anchor="middle" font-size="10" fill="#aaa">Rojava, mutual aid</text>
+      </g>
+
+      <!-- Influence arrows: vertical between bands -->
+      <g stroke="#d4a373" stroke-width="1.6" fill="none" stroke-opacity="0.55" stroke-linecap="round">
+        <!-- Utopian internal flow -->
+        <path d="M 92 130 Q 156 130 208 130" marker-end="url(#arr)"/>
+        <path d="M 232 130 Q 330 130 426 130" marker-end="url(#arr)"/>
+        <path d="M 454 130 Q 517 130 568 130" marker-end="url(#arr)"/>
+        <!-- Cross-band influence: utopian → anarchist -->
+        <path d="M 440 144 Q 510 230 575 280" marker-end="url(#arr)" stroke-dasharray="4,3"/>
+        <!-- Anarchist internal flow -->
+        <path d="M 592 290 Q 656 290 708 290" marker-end="url(#arr)"/>
+        <path d="M 732 290 Q 796 290 844 290" marker-end="url(#arr)"/>
+        <path d="M 876 290 Q 938 290 988 290" marker-end="url(#arr)"/>
+        <path d="M 1012 290 L 1110 290" marker-end="url(#arr)"/>
+      </g>
       <defs>
         <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="#d4a373"/>
         </marker>
       </defs>
-      <!-- Main spine -->
-      <line x1="60" y1="180" x2="1120" y2="180" stroke="#444" stroke-width="2"/>
-      <!-- Year markers -->
-      <g font-size="11" fill="#888" font-family="JetBrains Mono, monospace">
-        <text x="60" y="215" text-anchor="middle">1516</text>
-        <text x="180" y="215" text-anchor="middle">1649</text>
-        <text x="380" y="215" text-anchor="middle">1808</text>
-        <text x="520" y="215" text-anchor="middle">1840</text>
-        <text x="660" y="215" text-anchor="middle">1871</text>
-        <text x="810" y="215" text-anchor="middle">1902</text>
-        <text x="980" y="215" text-anchor="middle">1936</text>
-        <text x="1120" y="215" text-anchor="middle">2026</text>
-      </g>
-      <!-- Utopian band (top) -->
-      <g>
-        <circle cx="60"  cy="115" r="10" fill="#B5651D"/>
-        <text x="60"  y="95" text-anchor="middle" font-size="12" fill="#E0A878">More</text>
-        <circle cx="180" cy="115" r="10" fill="#B5651D"/>
-        <text x="180" y="95" text-anchor="middle" font-size="12" fill="#E0A878">Diggers</text>
-        <circle cx="380" cy="115" r="13" fill="#B5651D"/>
-        <text x="380" y="93" text-anchor="middle" font-size="12" fill="#E0A878">Owen · Fourier · Saint-Simon</text>
-        <circle cx="520" cy="115" r="11" fill="#B5651D"/>
-        <text x="520" y="95" text-anchor="middle" font-size="12" fill="#E0A878">Cabet</text>
-      </g>
-      <!-- Anarchist band (bottom) -->
-      <g>
-        <circle cx="520" cy="245" r="10" fill="#8B0000"/>
-        <text x="520" y="275" text-anchor="middle" font-size="12" fill="#E89090">Proudhon</text>
-        <circle cx="660" cy="245" r="11" fill="#8B0000"/>
-        <text x="660" y="275" text-anchor="middle" font-size="12" fill="#E89090">Paris Commune · Bakunin</text>
-        <circle cx="810" cy="245" r="14" fill="#8B0000"/>
-        <text x="810" y="275" text-anchor="middle" font-size="12" fill="#E89090">Kropotkin</text>
-        <circle cx="980" cy="245" r="11" fill="#8B0000"/>
-        <text x="980" y="275" text-anchor="middle" font-size="12" fill="#E89090">Spanish CNT</text>
-        <circle cx="1120" cy="245" r="9" fill="#8B0000" opacity="0.55"/>
-        <text x="1120" y="275" text-anchor="middle" font-size="12" fill="#E89090">Today's communes</text>
-      </g>
-      <!-- Clean influence arrows: utopian → anarchist diagonals -->
-      <g stroke="#d4a373" stroke-width="1.4" fill="none" stroke-opacity="0.55" marker-end="url(#arr)">
-        <path d="M 60 125 Q 100 175 180 115"/>
-        <path d="M 180 125 Q 240 175 380 115"/>
-        <path d="M 380 125 Q 450 200 520 235"/>
-        <path d="M 520 125 Q 580 200 660 235"/>
-        <path d="M 520 245 Q 590 270 660 245"/>
-        <path d="M 660 245 Q 735 270 810 245"/>
-        <path d="M 810 245 Q 895 280 980 245"/>
-        <path d="M 980 245 L 1110 245"/>
-      </g>
-      <!-- Legend -->
-      <g font-size="12" font-family="Inter, sans-serif">
-        <rect x="60" y="320" width="14" height="14" fill="#B5651D"/>
-        <text x="80" y="333" fill="#E0A878">Utopian socialists</text>
-        <rect x="280" y="320" width="14" height="14" fill="#8B0000"/>
-        <text x="300" y="333" fill="#E89090">Anarchist communalists</text>
-      </g>
+
+      <!-- Caption -->
+      <text x="600" y="415" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" fill="#d4a373" font-size="14">Solid arrows: direct inheritance. Dashed: cross-tradition crossover (Proudhon was read by every utopian and inherited from them).</text>
     </svg>
-    <aside class="notes">Cleaner timeline. Two bands. Arrows show direct intellectual transmission.</aside>
+    <aside class="notes">Refactored: two clean bands, year axis in the middle, larger labeled nodes with sub-captions, solid-vs-dashed arrows to distinguish in-band lineage from cross-band crossover.</aside>
   </section>
 
   <!-- ============================================================ -->
@@ -1228,35 +1276,59 @@ flowchart TB
   <section>
     <span class="chip chip-utopian">Place</span>
     <h2 style="margin-top:0.4em;">North American Phalanx <span style="font-size:0.55em;color:var(--muted);">· Colts Neck, NJ · 1843–1856</span></h2>
-    <img class="scene" src="https://commons.wikimedia.org/wiki/Special:FilePath/72-NorthAmericanPhalanx-exterior.jpg?width=900" alt="North American Phalanx exterior" style="max-height: 240px; margin-bottom: 0.5em;"/>
-    <span class="credit">The Phalanstery building at Colts Neck, NJ — Historic American Buildings Survey photograph. <a href="https://commons.wikimedia.org/wiki/File:72-NorthAmericanPhalanx-exterior.jpg">Wikimedia Commons</a> · PD-USGov</span>
-    <div class="twocol" style="grid-template-columns: 1.2fr 1fr; gap: 1em; margin-top:0.4em;">
-      <div style="font-size:0.65em;">
-        <h3 style="margin-top:0;">The longest-lived Fourierist colony</h3>
-        <p>Founded by Albert Brisbane (Fourier's chief American interpreter) with backing from Horace Greeley, who put Fourierist columns on the front page of the <em>New York Tribune</em> 1842–1844.</p>
-        <p><strong>Faithful Series &amp; Groups</strong> structure. Task rotation through the day. <strong>Inverse-prestige pay:</strong> necessary &gt; useful &gt; agreeable. Industrial diversification — grist mill, saw mill, the famous "Phalanx Tomato Catsup" sold in NYC.</p>
-        <h3>Lifecycle</h3>
-        <p style="line-height:1.5;">
-        <strong>1843 Aug</strong> — founded, 673 acres, ~70 founders<br/>
-        <strong>1845</strong> — Phalanstery built, peak ~125 members<br/>
-        <strong>1853</strong> — religious/secular schism (Raritan Bay Union splits off)<br/>
-        <strong>1854 Nov</strong> — main mill burns<br/>
-        <strong>1856</strong> — vote to dissolve, assets divided<br/>
-        <strong>Total: 12y 9m</strong> — longest secular Fourierist run.</p>
+    <div class="twocol" style="grid-template-columns: 1fr 1fr 1fr; gap: 0.8em; margin-bottom: 0.6em;">
+      <div style="text-align: center;">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/72-NorthAmericanPhalanx-exterior.jpg?width=400" alt="NAP Phalanstery" style="width: 100%; max-height: 160px; object-fit: cover; border-radius: 3px;"/>
+        <span class="credit">The Phalanstery building, HABS photo · <a href="https://commons.wikimedia.org/wiki/File:72-NorthAmericanPhalanx-exterior.jpg">Wikimedia</a></span>
       </div>
-      <div>
-        <div class="scorecard">
-          <div class="row"><span class="label">PROP</span><span class="bar">●●○○</span><span class="note">joint-stock</span></div>
-          <div class="row"><span class="label">GOV</span><span class="bar">●●○○</span><span class="note">council + assembly</span></div>
-          <div class="row"><span class="label">LAB</span><span class="bar">●●●●</span><span class="note">Series rotation, inverse pay</span></div>
-          <div class="row"><span class="label">MEM</span><span class="bar">●●○○</span><span class="note">share buy-in</span></div>
-          <div class="row"><span class="label">OUT</span><span class="bar">●●○○</span><span class="note">demonstration via Tribune</span></div>
-        </div>
-        <p class="small" style="margin-top:1em;">Twin Oaks (1967–present) explicitly cites NAP. Mondragón's compressed wage ratios descend from it.</p>
+      <div style="text-align: center;">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Albert_Brisbane_photograph.jpg?width=400" alt="Albert Brisbane" style="width: 100%; max-height: 160px; object-fit: cover; border-radius: 3px;"/>
+        <span class="credit"><strong>Albert Brisbane</strong> (1809–1890), NAP's intellectual founder &amp; chief American interpreter of Fourier · <a href="https://commons.wikimedia.org/wiki/File:Albert_Brisbane_photograph.jpg">Wikimedia</a></span>
+      </div>
+      <div style="text-align: center;">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Horace_Greeley_restored.jpg?width=400" alt="Horace Greeley" style="width: 100%; max-height: 160px; object-fit: cover; border-radius: 3px;"/>
+        <span class="credit"><strong>Horace Greeley</strong> (1811–1872), <em>NY Tribune</em> editor &amp; NAP treasurer — gave Fourierism a front-page column · <a href="https://commons.wikimedia.org/wiki/File:Horace_Greeley_restored.jpg">Wikimedia</a></span>
       </div>
     </div>
-    <p class="tiny">Refs: <a href="https://en.wikipedia.org/wiki/North_American_Phalanx">Wikipedia</a> · <a href="https://archive.org/details/harbingerdevoted01broo">The Harbinger (1845–49)</a></p>
-    <aside class="notes">NAP is the empirical proof that Fourier's Series and Groups system actually works at scale.</aside>
+    <div class="twocol" style="grid-template-columns: 1.2fr 1fr; gap: 1em; font-size:0.62em;">
+      <div>
+        <h3 style="margin-top:0;">Economics + lifecycle</h3>
+        <ul>
+          <li><strong>Capital:</strong> ~$7,000 raised; ~61% held by outside (passive) investors; 673-acre Colts Neck domain cost $14,000 ($5k down + $9k mortgage).</li>
+          <li><strong>Profit split (Fourier doctrinal):</strong> 5/12 labor · 4/12 capital · 3/12 talent.</li>
+          <li><strong>Dividends:</strong> 4.4%–5.6%/yr to capital during the first 7 years.</li>
+          <li><strong>Six Series:</strong> agriculture · livestock · manufacturing · domestic · education · entertainment.</li>
+          <li><strong>Pay:</strong> $1 / 10-hour day base + <em>repugnance premium</em> for unpleasant work. Internal scrip carried Fourier's bust.</li>
+          <li><strong>Industries:</strong> sawmill, gristmill, blacksmith, machine shop, fruit farming (apples, peaches, pears), the famous "Phalanx Tomato Catsup" shipped to NYC.</li>
+          <li><strong>1843 Aug</strong> — founded, ~70 members.</li>
+          <li><strong>1845</strong> — Phalanstery built, peak ~150.</li>
+          <li><strong>1853</strong> — religious/secular schism; Marcus Spring's Spiritualist faction leaves to form Raritan Bay Union.</li>
+          <li><strong>Sept 1854</strong> — mill fire, ~$30,000 debt incurred.</li>
+          <li><strong>1855</strong> — dissolution vote. Stockholders received <strong>57.33 cents on the dollar.</strong> Total run: <strong>12y 9m</strong> — longest secular Fourierist phalanx.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-top:0;">Values</h3>
+        <ul>
+          <li><strong>Universal suffrage</strong> — every regular working member voted within their Series, regardless of gender. Radical for 1843.</li>
+          <li><strong>Gender wage equality</strong> — women earned the same hourly rate as men for the same work. Radical for 1843.</li>
+          <li><strong>Religious tolerance</strong> — Unitarians, Quakers, Baptists, Jews, Shakers, agnostics all coexisted (until the 1853 schism).</li>
+          <li><strong>Dietary pluralism</strong> — vegetarian/omnivore disputes resolved by switching to à la carte restaurant-style dining.</li>
+          <li><strong>Anti-alcohol</strong> — temperance community by Fourierist default.</li>
+          <li><strong>Abolitionist sympathy</strong> — Brisbane and Greeley active in Northern anti-slavery networks; Marcus Spring later funded John Brown's family.</li>
+        </ul>
+        <h3>Five-lens reasoning</h3>
+        <ul style="font-size:0.95em;">
+          <li><strong>PROP 2</strong> — joint-stock with member shares; capital is one of three claims on surplus (4/12).</li>
+          <li><strong>GOV 2</strong> — Industrial Council + universal-suffrage assembly. Genuinely democratic for 1843 but not yet recallable-delegate.</li>
+          <li><strong>LAB 4</strong> — full Series rotation through the day + inverse-prestige pay; the most distinctive Fourierist feature.</li>
+          <li><strong>MEM 2</strong> — share buy-in required; informal vetting through Fourierist + reform networks.</li>
+          <li><strong>OUT 2</strong> — demonstration to a national audience via Brisbane's <em>Tribune</em> column reaching hundreds of thousands of readers.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="tiny" style="margin-top:0.5em;">Refs: <a href="https://en.wikipedia.org/wiki/North_American_Phalanx">Wikipedia · NAP</a> · <a href="https://en.wikipedia.org/wiki/Albert_Brisbane">Brisbane</a> · <a href="https://en.wikipedia.org/wiki/Horace_Greeley">Greeley</a> · <a href="https://archive.org/details/harbingerdevoted01broo">The Harbinger</a> · Carl Guarneri, <em>The Utopian Alternative</em> (Cornell, 1991)</p>
+    <aside class="notes">NAP is the empirical proof that Fourier's Series and Groups system actually works at scale. Three portrait/scene images, values list, five-lens reasoning per lens.</aside>
   </section>
 
   <section>
@@ -1858,6 +1930,7 @@ flowchart TB
         <li><strong>Spanish CNT (95%)</strong> — the only large-scale historical implementation of mandate-and-recall</li>
       </ul>
     </div>
+    <p class="tiny" style="margin-top:0.5em;">Refs: <a href="https://en.wikipedia.org/wiki/Imperative_mandate">Wikipedia · Imperative mandate</a> · <a href="https://en.wikipedia.org/wiki/Democratic_confederalism">Democratic confederalism (Rojava)</a> · <a href="https://www.marxists.org/archive/marx/works/1871/civil-war-france/ch05.htm">Marx, recallable delegates passage</a></p>
   </section>
 
   <section>
@@ -1886,6 +1959,7 @@ flowchart TB
         <li><strong>Kropotkinian (95%)</strong> — rotation + 4–5h day + distribution by need</li>
       </ul>
     </div>
+    <p class="tiny" style="margin-top:0.5em;">Refs: <a href="https://theanarchistlibrary.org/library/petr-kropotkin-the-conquest-of-bread">Kropotkin · Conquest of Bread (4–5h day calc)</a> · <a href="https://www.marxists.org/reference/archive/fourier/works/index.htm">Fourier (Series + butterfly)</a> · <a href="https://www.twinoaks.org/">Twin Oaks (modern labor-credit)</a></p>
   </section>
 
   <section>
@@ -1914,6 +1988,7 @@ flowchart TB
         <li><strong>Cabetist (85%)</strong> — vetted with full asset surrender on entry</li>
       </ul>
     </div>
+    <p class="tiny" style="margin-top:0.5em;">Refs: <a href="https://en.wikipedia.org/wiki/New_Harmony,_Indiana">New Harmony (open-membership lesson)</a> · <a href="https://thefec.org/values/">Federation of Egalitarian Communities (modern vetting)</a> · <a href="https://www.twinoaks.org/">Twin Oaks 3-week visitor period</a></p>
   </section>
 
   <section>
@@ -1942,6 +2017,7 @@ flowchart TB
         <li><strong>Spanish CNT (92%)</strong> — federation + general strike</li>
       </ul>
     </div>
+    <p class="tiny" style="margin-top:0.5em;">Refs: <a href="https://theanarchistlibrary.org/library/petr-kropotkin-fields-factories-and-workshops">Kropotkin · Fields, Factories &amp; Workshops</a> · <a href="https://en.wikipedia.org/wiki/Libertarian_municipalism">Bookchin's libertarian municipalism</a> · <a href="https://en.wikipedia.org/wiki/Autonomous_Administration_of_North_and_East_Syria">Rojava (AANES)</a></p>
   </section>
 
   <section style="text-align:center;">
