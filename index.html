@@ -363,53 +363,6 @@
     .big-nav:disabled { opacity: 0.25; cursor: default; pointer-events: none; }
     .big-nav.prev { left: 22px; }
     .big-nav.next { right: 22px; }
-    body:not(.comment-hidden) .big-nav { top: calc(50% - 40px); }
-
-    /* ===== Comment panel ===== */
-    #comment-panel {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(20, 20, 20, 0.92);
-      border-top: 2px solid var(--accent);
-      padding: 8px 14px 10px;
-      font-family: "Inter", sans-serif;
-      color: #f3ead3;
-      backdrop-filter: blur(6px);
-      transform: translateY(0);
-      transition: transform 0.18s ease;
-      box-shadow: 0 -6px 18px rgba(0,0,0,0.4);
-    }
-    #comment-panel.hidden { transform: translateY(calc(100% - 22px)); }
-    #comment-panel-handle {
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 4px; cursor: pointer; user-select: none;
-    }
-    #comment-panel-handle .hint { color: #888; font-size: 10px; letter-spacing: 0.04em; text-transform: none; }
-    #comment-textarea {
-      width: 100%; min-height: 50px; max-height: 140px;
-      resize: vertical; box-sizing: border-box;
-      background: rgba(0,0,0,0.4); color: #f3ead3;
-      border: 1px solid #555; border-radius: 4px;
-      padding: 6px 10px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 13px; line-height: 1.4; outline: none;
-    }
-    #comment-textarea:focus { border-color: var(--accent); }
-
-    .copy-all-btn {
-      display: inline-block;
-      margin-top: 1em;
-      background: var(--accent); color: #1a1a1a;
-      border: none; padding: 12px 28px;
-      font-size: 0.55em;
-      font-family: "Inter", sans-serif; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      border-radius: 4px; cursor: pointer;
-      transition: background 0.15s;
-    }
-    .copy-all-btn:hover { background: #e6b988; }
-    .copy-all-btn.copied { background: #8fbf6a; }
-    .copy-status { display: block; margin-top: 0.6em; font-size: 0.45em; color: #999; font-style: italic; }
 
     /* ===== QUIZ ===== */
     .reveal .quiz-root {
@@ -511,9 +464,8 @@
     .reveal .quiz-actions .secondary:hover { border-color: var(--accent); color: var(--accent); }
 
     @media print {
-      #comment-panel, .copy-all-btn, .copy-status, .big-nav { display: none !important; }
+      .big-nav { display: none !important; }
     }
-    .reveal.print-pdf #comment-panel,
     .reveal.print-pdf .big-nav { display: none !important; }
   </style>
 </head>
@@ -2174,8 +2126,6 @@ flowchart TB
       <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;margin=8&amp;data=https%3A%2F%2Fronturetzky.github.io%2Fsession3-classical-theories%2F" alt="QR code to deck URL" style="width: 140px; height: 140px; background: white; padding: 8px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.4);" />
       <p class="tiny" style="margin: 0;">Take the deck home: <span style="color: var(--accent);">ronturetzky.github.io/session3-classical-theories</span></p>
     </div>
-    <button class="copy-all-btn" id="copy-all-btn" type="button">Copy all comments</button>
-    <span class="copy-status" id="copy-status"></span>
     <aside class="notes">End. QR + URL for take-home.</aside>
   </section>
 
@@ -2184,14 +2134,6 @@ flowchart TB
 
 <button class="big-nav prev" id="big-nav-prev" type="button" aria-label="Previous slide" title="Previous (←)">‹</button>
 <button class="big-nav next" id="big-nav-next" type="button" aria-label="Next slide" title="Next (→)">›</button>
-
-<div id="comment-panel">
-  <div id="comment-panel-handle" title="Click or press 'c' to toggle">
-    <span><span id="comment-slide-label">Slide</span> &nbsp;&middot;&nbsp; comment</span>
-    <span class="hint">press <kbd>c</kbd> to toggle &nbsp;|&nbsp; auto-saved</span>
-  </div>
-  <textarea id="comment-textarea" placeholder="Your notes for this slide… (saved locally in this browser)"></textarea>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
@@ -2270,151 +2212,6 @@ flowchart TB
   }
   Reveal.on('ready', updateNavDisabled);
   Reveal.on('slidechanged', updateNavDisabled);
-
-  // ---------- Per-slide comments ----------
-  const STORAGE_KEY = 'session3-comments-v4';
-  const PANEL_HIDDEN_KEY = 'session3-comments-panel-hidden';
-  const panel = document.getElementById('comment-panel');
-  const textarea = document.getElementById('comment-textarea');
-  const slideLabel = document.getElementById('comment-slide-label');
-  const handle = document.getElementById('comment-panel-handle');
-
-  function syncBodyHiddenClass() {
-    document.body.classList.toggle('comment-hidden', panel.classList.contains('hidden'));
-  }
-  if (localStorage.getItem(PANEL_HIDDEN_KEY) === '1') panel.classList.add('hidden');
-  syncBodyHiddenClass();
-
-  function loadComments() {
-    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
-    catch (e) { return {}; }
-  }
-  function saveComments(c) { localStorage.setItem(STORAGE_KEY, JSON.stringify(c)); }
-  function slideKey(slide) {
-    const indices = Reveal.getIndices(slide);
-    return `${indices.h}.${indices.v || 0}`;
-  }
-  function slideTitle(slide) {
-    const h = slide.querySelector('h1, h2, h3');
-    if (h) return h.textContent.trim();
-    const p = slide.querySelector('p');
-    if (p) return p.textContent.trim().slice(0, 60);
-    return 'Untitled slide';
-  }
-  function slideTitleByKey(key) {
-    const [h, v] = key.split('.').map(n => parseInt(n, 10));
-    const slide = Reveal.getSlide(h, v);
-    return slide ? slideTitle(slide) : 'Untitled slide';
-  }
-  function countLeafSlides() {
-    const all = document.querySelectorAll('.reveal .slides section');
-    let n = 0;
-    for (const s of all) if (!s.querySelector(':scope > section')) n++;
-    return n;
-  }
-  function slideNumber(slide) {
-    const all = document.querySelectorAll('.reveal .slides section');
-    let n = 0;
-    for (const s of all) {
-      if (s.querySelector(':scope > section')) continue;
-      n++;
-      if (s === slide) return `${n} / ${countLeafSlides()}`;
-    }
-    return '?';
-  }
-
-  let currentKey = null;
-  function syncPanelToCurrentSlide() {
-    const slide = Reveal.getCurrentSlide();
-    if (!slide) return;
-    if (currentKey !== null) {
-      const all = loadComments();
-      const v = textarea.value;
-      if (v.trim()) all[currentKey] = { title: slideTitleByKey(currentKey), text: v };
-      else delete all[currentKey];
-      saveComments(all);
-    }
-    currentKey = slideKey(slide);
-    const all = loadComments();
-    textarea.value = (all[currentKey] && all[currentKey].text) || '';
-    slideLabel.textContent = `Slide ${slideNumber(slide)} — ${slideTitle(slide)}`;
-  }
-  textarea.addEventListener('input', () => {
-    if (currentKey === null) return;
-    const all = loadComments();
-    const text = textarea.value;
-    if (text.trim()) all[currentKey] = { title: slideTitleByKey(currentKey), text };
-    else delete all[currentKey];
-    saveComments(all);
-  });
-  Reveal.on('ready', syncPanelToCurrentSlide);
-  Reveal.on('slidechanged', syncPanelToCurrentSlide);
-
-  function togglePanel() {
-    panel.classList.toggle('hidden');
-    localStorage.setItem(PANEL_HIDDEN_KEY, panel.classList.contains('hidden') ? '1' : '0');
-    syncBodyHiddenClass();
-  }
-  handle.addEventListener('click', togglePanel);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'c' && !e.metaKey && !e.ctrlKey && !e.altKey && document.activeElement !== textarea) {
-      e.preventDefault(); togglePanel();
-    }
-  });
-  textarea.addEventListener('keydown', (e) => { e.stopPropagation(); });
-
-  // ---------- Copy all comments ----------
-  function compileComments() {
-    const all = loadComments();
-    const lines = ['# Session 3 — Theories of Communalism I',
-                   'Comments compiled ' + new Date().toISOString(), ''];
-    let count = 0, n = 0;
-    document.querySelectorAll('.reveal .slides > section').forEach((h, hi) => {
-      const verticals = h.querySelectorAll(':scope > section');
-      if (verticals.length === 0) {
-        n++;
-        const key = `${hi}.0`;
-        if (all[key]) {
-          lines.push(`## ${n}. ${all[key].title || slideTitleByKey(key)}`);
-          lines.push(all[key].text); lines.push(''); count++;
-        }
-      } else {
-        verticals.forEach((v, vi) => {
-          n++;
-          const key = `${hi}.${vi}`;
-          if (all[key]) {
-            lines.push(`## ${n}. ${all[key].title || slideTitleByKey(key)}`);
-            lines.push(all[key].text); lines.push(''); count++;
-          }
-        });
-      }
-    });
-    if (count === 0) lines.push('(no comments yet)');
-    return { text: lines.join('\n'), count };
-  }
-  const copyBtn = document.getElementById('copy-all-btn');
-  const copyStatus = document.getElementById('copy-status');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', async () => {
-      const { text, count } = compileComments();
-      try {
-        await navigator.clipboard.writeText(text);
-        copyBtn.classList.add('copied');
-        copyBtn.textContent = `Copied ${count} comment${count === 1 ? '' : 's'}`;
-        copyStatus.textContent = 'Pasted as Markdown — slide titles included.';
-        setTimeout(() => {
-          copyBtn.classList.remove('copied');
-          copyBtn.textContent = 'Copy all comments';
-        }, 2400);
-      } catch (err) {
-        const ta = document.createElement('textarea');
-        ta.value = text; document.body.appendChild(ta); ta.select();
-        try { document.execCommand('copy'); copyStatus.textContent = `Copied ${count} (fallback).`; }
-        catch (e2) { copyStatus.textContent = 'Could not copy. Dumped to console.'; console.log(text); }
-        document.body.removeChild(ta);
-      }
-    });
-  }
 
   // =============================================================
   // INTERACTIVE QUIZ
