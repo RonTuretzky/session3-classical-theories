@@ -138,9 +138,9 @@
     }
     .reveal .scale .row {
       display: grid;
-      grid-template-columns: 30px 60px 1fr;
-      gap: 0.5em;
-      padding: 0.3em 0;
+      grid-template-columns: 95px 40px 1fr;
+      gap: 0.7em;
+      padding: 0.35em 0;
       border-bottom: 1px solid #333;
       align-items: center;
     }
@@ -148,11 +148,13 @@
       font-family: "JetBrains Mono", monospace;
       color: var(--accent);
       letter-spacing: 2px;
+      white-space: nowrap;
     }
     .reveal .scale .num-label {
       font-family: "JetBrains Mono", monospace;
       color: var(--muted);
-      font-size: 0.85em;
+      font-size: 0.95em;
+      text-align: right;
     }
     .reveal .scale .meaning {
       color: #ddd;
@@ -529,7 +531,12 @@
     <p class="subtitle">The Classical Theorists</p>
     <p class="small">Session 3 · Design an Agrarian Industrial Commune</p>
     <p class="tiny">The Convent · Greenpoint, Brooklyn</p>
-    <aside class="notes">Welcome to Phase II. Tonight: the secular classical theorists, scored on five lenses.</aside>
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 1.4em; gap: 0.4em;">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;margin=8&amp;data=https%3A%2F%2Fronturetzky.github.io%2Fsession3-classical-theories%2F" alt="QR code to deck URL" style="width: 160px; height: 160px; background: white; padding: 8px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.4);" />
+      <p class="tiny" style="margin: 0;">Scan to open these slides on your phone</p>
+      <p class="tiny" style="margin: 0; color: var(--accent);">ronturetzky.github.io/session3-classical-theories</p>
+    </div>
+    <aside class="notes">Welcome to Phase II. Tonight: the secular classical theorists, scored on five lenses. QR code: people can scan to open the deck on their own device.</aside>
   </section>
 
   <section>
@@ -1496,100 +1503,7 @@
     <aside class="notes">User asked for diagrams of Kropotkin's economic model. Here's the flow: producers → storehouse → members; decisions flow from assembly to all three; federation sits above as voluntary coordination, not command.</aside>
   </section>
 
-  <section>
-    <span class="chip chip-anarchist">Diagram · Federation</span>
-    <h2 style="margin-top:0.4em;">Federation: the alternative to the state</h2>
-    <svg class="diagram" viewBox="0 0 700 540" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <marker id="arrfed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-          <path d="M 0 0 L 10 5 L 0 10 z" fill="#d4a373"/>
-        </marker>
-      </defs>
-      <circle cx="350" cy="270" r="240" fill="none" stroke="#B85050" stroke-width="2" stroke-dasharray="6,4"/>
-      <text x="350" y="50" text-anchor="middle" fill="#E89090" font-weight="600" font-size="14">CONTINENTAL CONFEDERATION</text>
-      <circle cx="350" cy="270" r="160" fill="none" stroke="#B85050" stroke-width="2"/>
-      <text x="350" y="125" text-anchor="middle" fill="#E89090" font-weight="500" font-size="12">REGIONAL FEDERATION</text>
-      <g fill="#8B0000">
-        <circle cx="350" cy="200" r="22"/><circle cx="430" cy="240" r="22"/>
-        <circle cx="430" cy="320" r="22"/><circle cx="350" cy="360" r="22"/>
-        <circle cx="270" cy="320" r="22"/><circle cx="270" cy="240" r="22"/>
-        <circle cx="408" cy="200" r="22"/><circle cx="292" cy="200" r="22"/>
-      </g>
-      <text x="350" y="276" text-anchor="middle" fill="#f3ead3" font-weight="600" font-size="11">local commune</text>
-      <g stroke="#d4a373" stroke-width="1.8" fill="none">
-        <path d="M 350 200 L 350 130" marker-end="url(#arrfed)"/>
-        <path d="M 350 130 L 350 190" marker-end="url(#arrfed)" stroke-dasharray="3,3"/>
-      </g>
-      <text x="350" y="520" text-anchor="middle" fill="#d4a373" font-style="italic" font-size="14">Mandates flow up (solid) · recall flows back (dashed)</text>
-    </svg>
-    <aside class="notes">Recallable delegates with bound mandates — they vote their commune's instruction, not their conscience. Fundamentally different from representation.</aside>
-  </section>
-
-  <!-- ============================================================ -->
-  <!-- BLOCK 10 — REAL REVOLUTIONS (Paris Commune only, kept) -->
-  <!-- ============================================================ -->
-
-  <section>
-    <span class="chip chip-anarchist">Real revolutions</span>
-    <h1 style="margin-top:0.4em;">Three proofs at three scales</h1>
-    <p class="lede">Anarchist communalism wasn't only theory. It administered millions of people, in three places.</p>
-    <table style="margin: 1.2em auto; font-size:0.7em;">
-      <thead><tr><th>Where</th><th>Scale</th><th>Duration</th><th>Outcome</th></tr></thead>
-      <tbody>
-        <tr><td>Paris Commune (1871)</td><td>2 million</td><td>72 days</td><td>Crushed by army</td></tr>
-        <tr><td>Free Territory · Ukraine (1918–21)</td><td>7 million</td><td>3 years</td><td>Crushed by Red Army</td></tr>
-        <tr><td>Spanish Revolution (1936–39)</td><td>7 million</td><td>3 years</td><td>Crushed by Franco + Stalin</td></tr>
-      </tbody>
-    </table>
-    <p class="small" style="text-align:center;">All three ended by external military force. <strong>None failed internally first.</strong></p>
-    <aside class="notes">Three proof points. Millions of people running real economies, ended by armies not contradiction.</aside>
-  </section>
-
-  <section>
-    <span class="chip chip-anarchist">Place</span>
-    <h2 style="margin-top:0.4em;">The Paris Commune <span style="font-size:0.55em;color:var(--muted);">· March 18 – May 28, 1871 · 72 days</span></h2>
-    <img class="scene" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fallen_Vend%C3%B4me_Column_WDL1286.png?width=1024" alt="Fallen Vendôme Column 1871" style="max-height: 280px;"/>
-    <span class="credit">The Vendôme Column toppled during the Paris Commune, May 16, 1871. <a href="https://commons.wikimedia.org/wiki/File:Fallen_Vend%C3%B4me_Column_WDL1286.png">Wikimedia Commons</a> · Public domain</span>
-    <div class="twocol" style="margin-top:0.5em; font-size:0.6em;">
-      <div>
-        <h3 style="margin-top:0;">Political innovations (72 days)</h3>
-        <ul>
-          <li>Recallable delegates, capped at workers' wages (6,000 fr/yr)</li>
-          <li>Separation of church and state</li>
-          <li>Abolition of night work in bakeries (Apr 20)</li>
-          <li>Free secular compulsory education</li>
-          <li>Women's Union — first mass women's organization</li>
-          <li>Pawnshop tickets &lt; 20 francs returned free</li>
-        </ul>
-      </div>
-      <div>
-        <h3 style="margin-top:0;">Economic innovations</h3>
-        <ul>
-          <li><strong>Workers' management of abandoned workshops</strong> (Apr 16) — owners who fled to Versailles forfeited their factories; workers' cooperatives took them over.</li>
-          <li><strong>Moratorium on rents</strong> accrued during the Prussian siege (Sep 1870 – Mar 1871) — cancelled outright, not deferred.</li>
-          <li><strong>Bakery cooperatives</strong> — 700+ master bakers' shops consolidated into day-shift sanitary operations under workers' control.</li>
-          <li><strong>Wage equality for officials</strong> at 6,000 fr/yr — the wage of a skilled worker.</li>
-          <li><strong>Cancellation of pawnshop debts</strong> for the poor; non-luxury items returned without payment.</li>
-          <li><strong>Suspension of overtime + night work</strong> in industries where workers requested it.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="twocol" style="grid-template-columns: 1fr 1fr; margin-top:0.5em;">
-      <div>
-        <p class="tiny">Refs: <a href="https://en.wikipedia.org/wiki/Paris_Commune">Wikipedia</a> · <a href="https://www.marxists.org/archive/marx/works/1871/civil-war-france/">Marx, Civil War in France</a> · <a href="https://www.versobooks.com/products/2007-communal-luxury">Kristin Ross, Communal Luxury</a></p>
-      </div>
-      <div>
-        <div class="scorecard">
-          <div class="row"><span class="label">PROP</span><span class="bar">●●●○</span><span class="note">workshops collectivized</span></div>
-          <div class="row"><span class="label">GOV</span><span class="bar">●●●●</span><span class="note">recallable delegates</span></div>
-          <div class="row"><span class="label">LAB</span><span class="bar">●●●○</span><span class="note">workers' control</span></div>
-          <div class="row"><span class="label">MEM</span><span class="bar">●○○○</span><span class="note">city = membership</span></div>
-          <div class="row"><span class="label">OUT</span><span class="bar">●●●●</span><span class="note">communal-federation declared</span></div>
-        </div>
-      </div>
-    </div>
-    <aside class="notes">User wanted more economic detail. The right column adds: workers' management of abandoned workshops (Apr 16 decree), rent moratorium, bakery cooperatives, wage equality, pawnshop cancellation, overtime suspension. The 72-day economic program was substantial — not just symbolic.</aside>
-  </section>
+  <!-- (Federation diagram + Three proofs intro + Paris Commune slides removed per user request) -->
 
   <!-- ============================================================ -->
   <!-- BLOCK 11 — CROSS-CUTTING -->
@@ -1637,51 +1551,115 @@
   </section>
 
   <section>
-    <h2>Seven traditions, plotted: Property × Outside</h2>
-    <p class="small">Where each tradition sits on two of the five lenses. X = how much is held in common. Y = how engaged with the wider world.</p>
-    <pre class="mermaid" style="font-size: 11px;">
-quadrantChart
-    title " "
-    x-axis "Less common ownership" --> "More common ownership"
-    y-axis "Withdrawal" --> "Federation / partner"
-    quadrant-1 "Federated · High commons"
-    quadrant-2 "Federated · Lower commons"
-    quadrant-3 "Inward · Lower commons"
-    quadrant-4 "Inward · High commons"
-    "Owenite": [0.5, 0.4]
-    "Fourierist": [0.55, 0.4]
-    "Cabetist": [0.85, 0.4]
-    "Mutualist": [0.55, 0.6]
-    "Bakuninist": [0.8, 0.65]
-    "Kropotkinian": [0.95, 0.85]
-    "Spanish CNT": [0.95, 0.92]
-    </pre>
-    <p class="tiny">Notice the diagonal: as common-ownership increases, outside-engagement tends to increase too — the more you pool internally, the more you need federation to coordinate with neighbors.</p>
-    <aside class="notes">First mermaid quadrant. Property vs Outside. The diagonal pattern is the empirical signal: high-commons traditions almost always need federation to function.</aside>
+    <h2>The governance spectrum</h2>
+    <svg viewBox="0 0 1100 240" style="width:100%; max-width:1100px; display:block; margin:0 auto;">
+      <defs><linearGradient id="gov-grad" x1="0" x2="1" y1="0" y2="0"><stop offset="0%" stop-color="#3E4C59"/><stop offset="50%" stop-color="#D4A24C"/><stop offset="100%" stop-color="#8B0000"/></linearGradient></defs>
+      <text x="20" y="125" font-size="13" fill="#f3ead3" text-anchor="start" font-weight="bold">FOUNDER-LED</text>
+      <text x="1080" y="125" font-size="13" fill="#f3ead3" text-anchor="end" font-weight="bold">DIRECT DEMOCRACY + RECALL</text>
+      <rect x="140" y="115" width="820" height="14" rx="7" fill="url(#gov-grad)"/>
+      <line x1="222" y1="100" x2="222" y2="142" stroke="#3E4C59" stroke-width="2"/><text x="222" y="85" font-size="12" fill="#f3ead3" text-anchor="middle">Owenite</text>
+      <line x1="386" y1="100" x2="386" y2="142" stroke="#7a6a3a" stroke-width="2"/><text x="386" y="72" font-size="12" fill="#f3ead3" text-anchor="middle">Fourierist</text>
+      <line x1="427" y1="100" x2="427" y2="142" stroke="#a08545" stroke-width="2"/><text x="427" y="85" font-size="12" fill="#f3ead3" text-anchor="middle">Cabetist</text>
+      <line x1="591" y1="100" x2="591" y2="142" stroke="#c79a45" stroke-width="2"/><text x="591" y="72" font-size="12" fill="#f3ead3" text-anchor="middle">Proudhonian</text>
+      <line x1="796" y1="100" x2="796" y2="142" stroke="#b86040" stroke-width="2"/><text x="796" y="85" font-size="12" fill="#f3ead3" text-anchor="middle">Bakuninist</text>
+      <line x1="894" y1="100" x2="894" y2="142" stroke="#9a2020" stroke-width="2"/><text x="894" y="72" font-size="12" fill="#f3ead3" text-anchor="middle">Kropotkinian</text>
+      <line x1="919" y1="100" x2="919" y2="142" stroke="#8B0000" stroke-width="2"/><text x="919" y="60" font-size="12" fill="#f3ead3" text-anchor="middle">Spanish CNT</text>
+    </svg>
+    <div style="font-size:0.55em; max-width:900px; margin:0.6em auto; color:#ccc;">
+      <ul style="list-style:none; padding:0; margin:0; line-height:1.5;">
+        <li><strong>Owenite (10%)</strong> — paternal founder leadership at New Lanark</li>
+        <li><strong>Fourierist (30%)</strong> — Series chiefs + Areopagus council</li>
+        <li><strong>Cabetist (35%)</strong> — elected president, but Cabet's authoritarianism caused 1856 schism</li>
+        <li><strong>Proudhonian (55%)</strong> — federalism from below; no central state</li>
+        <li><strong>Bakuninist (80%)</strong> — "from periphery to center"; no transitional government</li>
+        <li><strong>Kropotkinian (92%)</strong> — commune assembly + federated mandated delegates</li>
+        <li><strong>Spanish CNT (95%)</strong> — the only large-scale historical implementation of mandate-and-recall</li>
+      </ul>
+    </div>
   </section>
 
   <section>
-    <h2>Seven traditions, plotted: Governance × Labor</h2>
-    <p class="small">X = how flat the decision-making is. Y = how rotated/communal the work is.</p>
-    <pre class="mermaid" style="font-size: 11px;">
-quadrantChart
-    title " "
-    x-axis "Founder-led" --> "Direct dem + recall"
-    y-axis "Wage-specialist" --> "Full butterfly rotation"
-    quadrant-1 "Horizontal · Rotated"
-    quadrant-2 "Horizontal · Specialized"
-    quadrant-3 "Hierarchical · Specialized"
-    quadrant-4 "Hierarchical · Rotated"
-    "Owenite": [0.15, 0.4]
-    "Fourierist": [0.4, 0.95]
-    "Cabetist": [0.4, 0.6]
-    "Mutualist": [0.6, 0.55]
-    "Bakuninist": [0.85, 0.55]
-    "Kropotkinian": [0.95, 0.92]
-    "Spanish CNT": [0.95, 0.95]
-    </pre>
-    <p class="tiny">Fourier is the outlier — high labor rotation but only middling governance flatness. Most others cluster along a diagonal: as governance flattens, labor flexibility tends to follow.</p>
-    <aside class="notes">Second mermaid quadrant. Governance vs Labor. Fourier is the upper-left outlier (high labor rotation, not-yet-radical governance). The diagonal correlation holds otherwise.</aside>
+    <h2>The labor spectrum</h2>
+    <svg viewBox="0 0 1100 240" style="width:100%; max-width:1100px; display:block; margin:0 auto;">
+      <defs><linearGradient id="lab-grad" x1="0" x2="1" y1="0" y2="0"><stop offset="0%" stop-color="#3E4C59"/><stop offset="50%" stop-color="#D4A24C"/><stop offset="100%" stop-color="#8B0000"/></linearGradient></defs>
+      <text x="20" y="125" font-size="13" fill="#f3ead3" text-anchor="start" font-weight="bold">WAGE-SPECIALIST</text>
+      <text x="1080" y="125" font-size="13" fill="#f3ead3" text-anchor="end" font-weight="bold">FULL ROTATION + BY-NEED</text>
+      <rect x="140" y="115" width="820" height="14" rx="7" fill="url(#lab-grad)"/>
+      <line x1="263" y1="100" x2="263" y2="142" stroke="#3E4C59" stroke-width="2"/><text x="263" y="85" font-size="12" fill="#f3ead3" text-anchor="middle">Owenite</text>
+      <line x1="468" y1="100" x2="468" y2="142" stroke="#a88540" stroke-width="2"/><text x="468" y="72" font-size="12" fill="#f3ead3" text-anchor="middle">Mutualist</text>
+      <line x1="591" y1="100" x2="591" y2="142" stroke="#c79a45" stroke-width="2"/><text x="591" y="85" font-size="12" fill="#f3ead3" text-anchor="middle">Bakuninist</text>
+      <line x1="632" y1="100" x2="632" y2="142" stroke="#c79a45" stroke-width="2"/><text x="632" y="60" font-size="12" fill="#f3ead3" text-anchor="middle">Cabetist</text>
+      <line x1="796" y1="100" x2="796" y2="142" stroke="#b86040" stroke-width="2"/><text x="796" y="85" font-size="12" fill="#f3ead3" text-anchor="middle">Spanish CNT</text>
+      <line x1="894" y1="100" x2="894" y2="142" stroke="#9a2020" stroke-width="2"/><text x="894" y="72" font-size="12" fill="#f3ead3" text-anchor="middle">Fourierist</text>
+      <line x1="919" y1="100" x2="919" y2="142" stroke="#8B0000" stroke-width="2"/><text x="919" y="48" font-size="12" fill="#f3ead3" text-anchor="middle">Kropotkinian</text>
+    </svg>
+    <div style="font-size:0.55em; max-width:900px; margin:0.6em auto; color:#ccc;">
+      <ul style="list-style:none; padding:0; margin:0; line-height:1.5;">
+        <li><strong>Owenite (15%)</strong> — regulated wages + 8h day</li>
+        <li><strong>Mutualist (40%)</strong> — worker coops, trade form preserved</li>
+        <li><strong>Bakuninist (55%)</strong> — self-managed by labor</li>
+        <li><strong>Cabetist (60%)</strong> — rotated tasks, gender-divided</li>
+        <li><strong>Spanish CNT (80%)</strong> — syndicate-organized, worker committees</li>
+        <li><strong>Fourierist (92%)</strong> — Series + 1.5–2h rotation + repugnance premium</li>
+        <li><strong>Kropotkinian (95%)</strong> — rotation + 4–5h day + distribution by need</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>The membership spectrum</h2>
+    <svg viewBox="0 0 1100 240" style="width:100%; max-width:1100px; display:block; margin:0 auto;">
+      <defs><linearGradient id="mem-grad" x1="0" x2="1" y1="0" y2="0"><stop offset="0%" stop-color="#3E4C59"/><stop offset="50%" stop-color="#D4A24C"/><stop offset="100%" stop-color="#8B0000"/></linearGradient></defs>
+      <text x="20" y="125" font-size="13" fill="#f3ead3" text-anchor="start" font-weight="bold">OPEN ADMISSION</text>
+      <text x="1080" y="125" font-size="13" fill="#f3ead3" text-anchor="end" font-weight="bold">STRICTLY VETTED</text>
+      <rect x="140" y="115" width="820" height="14" rx="7" fill="url(#mem-grad)"/>
+      <line x1="181" y1="100" x2="181" y2="142" stroke="#3E4C59" stroke-width="2"/><text x="181" y="85" font-size="12" fill="#f3ead3" text-anchor="middle">Owenite</text>
+      <line x1="386" y1="100" x2="386" y2="142" stroke="#7a6a3a" stroke-width="2"/><text x="386" y="72" font-size="12" fill="#f3ead3" text-anchor="middle">Spanish CNT</text>
+      <line x1="509" y1="100" x2="509" y2="142" stroke="#a88540" stroke-width="2"/><text x="509" y="85" font-size="12" fill="#f3ead3" text-anchor="middle">Bakuninist</text>
+      <line x1="550" y1="100" x2="550" y2="142" stroke="#c79a45" stroke-width="2"/><text x="550" y="60" font-size="12" fill="#f3ead3" text-anchor="middle">Mutualist</text>
+      <line x1="591" y1="100" x2="591" y2="142" stroke="#c79a45" stroke-width="2"/><text x="591" y="48" font-size="12" fill="#f3ead3" text-anchor="middle">Kropotkinian</text>
+      <line x1="632" y1="100" x2="632" y2="142" stroke="#c79a45" stroke-width="2"/><text x="632" y="85" font-size="12" fill="#f3ead3" text-anchor="middle">Fourierist</text>
+      <line x1="837" y1="100" x2="837" y2="142" stroke="#8B0000" stroke-width="2"/><text x="837" y="72" font-size="12" fill="#f3ead3" text-anchor="middle">Cabetist</text>
+    </svg>
+    <div style="font-size:0.55em; max-width:900px; margin:0.6em auto; color:#ccc;">
+      <ul style="list-style:none; padding:0; margin:0; line-height:1.5;">
+        <li><strong>Owenite (5%)</strong> — anyone shows up (New Harmony lesson)</li>
+        <li><strong>Spanish CNT (30%)</strong> — porous; living + working = membership</li>
+        <li><strong>Bakuninist (45%)</strong> — voluntary association</li>
+        <li><strong>Mutualist (50%)</strong> — mutual contract</li>
+        <li><strong>Kropotkinian (55%)</strong> — voluntary; commune-scale absorption</li>
+        <li><strong>Fourierist (60%)</strong> — passion-vetting; share buy-in</li>
+        <li><strong>Cabetist (85%)</strong> — vetted with full asset surrender on entry</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>The outside spectrum</h2>
+    <svg viewBox="0 0 1100 240" style="width:100%; max-width:1100px; display:block; margin:0 auto;">
+      <defs><linearGradient id="out-grad" x1="0" x2="1" y1="0" y2="0"><stop offset="0%" stop-color="#3E4C59"/><stop offset="50%" stop-color="#D4A24C"/><stop offset="100%" stop-color="#8B0000"/></linearGradient></defs>
+      <text x="20" y="125" font-size="13" fill="#f3ead3" text-anchor="start" font-weight="bold">WITHDRAWAL</text>
+      <text x="1080" y="125" font-size="13" fill="#f3ead3" text-anchor="end" font-weight="bold">STATE-PARTNER / FEDERATION</text>
+      <rect x="140" y="115" width="820" height="14" rx="7" fill="url(#out-grad)"/>
+      <line x1="395" y1="100" x2="395" y2="142" stroke="#a08545" stroke-width="2"/><text x="395" y="85" font-size="12" fill="#f3ead3" text-anchor="middle">Owenite</text>
+      <line x1="427" y1="100" x2="427" y2="142" stroke="#a08545" stroke-width="2"/><text x="427" y="60" font-size="12" fill="#f3ead3" text-anchor="middle">Cabetist</text>
+      <line x1="459" y1="100" x2="459" y2="142" stroke="#a08545" stroke-width="2"/><text x="459" y="36" font-size="12" fill="#f3ead3" text-anchor="middle">Fourierist</text>
+      <line x1="673" y1="100" x2="673" y2="142" stroke="#c79a45" stroke-width="2"/><text x="673" y="85" font-size="12" fill="#f3ead3" text-anchor="middle">Mutualist</text>
+      <line x1="755" y1="100" x2="755" y2="142" stroke="#b86040" stroke-width="2"/><text x="755" y="72" font-size="12" fill="#f3ead3" text-anchor="middle">Bakuninist</text>
+      <line x1="862" y1="100" x2="862" y2="142" stroke="#9a2020" stroke-width="2"/><text x="862" y="85" font-size="12" fill="#f3ead3" text-anchor="middle">Kropotkinian</text>
+      <line x1="894" y1="100" x2="894" y2="142" stroke="#8B0000" stroke-width="2"/><text x="894" y="60" font-size="12" fill="#f3ead3" text-anchor="middle">Spanish CNT</text>
+    </svg>
+    <div style="font-size:0.55em; max-width:900px; margin:0.6em auto; color:#ccc;">
+      <ul style="list-style:none; padding:0; margin:0; line-height:1.5;">
+        <li><strong>Owenite (35%)</strong> — demonstration to the world</li>
+        <li><strong>Cabetist (35%)</strong> — demonstration via novel + colonies</li>
+        <li><strong>Fourierist (35%)</strong> — demonstration via Series of phalanxes</li>
+        <li><strong>Mutualist (65%)</strong> — federation of cooperatives</li>
+        <li><strong>Bakuninist (75%)</strong> — federation + insurrection</li>
+        <li><strong>Kropotkinian (88%)</strong> — nested federation, no state</li>
+        <li><strong>Spanish CNT (92%)</strong> — federation + general strike</li>
+      </ul>
+    </div>
   </section>
 
   <section style="text-align:center;">
@@ -1751,9 +1729,13 @@ quadrantChart
   <section style="text-align: center;">
     <h1>Thank you.</h1>
     <p class="lede" style="margin-top:1em;">Five axes. Many positions. Now find yours.</p>
+    <div style="display: flex; flex-direction: column; align-items: center; margin: 1.2em 0; gap: 0.4em;">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;margin=8&amp;data=https%3A%2F%2Fronturetzky.github.io%2Fsession3-classical-theories%2F" alt="QR code to deck URL" style="width: 140px; height: 140px; background: white; padding: 8px; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.4);" />
+      <p class="tiny" style="margin: 0;">Take the deck home: <span style="color: var(--accent);">ronturetzky.github.io/session3-classical-theories</span></p>
+    </div>
     <button class="copy-all-btn" id="copy-all-btn" type="button">Copy all comments</button>
     <span class="copy-status" id="copy-status"></span>
-    <aside class="notes">End.</aside>
+    <aside class="notes">End. QR + URL for take-home.</aside>
   </section>
 
   </div>
