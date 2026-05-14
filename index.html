@@ -1856,6 +1856,139 @@ flowchart TB
     <aside class="notes">The quiz already gave a structured starting point. Now articulate where you actually differ.</aside>
   </section>
 
+  <section id="values-statement-builder">
+    <style>
+      .vs-builder { font-family: "Inter", sans-serif; color: #f3ead3; text-align: left; max-width: 1240px; margin: 0 auto; font-size: 0.42em; line-height: 1.45; }
+      .vs-builder h2.vs-title { font-family: "Cormorant Garamond", serif; color: #d4a373; font-size: 1.9em; margin: 0 0 0.2em; text-align: center; }
+      .vs-builder .vs-sub { color: #d4a373; font-style: italic; font-family: "Cormorant Garamond", serif; font-size: 1.2em; text-align: center; margin: 0 0 1em; }
+      .vs-builder .vs-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1.2em; align-items: start; }
+      .vs-builder .vs-col-left { display: flex; flex-direction: column; gap: 0.7em; }
+      .vs-builder .vs-col-right { display: flex; flex-direction: column; gap: 0.8em; }
+      .vs-builder .vs-section-card { border: 1px solid rgba(212, 163, 115, 0.4); border-left: 3px solid #d4a373; background: rgba(212, 163, 115, 0.06); padding: 0.6em 0.8em; border-radius: 2px; }
+      .vs-builder .vs-lens { font-family: "JetBrains Mono", monospace; color: #d4a373; font-size: 0.8em; letter-spacing: 0.12em; text-transform: uppercase; }
+      .vs-builder .vs-question { font-family: "Cormorant Garamond", serif; font-size: 1.3em; color: #f3ead3; margin: 0.1em 0 0.3em; line-height: 1.25; }
+      .vs-builder .vs-hint { color: #aaa; font-size: 0.9em; margin-bottom: 0.4em; }
+      .vs-builder textarea.vs-input { width: 100%; min-height: 4em; box-sizing: border-box; background: rgba(20, 20, 20, 0.55); color: #f3ead3; border: 1px solid rgba(212, 163, 115, 0.3); border-radius: 2px; padding: 0.5em 0.6em; font-family: "Cormorant Garamond", serif; font-size: 1.1em; line-height: 1.4; resize: vertical; outline: none; }
+      .vs-builder textarea.vs-input:focus { border-color: #d4a373; background: rgba(20, 20, 20, 0.75); }
+      .vs-builder .vs-panel { border: 1px solid rgba(212, 163, 115, 0.35); background: rgba(0, 0, 0, 0.25); padding: 0.7em 0.85em; border-radius: 2px; }
+      .vs-builder .vs-panel h3 { font-family: "Inter", sans-serif; color: #d4a373; font-size: 0.9em; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.4em; }
+      .vs-builder .vs-actions { display: flex; flex-direction: column; gap: 0.4em; }
+      .vs-builder .vs-actions button { font-family: "Inter", sans-serif; background: rgba(20, 20, 20, 0.55); border: 1.5px solid #d4a373; color: #d4a373; padding: 0.5em 0.8em; cursor: pointer; border-radius: 2px; font-size: 1em; transition: all 120ms ease; text-align: left; }
+      .vs-builder .vs-actions button:hover { background: #d4a373; color: #14110d; }
+      .vs-builder .vs-actions button.vs-primary { background: #d4a373; color: #14110d; }
+      .vs-builder .vs-actions button.vs-primary:hover { background: #e6b988; }
+      .vs-builder ul.vs-refs { padding-left: 1.1em; margin: 0.2em 0; }
+      .vs-builder ul.vs-refs li { margin-bottom: 0.25em; line-height: 1.35; }
+      .vs-builder a { color: #d4a373; text-decoration: none; border-bottom: 1px dotted rgba(212, 163, 115, 0.4); }
+      .vs-builder a:hover { border-bottom-color: #d4a373; }
+      .vs-builder .vs-status { font-family: "JetBrains Mono", monospace; color: #8fbf6a; font-size: 0.8em; text-align: center; min-height: 1em; letter-spacing: 0.08em; }
+    </style>
+    <div class="vs-builder">
+      <h2 class="vs-title">Values Statement Builder</h2>
+      <p class="vs-sub">Session 3 homework — bring a one-page draft to Session 4.</p>
+      <div class="vs-grid">
+        <div class="vs-col-left" id="vs-prompts"></div>
+        <div class="vs-col-right">
+          <div class="vs-panel">
+            <h3>Export</h3>
+            <div class="vs-actions">
+              <button class="vs-primary" id="vs-download">Download as Markdown</button>
+              <button id="vs-copy">Copy as Markdown</button>
+              <button id="vs-clear">Clear draft</button>
+            </div>
+            <div class="vs-status" id="vs-status">auto-saved</div>
+          </div>
+          <div class="vs-panel">
+            <h3>Read for inspiration</h3>
+            <ul class="vs-refs">
+              <li>FEC seven principles — <a href="https://thefec.org/values/" target="_blank">thefec.org/values</a></li>
+              <li>Catholic Worker Aims and Means — <a href="https://catholicworker.org/aims-and-means/" target="_blank">catholicworker.org</a></li>
+              <li>Auroville Charter (4 sentences) — <a href="https://auroville.org/page/auroville-charter" target="_blank">auroville.org</a></li>
+              <li>Mondragón 10 principles — <a href="https://www.mondragon-corporation.com/en/" target="_blank">mondragon-corporation.com</a></li>
+              <li>Findhorn — <a href="https://www.findhorn.org/about-us/" target="_blank">findhorn.org</a></li>
+              <li>Mietshäuser Syndikat — <a href="https://www.syndikat.org/en/" target="_blank">syndikat.org</a></li>
+              <li>The Farm Community — <a href="https://thefarmcommunity.com/" target="_blank">thefarmcommunity.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function () {
+      const STORAGE_KEY = 'session3-values-statement-v1';
+      const SECTIONS = [
+        { id: 'property',   lens: 'Property',   q: 'What is held in common, and what stays personal?', hint: 'Land, buildings, tools, vehicles, savings, inheritance, IP.' },
+        { id: 'governance', lens: 'Governance', q: 'Who decides, and how recallable are they?', hint: 'Admitting members, debt, expulsion. Consensus? Vote? Delegate?' },
+        { id: 'labor',      lens: 'Labor',      q: 'How is work organized?', hint: 'Quotas vs. choice. Pay for hours, by need, no pay. Who does the dishes.' },
+        { id: 'membership', lens: 'Membership', q: 'Who joins, and who stays?', hint: 'Path in. What gets someone removed. Trial period length.' },
+        { id: 'outside',    lens: 'Outside',    q: 'Relation to the wider world?', hint: 'Trade, activism, refuge, evangelism, cash economy.' },
+        { id: 'conflict',   lens: 'Conflict',   q: 'What happens when members fundamentally disagree?', hint: 'Restorative? Voting? Mediator? Exit with buyout?' },
+        { id: 'succession', lens: 'Succession', q: 'What persists if founders leave or die?', hint: 'Legal vehicle. Constitution review. Plan for 7y and 70y.' }
+      ];
+      const root = document.getElementById('vs-prompts');
+      SECTIONS.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'vs-section-card';
+        card.innerHTML = `<div class="vs-lens">${s.lens}</div><div class="vs-question">${s.q}</div><div class="vs-hint">${s.hint}</div><textarea class="vs-input" data-id="${s.id}" placeholder="Write a 2–4 sentence stance. Specifics beat slogans."></textarea>`;
+        root.appendChild(card);
+      });
+      function load() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) { return {}; } }
+      function save(state) { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+      function getState() {
+        const state = { _updated: new Date().toISOString(), answers: {} };
+        SECTIONS.forEach(s => { const ta = root.querySelector(`textarea[data-id="${s.id}"]`); state.answers[s.id] = ta ? ta.value : ''; });
+        return state;
+      }
+      function restore() {
+        const st = load();
+        if (!st || !st.answers) return;
+        SECTIONS.forEach(s => { const ta = root.querySelector(`textarea[data-id="${s.id}"]`); if (ta && st.answers[s.id]) ta.value = st.answers[s.id]; });
+      }
+      const statusEl = document.getElementById('vs-status');
+      let saveTimer = null;
+      function debouncedSave() {
+        if (saveTimer) clearTimeout(saveTimer);
+        saveTimer = setTimeout(() => { save(getState()); statusEl.textContent = 'auto-saved · ' + new Date().toLocaleTimeString(); }, 300);
+      }
+      root.addEventListener('input', debouncedSave);
+      function pad(n) { return String(n).padStart(2, '0'); }
+      function todayISO() { const d = new Date(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
+      function buildMarkdown() {
+        const st = getState();
+        const out = ['# My Values Statement — Session 3 Homework', `Drafted: ${todayISO()}`, ''];
+        SECTIONS.forEach(s => { out.push(`## ${s.lens}`); out.push((st.answers[s.id] || '').trim() || '_(left blank)_'); out.push(''); });
+        return out.join('\n');
+      }
+      document.getElementById('vs-download').addEventListener('click', () => {
+        const blob = new Blob([buildMarkdown()], { type: 'text/markdown;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = `my-values-statement-${todayISO()}.md`;
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 500);
+        statusEl.textContent = 'downloaded';
+      });
+      document.getElementById('vs-copy').addEventListener('click', async () => {
+        const md = buildMarkdown();
+        try { await navigator.clipboard.writeText(md); statusEl.textContent = 'copied'; }
+        catch (e) {
+          const ta = document.createElement('textarea'); ta.value = md; document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); document.body.removeChild(ta); statusEl.textContent = 'copied (fallback)';
+        }
+      });
+      document.getElementById('vs-clear').addEventListener('click', () => {
+        if (!confirm('Clear your entire values-statement draft?')) return;
+        localStorage.removeItem(STORAGE_KEY);
+        SECTIONS.forEach(s => { const ta = root.querySelector(`textarea[data-id="${s.id}"]`); if (ta) ta.value = ''; });
+        statusEl.textContent = 'cleared';
+      });
+      root.addEventListener('keydown', e => e.stopPropagation());
+      restore();
+    })();
+    </script>
+    <aside class="notes">Interactive homework. 7 prompts (5 lenses + conflict + succession). Auto-saves. Downloads as Markdown for printing/bringing to Session 4.</aside>
+  </section>
+
   <section>
     <h2>Primary texts (free online)</h2>
     <div class="threecol" style="font-size:0.62em; margin-top:0.8em;">
