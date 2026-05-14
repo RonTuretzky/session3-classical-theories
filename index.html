@@ -1161,44 +1161,72 @@
   </section>
 
   <section>
-    <h2>Fourier's economic model</h2>
-    <p class="small">Joint-stock association — profits split three ways, with a guaranteed Minimum for everyone.</p>
-    <div class="twocol" style="grid-template-columns: 1.1fr 1fr; gap: 1.2em;">
+    <h2>A day in the phalanstère</h2>
+    <p class="small">Fourier's "butterfly principle" — task rotation every 1.5–2 hours. A member belongs to ~30 Series and switches through 4–8 per day. <strong>Five meals.</strong></p>
+    <pre class="mermaid" style="font-size: 12px; max-width: 900px; margin: 0 auto;">
+flowchart TB
+  A["5:00 AM&lt;br/&gt;Rise"] --&gt; B["5–6 AM&lt;br/&gt;Hunt or Fish Series"]
+  B --&gt; C["6–7 AM&lt;br/&gt;Garden Series"]
+  C --&gt; D["7–8 AM&lt;br/&gt;Workshop Series"]
+  D --&gt; E["8–9 AM&lt;br/&gt;BREAKFAST · common dining"]
+  E --&gt; F["9–11 AM&lt;br/&gt;Field / Workshop"]
+  F --&gt; G["11 AM–1 PM&lt;br/&gt;Orchard / Animals"]
+  G --&gt; H["1 PM&lt;br/&gt;LUNCH"]
+  H --&gt; I["2–4 PM&lt;br/&gt;Craft / Arts"]
+  I --&gt; J["4–6 PM&lt;br/&gt;papillonne — butterfly switch"]
+  J --&gt; K["6 PM&lt;br/&gt;DINNER"]
+  K --&gt; L["7–9 PM&lt;br/&gt;Opera · Dance · Library"]
+  L --&gt; M["10 PM&lt;br/&gt;Sleep"]
+    </pre>
+    <p class="tiny" style="text-align:center;">Each task voluntary, chosen by passional attraction; you leave before fatigue. Ref: <a href="https://www.marxists.org/reference/archive/fourier/works/index.htm">Fourier selections</a></p>
+    <aside class="notes">Fourier's day. 5 meals. Short rotations. Total leisure for opera/dance/library in the evening. The North American Phalanx in NJ implemented a recognizable version.</aside>
+  </section>
+
+  <section>
+    <h2>Fourier's economic model — the flow</h2>
+    <p class="small">Joint-stock with the Minimum guaranteed underneath everything. Profits split 5:4:3 — labor &gt; capital &gt; talent.</p>
+    <pre class="mermaid" style="font-size: 11px; max-width: 1000px; margin: 0 auto;">
+flowchart TB
+  L["LABOR&lt;br/&gt;~1,620 members&lt;br/&gt;in ~30 Series"] --&gt; P
+  K["CAPITAL&lt;br/&gt;Shareholders"] --&gt; P
+  T["TALENT&lt;br/&gt;Series chiefs"] --&gt; P
+  P["PRODUCTION&lt;br/&gt;Ag + Industry + Craft + Arts"] --&gt; G["GOODS"]
+  G --&gt; IC["INTERNAL CONSUMPTION&lt;br/&gt;5 meals · housing · opera"]
+  G --&gt; EX["EXTERNAL SALE"]
+  IC --&gt; M["THE MINIMUM&lt;br/&gt;guaranteed to ALL"]
+  EX --&gt; R["REVENUE"]
+  R --&gt; POOL["YEAR-END PROFIT POOL&lt;br/&gt;(after Minimum)"]
+  POOL --&gt; SL["5/12 → LABOR&lt;br/&gt;by hours + repugnance"]
+  POOL --&gt; SK["4/12 → CAPITAL&lt;br/&gt;(capped)"]
+  POOL --&gt; ST["3/12 → TALENT"]
+  SL --&gt; MEMBER["MEMBER INCOME"]
+  SK --&gt; MEMBER
+  ST --&gt; MEMBER
+  M --&gt; MEMBER
+    </pre>
+    <div class="twocol" style="font-size:0.65em; margin-top: 0.4em;">
       <div>
-        <svg class="diagram" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
-          <!-- Pie chart of profit distribution: 5/12 labor, 4/12 capital, 3/12 talent -->
-          <g transform="translate(240,240)">
-            <!-- 5/12 labor (150 degrees) -->
-            <path d="M 0 0 L 0 -180 A 180 180 0 0 1 155.88 90 Z" fill="#8fbf6a" stroke="#1a1a1a" stroke-width="2"/>
-            <!-- 4/12 capital (120 degrees) -->
-            <path d="M 0 0 L 155.88 90 A 180 180 0 0 1 -155.88 90 Z" fill="#B5651D" stroke="#1a1a1a" stroke-width="2"/>
-            <!-- 3/12 talent (90 degrees) -->
-            <path d="M 0 0 L -155.88 90 A 180 180 0 0 1 0 -180 Z" fill="#d4a373" stroke="#1a1a1a" stroke-width="2"/>
-            <!-- Labels -->
-            <text x="60" y="-60" text-anchor="middle" fill="#1a1a1a" font-size="14" font-weight="600">LABOR</text>
-            <text x="60" y="-42" text-anchor="middle" fill="#1a1a1a" font-size="13">5/12 (42%)</text>
-            <text x="0" y="100" text-anchor="middle" fill="#1a1a1a" font-size="14" font-weight="600">CAPITAL</text>
-            <text x="0" y="118" text-anchor="middle" fill="#1a1a1a" font-size="13">4/12 (33%)</text>
-            <text x="-80" y="-50" text-anchor="middle" fill="#1a1a1a" font-size="14" font-weight="600">TALENT</text>
-            <text x="-80" y="-32" text-anchor="middle" fill="#1a1a1a" font-size="13">3/12 (25%)</text>
-          </g>
-          <text x="240" y="40" text-anchor="middle" fill="#d4a373" font-style="italic" font-size="13">How phalanstère profits divide</text>
-        </svg>
+        <h3 style="margin-top:0;">Fourier's assumptions</h3>
+        <ol>
+          <li>Passional productivity: properly channeled passion produces 3–4× wage labor</li>
+          <li>Short rotations prevent burnout (the 2h cap)</li>
+          <li>The Minimum eliminates poverty's drag on productivity</li>
+          <li>Capped capital (4/12) aligns shareholders with workers</li>
+          <li>1,620 = 810 character types × 2 sexes — too small can't host all types</li>
+        </ol>
       </div>
-      <div style="font-size:0.7em;">
-        <h3 style="margin-top:0;">The mechanics</h3>
+      <div>
+        <h3 style="margin-top:0;">Linking to actual labor</h3>
         <ul>
-          <li><strong>Members buy shares</strong> in the phalanx (this is the "capital" portion of the split).</li>
-          <li>Each member works in multiple Series; tasks are auctioned to those who want them most.</li>
-          <li>Year-end profits split 5:4:3 — labor &gt; capital &gt; talent.</li>
-          <li><strong>The Minimum:</strong> regardless of contribution, every member is guaranteed food, housing, clothing, healthcare. Fourier's pre-UBI guarantee.</li>
-          <li>"Necessary" work pays more than "agreeable" work — inverse-prestige pay (later adopted by the North American Phalanx).</li>
+          <li>Each member is simultaneously worker (5/12), shareholder (4/12), often specialist (3/12)</li>
+          <li>"Repugnance premium": hard work pays more per hour — voluntarily attracts members</li>
+          <li>Internal consumption isn't profit — it's the standard of living that justifies the Minimum</li>
+          <li>NAP (NJ, 1843–55) actually paid 4.4–5.6% dividends to capital under this scheme</li>
         </ul>
-        <p style="margin-top:0.6em;"><strong>Why this matters:</strong> Fourier solved the "incentive problem" without abolishing private holdings. Distribute the surplus three ways and you keep capital investing, labor working, and talent contributing.</p>
       </div>
     </div>
-    <p class="tiny" style="margin-top:0.4em;">Refs: <a href="https://www.marxists.org/reference/archive/fourier/works/index.htm">Fourier (selected works)</a> · Jonathan Beecher, <em>Charles Fourier: The Visionary and His World</em> (UC Press, 1986)</p>
-    <aside class="notes">Fourier's economic model is unusually concrete for a "utopian." The 5/12 - 4/12 - 3/12 split is exact. The Minimum is structurally a UBI. The auction system for tasks is novel and arguably more market-friendly than most communalist designs.</aside>
+    <p class="tiny" style="margin-top:0.4em;">Refs: <a href="https://www.marxists.org/reference/archive/fourier/works/index.htm">Fourier, <em>Le Nouveau monde industriel</em></a> · <a href="https://en.wikipedia.org/wiki/North_American_Phalanx">Wikipedia · North American Phalanx</a></p>
+    <aside class="notes">Replaced the static pie chart with mermaid flow + assumptions per user request. Now shows how value moves and how labor connects to surplus.</aside>
   </section>
 
   <section>
@@ -1272,7 +1300,16 @@
         <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Portrait_of_Pierre_Joseph_Proudhon_1865.jpg?width=400" alt="Proudhon"/>
         <div class="name">Proudhon</div>
         <div class="dates">1809–1865 · "Property is theft."</div>
-        <div class="essence"><strong>Mutualism:</strong> federations of independent producer cooperatives, exchanging at cost via labor-time, financed by a People's Bank. Distinguishes <em>property</em> (rent) from <em>possession</em> (use-rights).</div>
+        <div class="essence"><strong>Mutualism:</strong> federations of independent producer cooperatives, exchanging at cost. <em>Property</em> (rent) ≠ <em>possession</em> (use-rights).</div>
+        <div style="font-size:0.5em; line-height:1.4; margin-top:0.4em; color:#ddd;">
+          <ul style="padding-left:0; list-style:none; margin:0;">
+            <li>• <strong>PROP 2</strong> — possession (use-rights) legitimate; property (rent extraction) abolished. Land trusts implement this.</li>
+            <li>• <strong>GOV 2</strong> — federation of communes by free contract; right of secession</li>
+            <li>• <strong>LAB 2</strong> — cooperatives self-manage; still trade/craft form, not full rotation</li>
+            <li>• <strong>MEM 2</strong> — voluntary contracts; mutual agreement</li>
+            <li>• <strong>OUT 2</strong> — federalism: periphery to center; international federations</li>
+          </ul>
+        </div>
         <div class="lensbox">
           <div class="row"><span class="label">PROP</span><span class="bar">●●○○</span></div>
           <div class="row"><span class="label">GOV</span><span class="bar">●●○○</span></div>
@@ -1286,7 +1323,16 @@
         <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mikhail_Bakunin_Nader_%283x4_cropped%29.jpg?width=400" alt="Bakunin"/>
         <div class="name">Bakunin</div>
         <div class="dates">1814–1876 · escaped Siberia eastward</div>
-        <div class="essence"><strong>Collectivist Anarchism:</strong> means of production held in common by workers' associations; distribution by labor. In 1873 (44y before Oct 1917) predicted "people's state" → new aristocracy.</div>
+        <div class="essence"><strong>Collectivist Anarchism:</strong> means held in common by workers' associations; distribution by labor. In 1873 (44y pre-Oct 1917) predicted "people's state" → new aristocracy.</div>
+        <div style="font-size:0.5em; line-height:1.4; margin-top:0.4em; color:#ddd;">
+          <ul style="padding-left:0; list-style:none; margin:0;">
+            <li>• <strong>PROP 3</strong> — land, factories, mines pass to producers collectively; productive property fully socialized</li>
+            <li>• <strong>GOV 3</strong> — direct democracy + mandate-and-recall delegates; no transitional state</li>
+            <li>• <strong>LAB 2</strong> — workers self-manage; distribution by labor contributed (the collectivist hallmark)</li>
+            <li>• <strong>MEM 2</strong> — voluntary association</li>
+            <li>• <strong>OUT 2</strong> — federation "from below upward"; right of secession</li>
+          </ul>
+        </div>
         <div class="lensbox">
           <div class="row"><span class="label">PROP</span><span class="bar">●●●○</span></div>
           <div class="row"><span class="label">GOV</span><span class="bar">●●●○</span></div>
@@ -1300,7 +1346,16 @@
         <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Peter_Kropotkin_circa_1900.jpg?width=400" alt="Kropotkin"/>
         <div class="name">Kropotkin</div>
         <div class="dates">1842–1921 · field biologist + prince</div>
-        <div class="essence"><strong>Anarchist Communism:</strong> total common ownership; distribution by <em>need</em>; federated communes; 4–5h day suffices once parasitism is abolished. Mutual Aid (1902) is the scientific case.</div>
+        <div class="essence"><strong>Anarchist Communism:</strong> total common ownership; distribution by <em>need</em>; federated communes; 4–5h day suffices. Mutual Aid (1902) is the scientific case.</div>
+        <div style="font-size:0.5em; line-height:1.4; margin-top:0.4em; color:#ddd;">
+          <ul style="padding-left:0; list-style:none; margin:0;">
+            <li>• <strong>PROP 4</strong> — full common ownership of land, factories, housing AND consumption goods; communal storehouse</li>
+            <li>• <strong>GOV 4</strong> — voluntary associations; assembly + mandated delegates; no state, no party</li>
+            <li>• <strong>LAB 4</strong> — 4–5h/day; rotation between manual + intellectual abolishes "hands" vs "brains"</li>
+            <li>• <strong>MEM 2</strong> — voluntary; commune-scale absorption</li>
+            <li>• <strong>OUT 3</strong> — nested federation: communes ↔ regions ↔ international</li>
+          </ul>
+        </div>
         <div class="lensbox">
           <div class="row"><span class="label">PROP</span><span class="bar">●●●●</span></div>
           <div class="row"><span class="label">GOV</span><span class="bar">●●●●</span></div>
@@ -1436,6 +1491,24 @@
     </svg>
     <p class="tiny" style="margin-top:0.4em;">Hours are approximate, illustrative of Kropotkin's methodology. Real figures vary by region and assumption. Ref: <a href="https://theanarchistlibrary.org/library/petr-kropotkin-the-conquest-of-bread">Conquest of Bread, Ch. 8 "The Need for Luxury"</a> · <a href="https://theanarchistlibrary.org/library/petr-kropotkin-fields-factories-and-workshops">Fields, Factories and Workshops</a></p>
     <aside class="notes">Kropotkin's labor budget is the empirical heart of his argument. ~675 hours per adult per year for full subsistence, which leaves the rest of the time for "luxury" — art, science, friendship. The book is startlingly concrete.</aside>
+  </section>
+
+  <section>
+    <h2>A day in the anarcho-communist commune</h2>
+    <p class="small">Kropotkin's vision: 4–5h of necessary work, communal meals, the rest for "luxury" — art, science, friendship, sport.</p>
+    <pre class="mermaid" style="font-size: 12px; max-width: 900px; margin: 0 auto;">
+flowchart TB
+  A["6:30–7 AM&lt;br/&gt;Rise — no alarm, no boss"] --&gt; B["7–8 AM&lt;br/&gt;Communal breakfast"]
+  B --&gt; C["8 AM–12 PM&lt;br/&gt;4 hours necessary labor&lt;br/&gt;(chosen vocation or&lt;br/&gt;rotated essential task)"]
+  C --&gt; D["12–1:30 PM&lt;br/&gt;Communal LUNCH"]
+  D --&gt; E["1:30–3:30 PM&lt;br/&gt;Optional half-work&lt;br/&gt;(rotation: manual ↔ intellectual)"]
+  E --&gt; F["3:30–6 PM&lt;br/&gt;FREE HOURS&lt;br/&gt;art · science · sport · study"]
+  F --&gt; G["6–7:30 PM&lt;br/&gt;Communal DINNER"]
+  G --&gt; H["7:30–10:30 PM&lt;br/&gt;Free association&lt;br/&gt;music · theatre · friendship"]
+  H --&gt; I["11 PM&lt;br/&gt;Sleep"]
+    </pre>
+    <p class="tiny" style="text-align:center;">Children: free education, no labor before adulthood. Elderly: no compulsory labor, full Minimum guaranteed. No bosses, no wages, no money — distribution by need.<br/>Refs: <a href="https://theanarchistlibrary.org/library/petr-kropotkin-the-conquest-of-bread">Kropotkin, Conquest of Bread Ch. 8 + 10</a> · <a href="http://dwardmac.pitzer.edu/Anarchist_Archives/kropotkin/conquest/ch10.html">"Agreeable Work" (Ch. 10)</a></p>
+    <aside class="notes">Worker's day in Kropotkin's vision. Contrast with capitalist 10-14h shift + commute + isolated reproduction.</aside>
   </section>
 
   <section>
@@ -2042,6 +2115,126 @@
     { id: 'cnt',          name: 'Spanish CNT Anarcho-Syndicalist',gloss: 'Workers seize the factories and run them better than the bosses did.',                          vec: [3, 3, 3, 1, 3], color: '#8B0000' }
   ];
   const LENS_LABELS = ['Property', 'Governance', 'Labor', 'Membership', 'Outside'];
+  const LENS_KEYS = ['property', 'governance', 'labor', 'membership', 'outside'];
+
+  const TRADITION_DETAILS = {
+    owenite: {
+      substantiation: {
+        property: "Owen pooled the factory + land + dormitories but kept personal items individual. New Lanark was a worker-friendly factory under his personal ownership, not a commons.",
+        governance: "Owen led personally with paternal authority. Members did not vote on major decisions — the 'enlightened manager' is foundational to Owenism.",
+        labor: "Owen pioneered the 8-hour day (1817) and abolished child labor under 10 at New Lanark. Labor remained wage labor under benevolent management.",
+        membership: "New Harmony took anyone willing — collapsed in 2y. Every commune since has learned: design ≠ values vetting.",
+        outside: "Owen's model was demonstration — show the world a profitable humane factory, the world will follow. 20,000 visitors logged."
+      },
+      links: [
+        { text: "Wikipedia · Robert Owen", url: "https://en.wikipedia.org/wiki/Robert_Owen" },
+        { text: "Owen, A New View of Society (1813)", url: "https://www.marxists.org/reference/subject/economics/owen/index.htm" },
+        { text: "New Lanark (UNESCO)", url: "https://en.wikipedia.org/wiki/New_Lanark" },
+        { text: "New Harmony, Indiana", url: "https://en.wikipedia.org/wiki/New_Harmony,_Indiana" },
+        { text: "Modern descendant: Mondragón Corporation", url: "https://en.wikipedia.org/wiki/Mondragon_Corporation" }
+      ]
+    },
+    fourierist: {
+      substantiation: {
+        property: "Joint-stock ownership of the phalanx: members hold shares, capital is one of three claims on surplus (4/12). Personal property persists.",
+        governance: "The Areopagus of Series chiefs coordinates work; assemblies exist but Fourier never proposed strict democracy. Decisions follow expertise + passion.",
+        labor: "MAX SCORE. Series of 7–9 self-organize by passional attraction; ~30 Series per member; rotation every 1.5–2h via the butterfly drive; 4–8 Series per day.",
+        membership: "Members matched to Series by passional type. Some vetting; share buy-in required.",
+        outside: "Demonstration model — Fourier believed one built phalanstère would spawn many others."
+      },
+      links: [
+        { text: "Wikipedia · Charles Fourier", url: "https://en.wikipedia.org/wiki/Charles_Fourier" },
+        { text: "Wikipedia · Phalanstère", url: "https://en.wikipedia.org/wiki/Phalanst%C3%A8re" },
+        { text: "North American Phalanx", url: "https://en.wikipedia.org/wiki/North_American_Phalanx" },
+        { text: "Familistère de Guise (only built phalanstère)", url: "https://en.wikipedia.org/wiki/Familist%C3%A8re_de_Guise" },
+        { text: "Fourier selections (Marxists)", url: "https://www.marxists.org/reference/archive/fourier/works/index.htm" },
+        { text: "Twin Oaks (modern labor-credit descendant)", url: "https://www.twinoaks.org/" }
+      ]
+    },
+    cabetist: {
+      substantiation: {
+        property: "Full community of goods. Members surrender all personal property on admission. Identical apartments, identical furniture.",
+        governance: "Annual democratic election of president and officers; weekly assemblies decided by majority vote. Cabet's authoritarianism caused the 1856 schism.",
+        labor: "Tasks divided by department directors (often by gender). Workers had voice via assembly but the workday was structured and supervised.",
+        membership: "Vetted with significant entry commitment. Multi-year retention.",
+        outside: "Demonstration via the novel (Voyage en Icarie) + actual colonies in 4 states across 50y."
+      },
+      links: [
+        { text: "Wikipedia · Étienne Cabet", url: "https://en.wikipedia.org/wiki/%C3%89tienne_Cabet" },
+        { text: "Wikipedia · Icarians", url: "https://en.wikipedia.org/wiki/Icarians" },
+        { text: "Cabet, Voyage en Icarie (1840)", url: "https://archive.org/details/voyageenicarie00cabe" },
+        { text: "Federation of Egalitarian Communities", url: "https://thefec.org/" },
+        { text: "Twin Oaks (income-sharing)", url: "https://www.twinoaks.org/" }
+      ]
+    },
+    mutualist: {
+      substantiation: {
+        property: "'Possession is liberty; property is theft.' Workers own their tools and homes; productive workshops owned by those who work them.",
+        governance: "Federation of free communes from below; mandate-and-recall delegates; no centralized state. Worker-cooperatives self-manage by election.",
+        labor: "Workers in cooperative associations 'determine jointly by election how the enterprise was to be directed' (1848). Trade/craft form preserved.",
+        membership: "Voluntary contracts; mutual association by mutual agreement.",
+        outside: "Federation is the architectural principle: communes ↔ regional federations ↔ international."
+      },
+      links: [
+        { text: "Wikipedia · Proudhon", url: "https://en.wikipedia.org/wiki/Pierre-Joseph_Proudhon" },
+        { text: "Wikipedia · Mutualism (economic theory)", url: "https://en.wikipedia.org/wiki/Mutualism_(economic_theory)" },
+        { text: "Proudhon, What is Property? (1840)", url: "https://theanarchistlibrary.org/library/pierre-joseph-proudhon-what-is-property-an-inquiry-into-the-principle-of-right-and-of-government" },
+        { text: "Mondragón Corporation", url: "https://en.wikipedia.org/wiki/Mondragon_Corporation" },
+        { text: "Community Land Trusts", url: "https://en.wikipedia.org/wiki/Community_land_trust" },
+        { text: "Sardex (mutual credit)", url: "https://en.wikipedia.org/wiki/Sardex" }
+      ]
+    },
+    collectivist: {
+      substantiation: {
+        property: "Collective ownership of the means of production by federated communes and workers' associations. Land, factories, mines pass to producers collectively. Personal items individual.",
+        governance: "Most radically democratic: 'from below upward.' Bakunin rejected even transitional revolutionary government.",
+        labor: "Workers self-manage their workshops through committees of delegates. Distribution by labor contribution (the collectivist hallmark).",
+        membership: "Voluntary; workers self-select into federated organizations.",
+        outside: "Federation of communes 'from below upward.' Federalism + insurrection."
+      },
+      links: [
+        { text: "Wikipedia · Mikhail Bakunin", url: "https://en.wikipedia.org/wiki/Mikhail_Bakunin" },
+        { text: "Wikipedia · Collectivist anarchism", url: "https://en.wikipedia.org/wiki/Collectivist_anarchism" },
+        { text: "Bakunin, Statism and Anarchy (1873)", url: "https://www.marxists.org/reference/archive/bakunin/works/1873/statism-anarchy.htm" },
+        { text: "Bakunin, God and the State", url: "https://theanarchistlibrary.org/library/michail-bakunin-god-and-the-state" },
+        { text: "IWW (modern syndicalist descendant)", url: "https://www.iww.org/" }
+      ]
+    },
+    kropotkinian: {
+      substantiation: {
+        property: "Full common ownership: land, factories, housing, AND means of consumption. The storehouse is communal; you take what you need.",
+        governance: "Federation of voluntary associations of self-governing communes. Decisions by assembly + mandated delegates. No state, no party.",
+        labor: "Four to five hours of self-chosen necessary work suffices; rotation between manual and intellectual labor. Maximum labor liberation.",
+        membership: "Voluntary; commune-scale absorption.",
+        outside: "Nested federation: communes federated locally, regionally, internationally. Industry decentralized but coordinated."
+      },
+      links: [
+        { text: "Wikipedia · Peter Kropotkin", url: "https://en.wikipedia.org/wiki/Peter_Kropotkin" },
+        { text: "Kropotkin, The Conquest of Bread (1892)", url: "https://theanarchistlibrary.org/library/petr-kropotkin-the-conquest-of-bread" },
+        { text: "Kropotkin, Mutual Aid (1902)", url: "https://theanarchistlibrary.org/library/petr-kropotkin-mutual-aid-a-factor-of-evolution" },
+        { text: "Kropotkin, Fields, Factories and Workshops", url: "https://theanarchistlibrary.org/library/petr-kropotkin-fields-factories-and-workshops" },
+        { text: "Rojava (AANES) — modern application", url: "https://en.wikipedia.org/wiki/Autonomous_Administration_of_North_and_East_Syria" },
+        { text: "COVID-19 mutual aid networks", url: "https://bigdoorbrigade.com/what-is-mutual-aid/" }
+      ]
+    },
+    cnt: {
+      substantiation: {
+        property: "1936–37 collectivization: agrarian collectives in Aragon, Catalonia, Levante pooled land + livestock + tools. Urban factories taken over by workers' committees.",
+        governance: "Mass assemblies at every level. Industrial committees + district committees + regional committees — all by mandate-and-recall delegates. No paid officials.",
+        labor: "Syndicate-organized work with worker committees. Brigades rotated tasks; production set in assemblies.",
+        membership: "Porous — living + working = membership in many collectives. ~1.58M CNT members at 1936 peak.",
+        outside: "Federation was the operating principle. Local syndicates → comarcal → regional → national → IWA international."
+      },
+      links: [
+        { text: "Wikipedia · CNT", url: "https://en.wikipedia.org/wiki/Confederaci%C3%B3n_Nacional_del_Trabajo" },
+        { text: "Wikipedia · Spanish Revolution of 1936", url: "https://en.wikipedia.org/wiki/Spanish_Revolution_of_1936" },
+        { text: "Wikipedia · Anarchist collectives", url: "https://en.wikipedia.org/wiki/Anarchist_collectives_in_the_Spanish_Revolution" },
+        { text: "Leval, Collectives in the Spanish Revolution", url: "https://theanarchistlibrary.org/library/gaston-leval-collectives-in-the-spanish-revolution" },
+        { text: "Dolgoff, The Anarchist Collectives", url: "https://theanarchistlibrary.org/library/sam-dolgoff-the-anarchist-collectives" },
+        { text: "CNT today", url: "https://www.cnt.es/" }
+      ]
+    }
+  };
 
   function distance(a, b) {
     let d = 0;
@@ -2129,6 +2322,16 @@
       if (Math.abs(delta) >= 1) diffs.push(`${LENS_LABELS[i]} (${delta > 0 ? '+' : ''}${delta})`);
     }
 
+    const details = TRADITION_DETAILS[winner.id] || { substantiation: {}, links: [] };
+    const substHtml = LENS_KEYS.map((key, i) => {
+      const sub = details.substantiation[key];
+      if (!sub) return '';
+      return `<p style="margin:0.5em 0; font-size:0.65em; line-height:1.5;"><strong style="color:#d4a373;">${LENS_LABELS[i]} (${ans[i]}/3).</strong> ${sub}</p>`;
+    }).join('');
+    const linksHtml = (details.links || []).map(l =>
+      `<li style="padding:0.25em 0; border-bottom:1px solid rgba(212,163,115,0.15);"><a href="${l.url}" target="_blank" rel="noopener" style="color:#f3ead3; text-decoration:none; border-bottom:1px dotted #d4a373;">${l.text}</a></li>`
+    ).join('');
+
     root.innerHTML = `
       <div class="quiz-header" style="margin-bottom: 0.4em;">
         <span class="chip chip-frame">Your result</span>
@@ -2147,6 +2350,14 @@
           Runners-up: <strong>${alts.join('</strong> · <strong>')}</strong>
           ${diffs.length ? `<br/><span style="color:#aaa;">Where you differ from ${winner.name}: ${diffs.join(', ')}</span>` : ''}
         </div>
+      </div>
+      <div style="max-width:780px; margin:1em auto 0; padding:0.9em 1.1em; background:rgba(212,163,115,0.06); border-left:3px solid #d4a373; color:#f3ead3; text-align:left;">
+        <div style="color:#d4a373; letter-spacing:0.14em; text-transform:uppercase; font-size:0.55em; margin-bottom:0.5em; font-weight:bold;">Why you're a ${winner.name}</div>
+        ${substHtml}
+      </div>
+      <div style="max-width:780px; margin:1em auto 0; padding:0.9em 1.1em; background:rgba(212,163,115,0.06); border-left:3px solid #d4a373; color:#f3ead3; text-align:left;">
+        <div style="color:#d4a373; letter-spacing:0.14em; text-transform:uppercase; font-size:0.55em; margin-bottom:0.5em; font-weight:bold;">Dig deeper</div>
+        <ul style="list-style:none; padding:0; margin:0; font-size:0.6em;">${linksHtml}</ul>
       </div>
       <div class="quiz-actions">
         <button id="quiz-retake">Retake</button>
