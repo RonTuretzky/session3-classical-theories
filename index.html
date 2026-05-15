@@ -2270,7 +2270,7 @@ flowchart TB
       <h2 class="ct-title">Bonus exercise — build "Commune Tinder"</h2>
       <p class="ct-sub">If you had to design the matchmaking layer for commune formation, how would it work?</p>
       <div class="ct-frame">
-        The single most robust pattern in the historical record is that <strong>the strength of a community's membership filter predicts its longevity.</strong> A matchmaking layer for community formation is that filter, productized. Design it — answer in the abstract; you are designing the mechanism, not naming examples.
+        Owen's New Harmony collapsed in two years because it took anyone who showed up. The single most robust pattern in the whole historical record: <strong>membership-filter strength predicts longevity.</strong> So: a commune matchmaking app is not a joke — it is the New Harmony problem, productized. Design it.
       </div>
       <div class="ct-grid">
         <div>
@@ -2311,16 +2311,16 @@ flowchart TB
     (function () {
       // ---- design-brief prompts (abstract) + textareas ----
       const PROMPTS = [
-        { id: 'axes',     t: 'The axes.', q: 'Across the dimensions a profile is scored on, which are hard filters (an extreme on one side can never match an extreme on the other) and which are soft, negotiable preferences? Defend the split.' },
-        { id: 'unit',     t: 'The unit of the match.', q: 'What is matched to what — a person to a person, a person to an existing group, or a forming group to another forming group? Each implies a different product.' },
-        { id: 'profile',  t: 'The profile beyond the score.', q: 'Beyond the dimension scores, what must a profile disclose? Define the minimum honest profile.' },
-        { id: 'gate',     t: 'The values gate.', q: 'Should the system refuse to surface any match until the user has published an explicit, structured statement of what they want? Weigh the cost of requiring it against the cost of not.' },
-        { id: 'algo',     t: 'The algorithm.', q: 'How is a match computed — raw distance, weighted distance, hard filters then ranking? Should the system deliberately introduce productive friction instead of maximizing similarity?' },
-        { id: 'flags',    t: 'Red flags.', q: 'Which profile signals predict early collapse? How does the system surface them without being punitive or discriminatory?' },
-        { id: 'trial',    t: 'The trial period.', q: 'How does the system model probation before commitment — and how do two parties unmatch cleanly and without rancor?' },
-        { id: 'exit',     t: 'The exit plan.', q: 'What does the system do when a match fails after people have pooled resources? Is there a pre-commitment agreement, and what does it contain?' },
-        { id: 'anti',     t: 'Anti-features.', q: 'Name three things the system must deliberately NOT do. For each, name the incentive that anti-feature protects.' },
-        { id: 'name',     t: 'The name, the pitch, the metric.', q: 'Name it. Write the one-sentence pitch. State the single metric you would optimize — and why it is not engagement.' }
+        { id: 'axes',    t: 'The axes.', q: `Of the five lenses, which are <em>hard filters</em> (a 0 can never match a 3) and which are <em>soft preferences</em> (negotiable)? Defend your choice. <em>Most builders make Property + Outside hard, Labor soft. Do you agree?</em>` },
+        { id: 'unit',    t: 'The unit of the swipe.', q: `Are you matching individual ↔ individual, individual ↔ existing commune, or whole proto-group ↔ proto-group? Each implies a different app.` },
+        { id: 'profile', t: 'The profile beyond the score.', q: `What else goes on a commune-seeker's card? Capital they bring · skills · dependents · conflict style · prior commune exits · non-negotiables · what they'd die on a hill for.` },
+        { id: 'gate',    t: 'The values handshake.', q: `Brook Farm &amp; Owen lesson: vagueness kills. Should the app <em>hide all matches until you publish a values statement</em>? (You just wrote one — that's not an accident.)` },
+        { id: 'algo',    t: 'The algorithm.', q: `Pure lens-vector distance? Weighted? Hard filters then soft ranking? Deliberate "productive friction" (you'd never grow if everyone agreed)?` },
+        { id: 'flags',   t: 'Red flags.', q: `Which profile signals predict the 3-year cliff? Founder-dependency · capital mismatch · values written in slogans · "I'll figure out conflict later" · zero exit history vs. five exits.` },
+        { id: 'trial',   t: 'The trial period.', q: `Twin Oaks runs a 3-week visitor period; the kibbutz a multi-year candidacy. How does the app model probation — and can you "unmatch" cleanly?` },
+        { id: 'exit',    t: 'Plan for the breakup.', q: `The communities that lasted longest were the ones that planned, in advance, for how a split would divide assets fairly. What does the app do when a match fails? A pre-nuptial commune agreement?` },
+        { id: 'anti',    t: 'Anti-features.', q: `Name three things Commune Tinder must deliberately <em>not</em> do. (Infinite swipe / dopamine loop? Hot-or-not on photos? Hiding the values statement behind a paywall?)` },
+        { id: 'name',    t: 'The name &amp; the pitch.', q: `"Commune Tinder" is a placeholder. Name it, write the one-sentence pitch, and the single metric you'd optimize. (Hint: not engagement.)` }
       ];
       const CT_KEY = 'session3-commune-tinder-v1';
       const promptsWrap = document.getElementById('ct-prompts');
@@ -2350,10 +2350,14 @@ flowchart TB
         ctTimer = setTimeout(() => { ctSave(ctGet()); ctStatus.textContent = 'auto-saved · ' + new Date().toLocaleTimeString(); }, 300);
       });
       promptsWrap.addEventListener('keydown', e => { if (e.target.tagName === 'TEXTAREA') e.stopPropagation(); });
+      function ctStrip(html) {
+        const d = document.createElement('div'); d.innerHTML = html;
+        return (d.textContent || d.innerText || '').replace(/\s+/g, ' ').trim();
+      }
       function ctMarkdown() {
         const s = ctGet();
         const out = ['# Commune Tinder — design brief', 'Drafted: ' + new Date().toISOString().slice(0, 10), ''];
-        PROMPTS.forEach((p, i) => { out.push(`## ${i + 1}. ${p.t} ${p.q}`); out.push((s.answers[p.id] || '').trim() || '_(left blank)_'); out.push(''); });
+        PROMPTS.forEach((p, i) => { out.push(`## ${i + 1}. ${ctStrip(p.t)} ${ctStrip(p.q)}`); out.push((s.answers[p.id] || '').trim() || '_(left blank)_'); out.push(''); });
         return out.join('\n');
       }
       document.getElementById('ct-download').addEventListener('click', () => {
