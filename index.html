@@ -2215,6 +2215,150 @@ flowchart TB
     <aside class="notes">Interactive homework. 7 prompts (5 lenses + conflict + succession). Auto-saves. Downloads as Markdown for printing/bringing to Session 4.</aside>
   </section>
 
+  <section id="commune-tinder">
+    <style>
+      .ct { font-family: "Inter", sans-serif; color: #f3ead3; text-align: left; max-width: 1240px; margin: 0 auto; font-size: 0.44em; line-height: 1.5; }
+      .ct h2.ct-title { font-family: "Cormorant Garamond", serif; color: #d4a373; font-size: 1.9em; margin: 0 0 0.1em; text-align: center; }
+      .ct .ct-sub { color: #d4a373; font-style: italic; font-family: "Cormorant Garamond", serif; font-size: 1.15em; text-align: center; margin: 0 0 0.9em; }
+      .ct .ct-frame { background: rgba(212,163,115,0.07); border-left: 3px solid #d4a373; padding: 0.6em 0.9em; border-radius: 2px; margin-bottom: 1em; font-family: "Cormorant Garamond", serif; font-size: 1.15em; font-style: italic; }
+      .ct .ct-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 1.4em; align-items: start; }
+      .ct h3 { font-family: "Inter", sans-serif; color: #d4a373; font-size: 1em; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 0.5em; }
+      .ct ol.ct-prompts { padding-left: 1.3em; margin: 0; }
+      .ct ol.ct-prompts li { margin-bottom: 0.6em; }
+      .ct ol.ct-prompts li strong { color: #f5deb3; }
+      .ct ol.ct-prompts li .ct-cue { display: block; color: #b9a77a; font-style: italic; font-family: "Cormorant Garamond", serif; font-size: 1.05em; margin-top: 0.15em; }
+      /* Compatibility lab */
+      .ct .lab { border: 1px solid rgba(212,163,115,0.4); border-radius: 4px; background: rgba(0,0,0,0.25); padding: 0.9em 1em; }
+      .ct .lab-people { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9em; }
+      .ct .person h4 { margin: 0 0 0.5em; color: #d4a373; font-size: 1.05em; text-align: center; font-family: "Cormorant Garamond", serif; font-style: italic; }
+      .ct .lens-row { display: grid; grid-template-columns: 42px 1fr 22px; align-items: center; gap: 0.4em; margin-bottom: 0.35em; }
+      .ct .lens-row .ln { color: #b9a77a; font-family: "JetBrains Mono", monospace; font-size: 0.9em; }
+      .ct .lens-row input[type=range] { -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: linear-gradient(90deg,#3E4C59,#d4a373); outline: none; }
+      .ct .lens-row input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 15px; height: 15px; border-radius: 50%; background: #d4a373; border: 2px solid #1a1a1a; cursor: pointer; }
+      .ct .lens-row input[type=range]::-moz-range-thumb { width: 15px; height: 15px; border-radius: 50%; background: #d4a373; border: 2px solid #1a1a1a; cursor: pointer; }
+      .ct .lens-row .vv { font-family: "JetBrains Mono", monospace; color: #d4a373; text-align: right; }
+      .ct .score-box { text-align: center; margin: 0.9em 0 0.4em; padding: 0.6em; border-radius: 4px; }
+      .ct .score-num { font-family: "Cormorant Garamond", serif; font-size: 2.4em; line-height: 1; }
+      .ct .score-label { font-size: 0.95em; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.2em; }
+      .ct .friction { font-size: 0.95em; color: #ccc; margin-top: 0.5em; line-height: 1.5; }
+      .ct .friction strong { color: #E89090; }
+      .ct .tiny-note { font-size: 0.85em; color: #888; margin-top: 0.7em; font-style: italic; }
+      .ct a { color: #d4a373; text-decoration: none; border-bottom: 1px dotted rgba(212,163,115,0.4); }
+    </style>
+    <div class="ct">
+      <h2 class="ct-title">Bonus exercise — build "Commune Tinder"</h2>
+      <p class="ct-sub">If you had to design the matchmaking layer for commune formation, how would it work?</p>
+      <div class="ct-frame">
+        Owen's New Harmony collapsed in two years because it took anyone who showed up. The single most robust pattern in the whole historical record: <strong>membership-filter strength predicts longevity.</strong> So: a commune matchmaking app is not a joke — it is the New Harmony problem, productized. Design it.
+      </div>
+      <div class="ct-grid">
+        <div>
+          <h3>The design brief</h3>
+          <ol class="ct-prompts">
+            <li><strong>The axes.</strong> Of the five lenses, which are <em>hard filters</em> (a 0 can never match a 3) and which are <em>soft preferences</em> (negotiable)? Defend your choice.
+              <span class="ct-cue">Most builders make Property + Outside hard, Labor soft. Do you agree?</span></li>
+            <li><strong>The unit of the swipe.</strong> Are you matching individual ↔ individual, individual ↔ existing commune, or whole proto-group ↔ proto-group? Each implies a different app.</li>
+            <li><strong>The profile beyond the score.</strong> What else goes on a commune-seeker's card? Capital they bring · skills · dependents · conflict style · prior commune exits · non-negotiables · what they'd die on a hill for.</li>
+            <li><strong>The values handshake.</strong> Brook Farm &amp; Owen lesson: vagueness kills. Should the app <em>hide all matches until you publish a values statement</em>? (You just wrote one — that's not an accident.)</li>
+            <li><strong>The algorithm.</strong> Pure lens-vector distance? Weighted? Hard filters then soft ranking? Deliberate "productive friction" (you'd never grow if everyone agreed)?</li>
+            <li><strong>Red flags.</strong> Which profile signals predict the 3-year cliff? Founder-dependency · capital mismatch · values written in slogans · "I'll figure out conflict later" · zero exit history vs. five exits.</li>
+            <li><strong>The trial period.</strong> Twin Oaks runs a 3-week visitor period; the kibbutz a multi-year candidacy. How does the app model probation — and can you "unmatch" cleanly?</li>
+            <li><strong>Plan for the breakup.</strong> The Icarians survived 50 years <em>because</em> schisms divided assets fairly. What does the app do when a match fails? Pre-nuptial commune agreement?</li>
+            <li><strong>Anti-features.</strong> Name three things Commune Tinder must deliberately <em>not</em> do. (Infinite swipe / dopamine loop? Hot-or-not on photos? Hiding the values statement behind a paywall?)</li>
+            <li><strong>The name &amp; the pitch.</strong> "Commune Tinder" is a placeholder. Name it, write the one-sentence pitch, and the single metric you'd optimize. (Hint: not engagement.)</li>
+          </ol>
+          <p class="tiny-note">Write this up as a one-page addendum to your values statement. Bring both to Session 4. Creative license encouraged — a sketch, a wireframe, a fake App Store page all count.</p>
+        </div>
+        <div>
+          <h3>Compatibility lab</h3>
+          <div class="lab">
+            <div class="lab-people">
+              <div class="person">
+                <h4>Person A</h4>
+                <div id="ct-A"></div>
+              </div>
+              <div class="person">
+                <h4>Person B</h4>
+                <div id="ct-B"></div>
+              </div>
+            </div>
+            <div class="score-box" id="ct-score-box">
+              <div class="score-num" id="ct-score">—</div>
+              <div class="score-label" id="ct-score-label">drag the sliders</div>
+            </div>
+            <div class="friction" id="ct-friction"></div>
+            <p class="tiny-note">Toy model: match = 100 − (weighted lens distance). Property &amp; Outside weighted 2× (hard filters); a gap of 3 on either is an auto-mismatch. This is exactly the question prompt 1 + 5 ask you to redesign. Refs: <a href="https://en.wikipedia.org/wiki/New_Harmony,_Indiana">New Harmony</a> · <a href="https://www.twinoaks.org/">Twin Oaks visitor period</a> · <a href="https://en.wikipedia.org/wiki/Icarians">Icarian schisms</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function () {
+      const LENSES = [
+        { k: 'PROP', name: 'Property',   w: 2 },
+        { k: 'GOV',  name: 'Governance', w: 1 },
+        { k: 'LAB',  name: 'Labor',      w: 1 },
+        { k: 'MEM',  name: 'Membership', w: 1 },
+        { k: 'OUT',  name: 'Outside',    w: 2 }
+      ];
+      const state = { A: [2,2,2,2,2], B: [1,2,3,1,3] };
+      function buildPerson(who) {
+        const wrap = document.getElementById('ct-' + who);
+        LENSES.forEach((L, i) => {
+          const row = document.createElement('div');
+          row.className = 'lens-row';
+          row.innerHTML = `<span class="ln">${L.k}</span>` +
+            `<input type="range" min="0" max="3" step="1" value="${state[who][i]}" data-who="${who}" data-i="${i}">` +
+            `<span class="vv" id="ct-${who}-${i}">${state[who][i]}</span>`;
+          wrap.appendChild(row);
+        });
+      }
+      buildPerson('A'); buildPerson('B');
+      function compute() {
+        let dist = 0, hardMismatch = false, frictions = [];
+        LENSES.forEach((L, i) => {
+          const gap = Math.abs(state.A[i] - state.B[i]);
+          dist += gap * L.w;
+          if (L.w === 2 && gap >= 3) { hardMismatch = true; frictions.push(`<strong>${L.name}</strong> — a gap of 3 on a hard-filter axis: auto-mismatch in most designs.`); }
+          else if (gap >= 2) { frictions.push(`${L.name} — gap of ${gap}: workable but a standing negotiation.`); }
+        });
+        const maxDist = LENSES.reduce((s, L) => s + 3 * L.w, 0); // 21
+        let score = Math.round(100 - (dist / maxDist) * 100);
+        if (hardMismatch) score = Math.min(score, 28);
+        const box = document.getElementById('ct-score-box');
+        const num = document.getElementById('ct-score');
+        const lab = document.getElementById('ct-score-label');
+        num.textContent = score + '%';
+        let color, label;
+        if (hardMismatch) { color = '#8B0000'; label = 'Hard mismatch'; }
+        else if (score >= 80) { color = '#2D5A3D'; label = 'Strong match'; }
+        else if (score >= 60) { color = '#6a6a3a'; label = 'Workable — with negotiation'; }
+        else if (score >= 40) { color = '#8a5a2a'; label = 'Friction-heavy'; }
+        else { color = '#8B0000'; label = 'Probably not'; }
+        box.style.background = 'rgba(' + (color === '#2D5A3D' ? '45,90,61' : color === '#8B0000' ? '139,0,0' : '138,90,42') + ',0.2)';
+        num.style.color = color === '#2D5A3D' ? '#8DC79E' : color === '#8B0000' ? '#E89090' : '#E0A878';
+        lab.textContent = label;
+        document.getElementById('ct-friction').innerHTML = frictions.length
+          ? '<strong style="color:#d4a373;">Where they’d clash:</strong><br>' + frictions.join('<br>')
+          : '<span style="color:#8DC79E;">No major friction points — but identical communes don’t grow. Where’s the productive tension?</span>';
+      }
+      document.getElementById('commune-tinder').addEventListener('input', (e) => {
+        const t = e.target;
+        if (t.tagName !== 'INPUT' || t.type !== 'range') return;
+        const who = t.getAttribute('data-who'), i = parseInt(t.getAttribute('data-i'), 10);
+        state[who][i] = parseInt(t.value, 10);
+        document.getElementById('ct-' + who + '-' + i).textContent = t.value;
+        compute();
+      });
+      document.getElementById('commune-tinder').addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT') e.stopPropagation();
+      });
+      compute();
+    })();
+    </script>
+    <aside class="notes">Bonus creative exercise: design Commune Tinder. 10-prompt design brief (the New Harmony membership-filter problem, productized) + an interactive compatibility lab where you set two 5-lens profiles and see a weighted match score with friction points. Property + Outside are hard filters in the toy model — that's deliberately the thing prompt 1 asks them to critique.</aside>
+  </section>
+
   <section>
     <h2>Primary texts (free online)</h2>
     <div class="threecol" style="font-size:0.62em; margin-top:0.8em;">
